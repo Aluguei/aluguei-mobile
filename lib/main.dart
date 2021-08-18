@@ -1,4 +1,5 @@
 import 'package:aluguei/login.dart';
+import 'package:aluguei/constants.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         duration: 800,
         nextScreen: LoginPage(title: 'Login'),
         splashTransition: SplashTransition.rotationTransition,
-        backgroundColor: Colors.blue,
+        backgroundColor: ColorConstants.primaryColor,
       ),
     );
   }
