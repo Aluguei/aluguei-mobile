@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: AnimatedSplashScreen(
-        splash: 'assets/images/logo_white.png',
-        duration: 800,
+        splash: 'assets/images/logo_animation.gif',
+        duration: DimenConstants.splashDuration,
         nextScreen: LoginPage(title: 'Login'),
-        splashTransition: SplashTransition.rotationTransition,
         backgroundColor: ColorConstants.primaryColor,
+        splashIconSize: DimenConstants.logoSize.toDouble(),
       ),
     );
   }
