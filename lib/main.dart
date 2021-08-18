@@ -1,5 +1,4 @@
 import 'package:aluguei/login.dart';
-import 'package:aluguei/splash.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +17,8 @@ class MyApp extends StatelessWidget {
       ),
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_white.png',
-        duration: 1000,
-        nextScreen: LoginPage(title: 'GFG'),
+        duration: 800,
+        nextScreen: LoginPage(title: 'Login'),
         splashTransition: SplashTransition.rotationTransition,
         backgroundColor: Colors.blue,
       ),
