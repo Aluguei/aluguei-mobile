@@ -1,0 +1,119 @@
+import 'package:flutter/material.dart';
+import 'package:aluguei/constants.dart';
+import 'package:aluguei/strings.dart';
+
+class LoginForm extends StatefulWidget {
+  const LoginForm({Key? key}) : super(key: key);
+
+  @override
+  LoginFormState createState() {
+    return LoginFormState();
+  }
+}
+
+class LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    // Build a Form widget using the _formKey created above.
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: <Widget>[
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.mediumSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing,
+                  CustomDimens.smallSpacing),
+              child: TextFormField(
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldEmailTitle,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldEmailNull;
+                  }
+                  return null;
+                },
+              )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
+                CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+            child: TextFormField(
+              obscureText: true,
+              autocorrect: false,
+              enableSuggestions: false,
+              style: TextStyle(
+                fontSize: CustomDimens.fieldFontSize,
+                color: CustomColors.textGrey,
+                height: CustomDimens.fieldHeight,
+              ),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: CustomColors.fieldBorderColor),
+                ),
+                labelText: Strings.fieldPasswordTitle,
+                labelStyle: TextStyle(color: CustomColors.textGrey),
+                fillColor: CustomColors.greyBackgroundColor,
+                filled: true,
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return Strings.fieldPasswordNull;
+                }
+                return null;
+              },
+            ),
+          ),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
+                  0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+              child: Container(
+                  width: double.infinity,
+                  height: CustomDimens.buttonHeight,
+                  child: OutlinedButton(
+                    child: Text(
+                      Strings.loginButtonText,
+                      style: TextStyle(color: CustomColors.white),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                      }
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (states) {
+                          if (states.contains(MaterialState.pressed)) {
+                            return CustomColors.darkPrimaryColor;
+                          }
+                          return CustomColors.primaryColor;
+                        },
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                      ),
+                    ),
+                  ))),
+        ],
+      ),
+    );
+  }
+}

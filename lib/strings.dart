@@ -5,4 +5,6 @@ class Strings {
   static const loginButtonText = "Entrar";
   static const signupButtonText = "Cadastrar";
   static const forgotPasswordButtonText = "Esqueci a senha";
+  static const fieldEmailNull = "Insira um e-mail válido";
+  static const fieldPasswordNull = "Insira a senha";
 }

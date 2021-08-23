@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
-import 'package:aluguei/strings.dart';
+import 'package:aluguei/loginForm.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -42,90 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: CustomDimens.logoSize,
                       fit: BoxFit.cover,
                     ),
-                    Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.smallSpacing,
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.smallSpacing),
-                        child: TextField(
-                          style: TextStyle(
-                              fontSize: CustomDimens.fieldFontSize,
-                              color: CustomColors.textGrey,
-                              height: CustomDimens.fieldHeight),
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: CustomColors.fieldBorderColor)),
-                              labelText: Strings.fieldEmailTitle,
-                              labelStyle:
-                                  TextStyle(color: CustomColors.textGrey),
-                              fillColor: CustomColors.greyBackgroundColor,
-                              filled: true),
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          CustomDimens.mediumSpacing,
-                          0.0,
-                          CustomDimens.mediumSpacing,
-                          CustomDimens.smallSpacing),
-                      child: TextField(
-                        obscureText: true,
-                        autocorrect: false,
-                        enableSuggestions: false,
-                        style: TextStyle(
-                          fontSize: CustomDimens.fieldFontSize,
-                          color: CustomColors.textGrey,
-                          height: CustomDimens.fieldHeight,
-                        ),
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.fieldBorderColor),
-                          ),
-                          labelText: Strings.fieldPasswordTitle,
-                          labelStyle: TextStyle(color: CustomColors.textGrey),
-                          fillColor: CustomColors.greyBackgroundColor,
-                          filled: true,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          CustomDimens.mediumSpacing,
-                          0.0,
-                          CustomDimens.mediumSpacing,
-                          CustomDimens.smallSpacing),
-                      child: Container(
-                        width: double.infinity,
-                        height: CustomDimens.buttonHeight,
-                        child: OutlinedButton(
-                          child: Text(
-                            Strings.loginButtonText,
-                            style: TextStyle(color: CustomColors.white),
-                          ),
-                          onPressed: null,
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.resolveWith<Color>(
-                              (states) {
-                                if (states.contains(MaterialState.pressed)) {
-                                  return CustomColors.darkPrimaryColor;
-                                }
-                                return CustomColors.primaryColor;
-                              },
-                            ),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    const LoginForm()
                   ],
                 ),
               ),
