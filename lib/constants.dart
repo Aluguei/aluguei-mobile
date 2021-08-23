@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomColors {
   static const primaryColor = Color(0xFF1B6DC1);
   static const textGrey = Color(0xFF7D7D7D);
-  static const fieldBackgroundColor = Color(0xF9F9F9F9);
+  static const greyBackgroundColor = Color(0xF9F9F9F9);
   static const fieldBorderColor = Color(0xDDDDDDDD);
   static const white = Color(0xFFFFFFFF);
 }
