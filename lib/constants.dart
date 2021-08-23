@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomColors {
   static const primaryColor = Color(0xFF1B6DC1);
+  static const darkPrimaryColor = Color(0xFF155494);
   static const textGrey = Color(0xFF7D7D7D);
   static const greyBackgroundColor = Color(0xF9F9F9F9);
   static const fieldBorderColor = Color(0xDDDDDDDD);
@@ -15,4 +16,5 @@ class CustomDimens {
   static const fieldHeight = 1.0;
   static const mediumSpacing = 24.0;
   static const smallSpacing = 26.0;
+  static const buttonHeight = 45.0;
 }
