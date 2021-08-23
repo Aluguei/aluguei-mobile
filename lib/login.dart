@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                       fit: BoxFit.cover,
                     ),
                     const LoginForm()
+                    //TODO adicionar os botoes de cadastrar e esqueci a senha
                   ],
                 ),
               ),

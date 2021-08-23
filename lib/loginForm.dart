@@ -28,6 +28,7 @@ class LoginFormState extends State<LoginForm> {
                   CustomDimens.mediumSpacing,
                   CustomDimens.smallSpacing),
               child: TextFormField(
+                //TODO limitar os caracteres
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -42,6 +43,7 @@ class LoginFormState extends State<LoginForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
+                  //TODO colocar validador de email
                   if (value == null || value.isEmpty) {
                     return Strings.fieldEmailNull;
                   }
@@ -52,6 +54,7 @@ class LoginFormState extends State<LoginForm> {
             padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
                 CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
             child: TextFormField(
+              //TODO limitar os caracteres
               obscureText: true,
               autocorrect: false,
               enableSuggestions: false,
