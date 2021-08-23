@@ -11,16 +11,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorConstants.white,
-      body: Center(
-        child: Image.asset(
-          'assets/images/logo_aluguei.png',
-          height: DimenConstants.logoSize.toDouble(),
-          fit: BoxFit.cover,
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: ColorConstants.white,
+        body: Center(
+          child: Image.asset(
+            'assets/images/logo_aluguei.png',
+            height: DimenConstants.logoSize.toDouble(),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
