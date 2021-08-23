@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
+import 'package:aluguei/strings.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -15,13 +16,45 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: ColorConstants.white,
-        body: Center(
-          child: Image.asset(
-            'assets/images/logo_aluguei.png',
-            height: DimenConstants.logoSize.toDouble(),
-            fit: BoxFit.cover,
-          ),
+        backgroundColor: Colors.white,
+        body: Column(
+          children: <Widget>[
+            Image.asset(
+              'assets/images/logo_aluguei.png',
+              height: CustomDimens.logoSize,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(
+                    CustomDimens.mediumSpacing,
+                    CustomDimens.smallSpacing,
+                    CustomDimens.mediumSpacing,
+                    CustomDimens.smallSpacing),
+                child: TextField(
+                  style: TextStyle(
+                      fontSize: CustomDimens.fieldFontSize,
+                      color: CustomColors.textGrey),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: Strings.fieldEmailTitle,
+                      fillColor: CustomColors.fieldBackgroundColor,
+                      filled: true),
+                )),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
+                    0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+                child: TextField(
+                  style: TextStyle(
+                      fontSize: CustomDimens.fieldFontSize,
+                      color: CustomColors.textGrey),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: Strings.fieldPasswordTitle,
+                    fillColor: CustomColors.fieldBackgroundColor,
+                    filled: true,
+                  ),
+                )),
+          ],
         ),
       ),
     );

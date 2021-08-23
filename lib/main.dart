@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
       ),
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
-        duration: DimenConstants.splashDuration,
+        duration: CustomDimens.splashDuration,
         nextScreen: LoginPage(title: 'Login'),
-        backgroundColor: ColorConstants.primaryColor,
-        splashIconSize: DimenConstants.logoSize.toDouble(),
+        backgroundColor: CustomColors.primaryColor,
+        splashIconSize: CustomDimens.logoSize,
       ),
     );
   }
