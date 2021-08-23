@@ -34,12 +34,13 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     style: TextStyle(
                         fontSize: CustomDimens.fieldFontSize,
-                        color: CustomColors.textGrey),
+                        color: CustomColors.textGrey,
+                        height: CustomDimens.fieldHeight),
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: CustomColors.fieldBorderColor)
-                        ),
+                            borderSide: BorderSide(
+                                color: CustomColors.fieldBorderColor)),
                         labelText: Strings.fieldEmailTitle,
                         labelStyle: TextStyle(color: CustomColors.textGrey),
                         fillColor: CustomColors.fieldBackgroundColor,
@@ -52,14 +53,18 @@ class _LoginPageState extends State<LoginPage> {
                       CustomDimens.mediumSpacing,
                       CustomDimens.smallSpacing),
                   child: TextField(
+                    obscureText: true,
+                    autocorrect: false,
+                    enableSuggestions: false,
                     style: TextStyle(
                         fontSize: CustomDimens.fieldFontSize,
-                        color: CustomColors.textGrey),
+                        color: CustomColors.textGrey,
+                        height: CustomDimens.fieldHeight,),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: CustomColors.fieldBorderColor)
-                      ),
+                          borderSide:
+                              BorderSide(color: CustomColors.fieldBorderColor),),
                       labelText: Strings.fieldPasswordTitle,
                       labelStyle: TextStyle(color: CustomColors.textGrey),
                       fillColor: CustomColors.fieldBackgroundColor,
