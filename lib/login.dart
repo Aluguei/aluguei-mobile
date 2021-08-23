@@ -17,61 +17,67 @@ class _LoginPageState extends State<LoginPage> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: Card(
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                'assets/images/logo_aluguei.png',
-                height: CustomDimens.logoSize,
-                fit: BoxFit.cover,
-              ),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                      CustomDimens.mediumSpacing,
-                      CustomDimens.smallSpacing,
-                      CustomDimens.mediumSpacing,
-                      CustomDimens.smallSpacing),
-                  child: TextField(
-                    style: TextStyle(
+        body: Container(
+          alignment: Alignment.center,
+          child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/logo_aluguei.png',
+                  height: CustomDimens.logoSize,
+                  fit: BoxFit.cover,
+                ),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        CustomDimens.mediumSpacing,
+                        CustomDimens.smallSpacing,
+                        CustomDimens.mediumSpacing,
+                        CustomDimens.smallSpacing),
+                    child: TextField(
+                      style: TextStyle(
+                          fontSize: CustomDimens.fieldFontSize,
+                          color: CustomColors.textGrey,
+                          height: CustomDimens.fieldHeight),
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: CustomColors.fieldBorderColor)),
+                          labelText: Strings.fieldEmailTitle,
+                          labelStyle: TextStyle(color: CustomColors.textGrey),
+                          fillColor: CustomColors.fieldBackgroundColor,
+                          filled: true),
+                    )),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        CustomDimens.mediumSpacing,
+                        0.0,
+                        CustomDimens.mediumSpacing,
+                        CustomDimens.smallSpacing),
+                    child: TextField(
+                      obscureText: true,
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      style: TextStyle(
                         fontSize: CustomDimens.fieldFontSize,
                         color: CustomColors.textGrey,
-                        height: CustomDimens.fieldHeight),
-                    decoration: InputDecoration(
+                        height: CustomDimens.fieldHeight,
+                      ),
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.fieldBorderColor)),
-                        labelText: Strings.fieldEmailTitle,
+                          borderSide:
+                              BorderSide(color: CustomColors.fieldBorderColor),
+                        ),
+                        labelText: Strings.fieldPasswordTitle,
                         labelStyle: TextStyle(color: CustomColors.textGrey),
                         fillColor: CustomColors.fieldBackgroundColor,
-                        filled: true),
-                  )),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                      CustomDimens.mediumSpacing,
-                      0.0,
-                      CustomDimens.mediumSpacing,
-                      CustomDimens.smallSpacing),
-                  child: TextField(
-                    obscureText: true,
-                    autocorrect: false,
-                    enableSuggestions: false,
-                    style: TextStyle(
-                        fontSize: CustomDimens.fieldFontSize,
-                        color: CustomColors.textGrey,
-                        height: CustomDimens.fieldHeight,),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: CustomColors.fieldBorderColor),),
-                      labelText: Strings.fieldPasswordTitle,
-                      labelStyle: TextStyle(color: CustomColors.textGrey),
-                      fillColor: CustomColors.fieldBackgroundColor,
-                      filled: true,
-                    ),
-                  )),
-            ],
+                        filled: true,
+                      ),
+                    )),
+              ],
+            ),
           ),
         ),
       ),
