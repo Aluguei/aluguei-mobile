@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -38,13 +39,14 @@ class LoginFormState extends State<LoginForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldEmailTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty ||
+                      !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
                   return null;
@@ -100,7 +102,7 @@ class LoginFormState extends State<LoginForm> {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (states) {
+                        (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }
@@ -133,8 +135,8 @@ class LoginFormState extends State<LoginForm> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SignInPage(
-                                    title: "Sign Page 1",
-                                  )),
+                                        title: "Sign Page 1",
+                                      )),
                             );
                           },
                           child: Text(
