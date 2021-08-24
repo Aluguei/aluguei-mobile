@@ -1,19 +1,18 @@
-import 'package:aluguei/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class SigninForm extends StatefulWidget {
+  const SigninForm({Key? key}) : super(key: key);
 
   @override
-  LoginFormState createState() {
-    return LoginFormState();
+  SignInFormState createState() {
+    return SignInFormState();
   }
 }
 
-class LoginFormState extends State<LoginForm> {
+class SignInFormState extends State<SigninForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -38,7 +37,7 @@ class LoginFormState extends State<LoginForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldEmailTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -50,6 +49,7 @@ class LoginFormState extends State<LoginForm> {
                   return null;
                 },
               )),
+
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
                 CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
@@ -81,8 +81,32 @@ class LoginFormState extends State<LoginForm> {
             ),
           ),
           Padding(
+              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
+                  CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+              child: TextFormField(
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.confirmPasswordText,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldEmailNull;
+                  }
+                  return null;
+                },
+              )),
+          Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, 0.0),
+                  0.0, CustomDimens.mediumSpacing, CustomDimens.mediumSpacing),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,
@@ -100,7 +124,7 @@ class LoginFormState extends State<LoginForm> {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (states) {
+                        (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }
@@ -114,59 +138,6 @@ class LoginFormState extends State<LoginForm> {
                       ),
                     ),
                   ))),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          0.0,
-                          0.0,
-                          CustomDimens.mediumSpacing,
-                          CustomDimens.smallSpacing),
-                      child: Container(
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignInPage(
-                                    title: "Sign Page 1",
-                                  )),
-                            );
-                          },
-                          child: Text(
-                            Strings.signupButtonText,
-                            style: TextStyle(
-                              fontSize: CustomDimens.smallOutlinedButton,
-                              color: CustomColors.textGrey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          CustomDimens.mediumSpacing,
-                          0.0,
-                          0.0,
-                          CustomDimens.smallSpacing),
-                      child: Container(
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            Strings.forgotPasswordButtonText,
-                            style: TextStyle(
-                              fontSize: CustomDimens.smallOutlinedButton,
-                              color: CustomColors.textGrey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ]))
         ],
       ),
     );

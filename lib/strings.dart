@@ -7,4 +7,5 @@ class Strings {
   static const forgotPasswordButtonText = "Esqueci a senha";
   static const fieldEmailNull = "Insira um e-mail válido";
   static const fieldPasswordNull = "Insira a senha";
+  static const confirmPasswordText = "Confirmar senha";
 }
