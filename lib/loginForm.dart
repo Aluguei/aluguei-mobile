@@ -127,7 +127,7 @@ class LoginFormState extends State<LoginForm> {
                           0.0,
                           0.0,
                           CustomDimens.mediumSpacing,
-                          CustomDimens.smallSpacing),
+                          0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {
@@ -154,7 +154,7 @@ class LoginFormState extends State<LoginForm> {
                           CustomDimens.mediumSpacing,
                           0.0,
                           0.0,
-                          CustomDimens.smallSpacing),
+                          0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {},

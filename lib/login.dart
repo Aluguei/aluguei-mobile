@@ -33,28 +33,32 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+                  0.0, CustomDimens.mediumSpacing, 0.0),
               child: Container(
                 alignment: Alignment.center,
-                child: Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.mediumSpacing,
-                            0.0),
-                        child: Image.asset(
-                          'assets/images/logo_aluguei.png',
-                          height: CustomDimens.logoSize,
-                          fit: BoxFit.cover,
-                        ),
+                child: ListView (
+                  children: [
+                    Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                                CustomDimens.mediumSpacing,
+                                CustomDimens.mediumSpacing,
+                                CustomDimens.mediumSpacing,
+                                0.0),
+                            child: Image.asset(
+                              'assets/images/logo_aluguei.png',
+                              height: CustomDimens.logoSize,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const LoginForm()
+                        ],
                       ),
-                      const LoginForm()
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             )
