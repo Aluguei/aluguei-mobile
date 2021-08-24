@@ -1,4 +1,4 @@
-import 'package:aluguei/signIn.dart';
+import 'package:aluguei/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
@@ -134,8 +134,8 @@ class LoginFormState extends State<LoginForm> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignInPage(
-                                        title: "Sign Page 1",
+                                  builder: (context) => SignUpPage(
+                                        title: "SignUp Page 1",
                                       )),
                             );
                           },

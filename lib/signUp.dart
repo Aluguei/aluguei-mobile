@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
-import 'package:aluguei/signInForm.dart';
+import 'package:aluguei/signUpForm.dart';
 
-class SignInPage extends StatefulWidget {
-  SignInPage({Key? key, required this.title}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  SignUpPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,7 +54,7 @@ class _SignInPageState extends State<SignInPage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          const SigninForm()
+                          const SignUpForm()
                         ],
                       ),
                     ),

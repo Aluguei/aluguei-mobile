@@ -3,16 +3,16 @@ import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
 
-class SigninForm extends StatefulWidget {
-  const SigninForm({Key? key}) : super(key: key);
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
-  SignInFormState createState() {
-    return SignInFormState();
+  SignUpFormState createState() {
+    return SignUpFormState();
   }
 }
 
-class SignInFormState extends State<SigninForm> {
+class SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override
