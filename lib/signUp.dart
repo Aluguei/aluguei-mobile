@@ -16,6 +16,7 @@ class SignUpPage extends StatefulWidget {
    - adicionar botao voltar no topo,
    - colocar o logo para fora do Card,
    - adicionar os indicadores de pagina
+   - Mudar o nome do botao para avancar
 */
 
 class _SignUpPageState extends State<SignUpPage> {
