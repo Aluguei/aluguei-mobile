@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
+import 'package:email_validator/email_validator.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -43,13 +44,14 @@ class SignUpFormState extends State<SignUpForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
                   return null;
                 },
               )),
-
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
                 CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
@@ -81,8 +83,8 @@ class SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
-                  CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
+                  0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
               child: TextFormField(
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
@@ -92,7 +94,7 @@ class SignUpFormState extends State<SignUpForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.confirmPasswordText,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,

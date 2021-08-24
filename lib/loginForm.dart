@@ -45,7 +45,8 @@ class LoginFormState extends State<LoginForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty ||
+                  if (value == null ||
+                      value.isEmpty ||
                       !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
@@ -124,10 +125,7 @@ class LoginFormState extends State<LoginForm> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
-                          0.0,
-                          0.0,
-                          CustomDimens.mediumSpacing,
-                          0.0),
+                          0.0, 0.0, CustomDimens.mediumSpacing, 0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {
@@ -151,10 +149,7 @@ class LoginFormState extends State<LoginForm> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
-                          CustomDimens.mediumSpacing,
-                          0.0,
-                          0.0,
-                          0.0),
+                          CustomDimens.mediumSpacing, 0.0, 0.0, 0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {},
