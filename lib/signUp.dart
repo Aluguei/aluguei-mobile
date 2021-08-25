@@ -15,7 +15,7 @@ class SignUpPage extends StatefulWidget {
 /*TODO
    - adicionar botao voltar no topo,
    - adicionar os indicadores de pagina
-   - ajustar o tamanho do logo
+   - Fixar logo fora do scroll
 
 
 */
