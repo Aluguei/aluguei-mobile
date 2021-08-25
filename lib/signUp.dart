@@ -68,7 +68,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                               )),
                                     );
                                   },
-                                  icon: Icon(Icons.arrow_back)))),
+                                  icon: Image.asset("assets/images/backArrow.png"),iconSize: 31,))),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(
                             CustomDimens.smallSpacing,
