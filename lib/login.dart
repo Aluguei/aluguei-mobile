@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  0.0, CustomDimens.smallSpacing, 0.0),
               child: Container(
                 alignment: Alignment.center,
                 child: Center(
@@ -47,9 +47,9 @@ class _LoginPageState extends State<LoginPage> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.fromLTRB(
-                                  CustomDimens.mediumSpacing,
-                                  CustomDimens.mediumSpacing,
-                                  CustomDimens.mediumSpacing,
+                                  CustomDimens.smallSpacing,
+                                  CustomDimens.smallSpacing,
+                                  CustomDimens.smallSpacing,
                                   0.0),
                               child: Image.asset(
                                 'assets/images/logo_aluguei.png',

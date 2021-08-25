@@ -14,8 +14,8 @@ class CustomDimens {
   static const splashDuration = 2000;
   static const fieldFontSize = 16.0;
   static const fieldHeight = 1.0;
-  static const mediumSpacing = 24.0;
-  static const smallSpacing = 26.0;
+  static const smallSpacing = 24.0;
+  static const mediumSpacing = 26.0;
   static const verySmallSpacing = 7.0;
   static const buttonHeight = 45.0;
 }

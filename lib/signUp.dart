@@ -40,8 +40,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  0.0, CustomDimens.smallSpacing, 0.0),
               child: Container(
                 alignment: Alignment.center,
                 child: Center(
@@ -51,9 +51,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.mediumSpacing,
-                            CustomDimens.mediumSpacing,
+                            CustomDimens.smallSpacing,
+                            CustomDimens.smallSpacing,
+                            CustomDimens.smallSpacing,
                             0.0),
                         child: Image.asset(
                           'assets/images/logo_aluguei.png',
@@ -71,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -26,10 +26,10 @@ class LoginFormState extends State<LoginForm> {
         children: <Widget>[
           Padding(
               padding: const EdgeInsets.fromLTRB(
-                  CustomDimens.mediumSpacing,
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing,
-                  CustomDimens.smallSpacing),
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
               child: TextFormField(
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
@@ -54,8 +54,8 @@ class LoginFormState extends State<LoginForm> {
                 },
               )),
           Padding(
-            padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing, 0.0,
-                CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
             child: TextFormField(
               obscureText: true,
               autocorrect: false,
@@ -84,8 +84,8 @@ class LoginFormState extends State<LoginForm> {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  0.0, CustomDimens.smallSpacing, 0.0),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,
@@ -118,14 +118,14 @@ class LoginFormState extends State<LoginForm> {
                     ),
                   ))),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
-                  0.0, CustomDimens.mediumSpacing, CustomDimens.smallSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  0.0, CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
-                          0.0, 0.0, CustomDimens.mediumSpacing, 0.0),
+                          0.0, 0.0, CustomDimens.smallSpacing, 0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {
@@ -149,7 +149,7 @@ class LoginFormState extends State<LoginForm> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
-                          CustomDimens.mediumSpacing, 0.0, 0.0, 0.0),
+                          CustomDimens.smallSpacing, 0.0, 0.0, 0.0),
                       child: Container(
                         child: TextButton(
                           onPressed: () {},
