@@ -1,3 +1,4 @@
+import 'package:aluguei/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
@@ -13,7 +14,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 /*TODO
-   - adicionar botao voltar no topo,
+   - Ajustar botao voltar no topo,
    - Fixar logo fora do scroll
    -
 
@@ -49,6 +50,25 @@ class _SignUpPageState extends State<SignUpPage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                              CustomDimens.smallSpacing,
+                              CustomDimens.smallSpacing,
+                              CustomDimens.smallSpacing,
+                              0.0),
+                          child: Container(
+                              width: double.infinity,
+                              child: IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginPage(
+                                                title: "Login Page",
+                                              )),
+                                    );
+                                  },
+                                  icon: Icon(Icons.arrow_back)))),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(
                             CustomDimens.smallSpacing,
