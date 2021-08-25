@@ -1,6 +1,7 @@
 import 'package:aluguei/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
+import 'package:aluguei/models/loginModel.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
@@ -16,6 +17,7 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final model = LoginModel("", "");
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,7 @@ class LoginFormState extends State<LoginForm> {
                       !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
+                  model.email = value;
                   return null;
                 },
               )),
@@ -79,26 +82,27 @@ class LoginFormState extends State<LoginForm> {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldPasswordNull;
                 }
+                model.password = value;
                 return null;
               },
             ),
           ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, 0.0),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,
                   child: OutlinedButton(
                     child: Text(
                       Strings.loginButtonText,
-                      style: TextStyle(color: CustomColors.white,fontSize: CustomFontSize.smallOutlinedButton),
+                      style: TextStyle(
+                          color: CustomColors.white,
+                          fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        print(model.toString());
                       }
                     },
                     style: ButtonStyle(
@@ -118,8 +122,8 @@ class LoginFormState extends State<LoginForm> {
                     ),
                   ))),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

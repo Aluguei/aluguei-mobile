@@ -1,6 +1,6 @@
 class LoginModel {
-  final String email;
-  final String password;
+  String email;
+  String password;
 
   LoginModel (
       this.email,
