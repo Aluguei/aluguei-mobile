@@ -48,24 +48,22 @@ class _SignUpPageState extends State<SignUpPage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                            CustomDimens.mediumSpacing,
+                            CustomDimens.mediumSpacing,
+                            CustomDimens.mediumSpacing,
+                            0.0),
+                        child: Image.asset(
+                          'assets/images/logo_aluguei.png',
+                          height: CustomDimens.logoSize,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  CustomDimens.mediumSpacing,
-                                  CustomDimens.mediumSpacing,
-                                  CustomDimens.mediumSpacing,
-                                  0.0),
-                              child: Image.asset(
-                                'assets/images/logo_aluguei.png',
-                                height: CustomDimens.logoSize,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            const SignUpForm()
-                          ],
+                          children: <Widget>[const SignUpForm()],
                         ),
                       ),
                     ],

@@ -24,6 +24,22 @@ class SignUpFormState extends State<SignUpForm> {
       child: Column(
         children: <Widget>[
           Padding(
+            padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
+                CustomDimens.mediumSpacing, CustomDimens.mediumSpacing, 0.0),
+            child: Text(Strings.registrationText,
+                style: TextStyle(
+                    color: CustomColors.textGrey,
+                    fontSize: CustomFontSize.largeFontSize)),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
+                CustomDimens.mediumSpacing, CustomDimens.mediumSpacing, 0.0),
+            child: Text(Strings.registrationAccessdataText,
+                style: TextStyle(
+                    color: CustomColors.textGrey,
+                    fontSize: CustomFontSize.smallFontSize)),
+          ),
+          Padding(
               padding: const EdgeInsets.fromLTRB(
                   CustomDimens.mediumSpacing,
                   CustomDimens.smallSpacing,

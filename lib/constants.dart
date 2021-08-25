@@ -19,3 +19,9 @@ class CustomDimens {
   static const buttonHeight = 45.0;
   static const smallOutlinedButton = 14.0;
 }
+
+class CustomFontSize {
+  static const smallFontSize = 12.0;
+  static const mediumFontSize = 16.0;
+  static const largeFontSize = 30.0;
+}
