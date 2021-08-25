@@ -6,7 +6,7 @@ class RegisterModel {
   final String passwordConfirmation;
   final String RG;
   final String CPF;
-  final String gender;
+  final String gender; // ENUM [ female, other, male ]
   final String phoneOne;
   final String phoneTwo;
   final String CEP;
@@ -36,9 +36,14 @@ class RegisterModel {
       this.number,
       this.complement);
 
-  //TODO terminar o to string
   @override
   String toString() {
-    return 'Registration{email: $email, firstName: $firstName, lastName: $lastName}';
+    return 'Registration{email: $email, firstName: $firstName, '
+        'lastName: $lastName, password: $password, '
+        'passwordConfirmation: $passwordConfirmation, '
+        'RG:$RG, CPF: $CPF, gender: $gender, phoneOne: $phoneOne,'
+        'phoneTwo: $phoneTwo, CEP: $CEP, state: $state, city: $city, '
+        'address: $address, neighborhood: $neighborhood, number: $number, '
+        'complement: $complement}';
   }
 }
