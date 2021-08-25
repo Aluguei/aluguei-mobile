@@ -10,4 +10,5 @@ class Strings {
   static const confirmPasswordText = "Confirmar senha";
   static const registrationText = "Cadastro";
   static const registrationAccessdataText = "1. Dados de acesso";
+  static const advanceText = "Avançar";
 }

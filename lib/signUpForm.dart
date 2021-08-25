@@ -34,15 +34,18 @@ class SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.mediumSpacing,
                 CustomDimens.mediumSpacing, CustomDimens.mediumSpacing, 0.0),
-            child: Text(Strings.registrationAccessdataText,
-                style: TextStyle(
-                    color: CustomColors.textGrey,
-                    fontSize: CustomFontSize.smallFontSize)),
+            child: Container(
+              width: double.infinity,
+              child: Text(Strings.registrationAccessdataText,
+                  style: TextStyle(
+                      color: CustomColors.textGrey,
+                      fontSize: CustomFontSize.smallFontSize)),
+            ),
           ),
           Padding(
               padding: const EdgeInsets.fromLTRB(
                   CustomDimens.mediumSpacing,
-                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
                   CustomDimens.mediumSpacing,
                   CustomDimens.smallSpacing),
               child: TextFormField(
@@ -130,8 +133,10 @@ class SignUpFormState extends State<SignUpForm> {
                   height: CustomDimens.buttonHeight,
                   child: OutlinedButton(
                     child: Text(
-                      Strings.loginButtonText,
-                      style: TextStyle(color: CustomColors.white),
+                      Strings.advanceText,
+                      style: TextStyle(
+                          color: CustomColors.white,
+                          fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

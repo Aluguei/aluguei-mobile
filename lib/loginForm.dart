@@ -92,7 +92,7 @@ class LoginFormState extends State<LoginForm> {
                   child: OutlinedButton(
                     child: Text(
                       Strings.loginButtonText,
-                      style: TextStyle(color: CustomColors.white),
+                      style: TextStyle(color: CustomColors.white,fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -140,7 +140,7 @@ class LoginFormState extends State<LoginForm> {
                           child: Text(
                             Strings.signupButtonText,
                             style: TextStyle(
-                              fontSize: CustomDimens.smallOutlinedButton,
+                              fontSize: CustomFontSize.smallFontSize,
                               color: CustomColors.textGrey,
                             ),
                           ),
@@ -156,7 +156,7 @@ class LoginFormState extends State<LoginForm> {
                           child: Text(
                             Strings.forgotPasswordButtonText,
                             style: TextStyle(
-                              fontSize: CustomDimens.smallOutlinedButton,
+                              fontSize: CustomFontSize.smallFontSize,
                               color: CustomColors.textGrey,
                             ),
                           ),

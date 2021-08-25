@@ -16,12 +16,13 @@ class CustomDimens {
   static const fieldHeight = 1.0;
   static const mediumSpacing = 24.0;
   static const smallSpacing = 26.0;
+  static const verySmallSpacing = 7.0;
   static const buttonHeight = 45.0;
-  static const smallOutlinedButton = 14.0;
 }
 
 class CustomFontSize {
+  static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
-  static const mediumFontSize = 16.0;
+  static const mediumFontSize = 14.0;
   static const largeFontSize = 30.0;
 }
