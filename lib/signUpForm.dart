@@ -102,8 +102,8 @@ class SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: TextFormField(
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
@@ -126,8 +126,8 @@ class SignUpFormState extends State<SignUpForm> {
                 },
               )),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, CustomDimens.smallSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.smallSpacing),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,

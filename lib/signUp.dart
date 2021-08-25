@@ -14,8 +14,8 @@ class SignUpPage extends StatefulWidget {
 
 /*TODO
    - adicionar botao voltar no topo,
-   - adicionar os indicadores de pagina
    - Fixar logo fora do scroll
+   -
 
 
 */
@@ -40,8 +40,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, 0.0),
               child: Container(
                 alignment: Alignment.center,
                 child: Center(
@@ -56,7 +56,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             CustomDimens.smallSpacing,
                             0.0),
                         child: Image.asset(
-                          'assets/images/logo_aluguei.png',
+                          "assets/images/logo_aluguei.png",
                           height: CustomDimens.logoSize,
                           fit: BoxFit.cover,
                         ),
@@ -66,6 +66,26 @@ class _SignUpPageState extends State<SignUpPage> {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[const SignUpForm()],
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                            CustomDimens.smallSpacing,
+                            CustomDimens.smallSpacing,
+                            CustomDimens.smallSpacing,
+                            0.0),
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  CustomDimens.smallSpacing,
+                                  CustomDimens.smallSpacing,
+                                  CustomDimens.smallSpacing,
+                                  CustomDimens.smallSpacing),
+                              child: Image.asset(
+                                "assets/images/signUpPageIndicators/signUpPageIndicator01.png",
+                                height: 20,
+                              ),
+                            )),
                       ),
                     ],
                   ),
