@@ -1,20 +1,19 @@
-import 'package:aluguei/signUp2.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({Key? key}) : super(key: key);
+class SignUpForm2 extends StatefulWidget {
+  const SignUpForm2({Key? key}) : super(key: key);
 
   @override
-  SignUpFormState createState() {
-    return SignUpFormState();
+  SignUpForm2State createState() {
+    return SignUpForm2State();
   }
 }
 
-class SignUpFormState extends State<SignUpForm> {
+class SignUpForm2State extends State<SignUpForm2> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -37,7 +36,7 @@ class SignUpFormState extends State<SignUpForm> {
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Container(
               width: double.infinity,
-              child: Text(Strings.registrationAccessDataText,
+              child: Text(Strings.registrationPessoalDataText,
                   style: TextStyle(
                       color: CustomColors.textGrey,
                       fontSize: CustomFontSize.smallFontSize)),
@@ -58,8 +57,8 @@ class SignUpFormState extends State<SignUpForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldEmailTitle,
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldFirstNameTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
@@ -89,7 +88,7 @@ class SignUpFormState extends State<SignUpForm> {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: CustomColors.fieldBorderColor),
                 ),
-                labelText: Strings.fieldPasswordTitle,
+                labelText: Strings.fieldLastNameTitle,
                 labelStyle: TextStyle(color: CustomColors.textGrey),
                 fillColor: CustomColors.greyBackgroundColor,
                 filled: true,
@@ -114,13 +113,71 @@ class SignUpFormState extends State<SignUpForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.confirmPasswordText,
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldRGTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
+                    return Strings.fieldEmailNull;
+                  }
+                  return null;
+                },
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldCPFTitle,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      !EmailValidator.validate(value)) {
+                    return Strings.fieldEmailNull;
+                  }
+                  return null;
+                },
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldGenderTitle,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
                   return null;
@@ -144,18 +201,11 @@ class SignUpFormState extends State<SignUpForm> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage2(
-                                title: "Sign Up Page2",
-                              )),
-                        );
                       }
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (states) {
+                            (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }
