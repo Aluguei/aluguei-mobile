@@ -16,6 +16,14 @@ class SignUpForm2 extends StatefulWidget {
 class SignUpForm2State extends State<SignUpForm2> {
   final _formKey = GlobalKey<FormState>();
 
+  String dropdownValue = 'One';
+
+  /*TODO
+   - Mudar as strings do dropdown button
+
+*/
+
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -57,7 +65,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldFirstNameTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -113,7 +121,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldRGTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -140,7 +148,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldCPFTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -160,7 +168,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                   CustomDimens.verySmallSpacing,
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
-              child: TextFormField(
+              child: DropdownButtonFormField<String>(
+                value: dropdownValue,
+                icon: const Icon(Icons.arrow_downward),
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -170,18 +180,24 @@ class SignUpForm2State extends State<SignUpForm2> {
                     enabledBorder: OutlineInputBorder(
                         borderSide:
                         BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldGenderTitle,
+                    labelText: Strings.fieldCPFTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      !EmailValidator.validate(value)) {
-                    return Strings.fieldEmailNull;
-                  }
-                  return null;
+                iconSize: 24,
+                elevation: 16,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownValue = newValue!;
+                  });
                 },
+                items: <String>['One', 'Two', 'Free', 'Four']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
               )),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
@@ -205,7 +221,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (states) {
+                        (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }

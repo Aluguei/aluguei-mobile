@@ -9,6 +9,7 @@ class Strings {
   static const fieldGenderTitle = "Sexo";
   static const fieldMaleGenderTitle = "Masculino";
   static const fieldFemaleGenderTitle = "Feminino";
+  static const fieldOtherGenderTitle = "Feminino";
   static const fieldPasswordTitle = "Senha";
   static const loginButtonText = "Entrar";
   static const signupButtonText = "Cadastrar";
@@ -20,4 +21,5 @@ class Strings {
   static const registrationAccessDataText = "1. Dados de acesso";
   static const registrationPessoalDataText = "2. Dados pessoais";
   static const advanceText = "Avançar";
+  static const fieldGenderDropDownList = ['Masculino','Feminino','Outro'];
 }
