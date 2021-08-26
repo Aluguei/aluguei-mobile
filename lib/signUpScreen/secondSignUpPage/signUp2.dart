@@ -1,24 +1,28 @@
-import 'package:aluguei/loginScreen/login.dart';
+import 'package:aluguei/signUpScreen/firstSignUpPage/signUp.dart';
+import 'package:aluguei/signUpScreen/secondSignUpPage/signUpForm2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
-import 'package:aluguei/signUpScreen/signUpForm.dart';
 
-class SignUpPage extends StatefulWidget {
-  SignUpPage({Key? key, required this.title}) : super(key: key);
+
+class SignUpPage2 extends StatefulWidget {
+  SignUpPage2({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _SignUpPage2State createState() => _SignUpPage2State();
 }
 
 /*TODO
-   - Adicinar as outras paginas do cadastro
+   - Colocar as validações corretas
+   - Trocar o botão de genero por um dropdown button
+   - Continuar para pagina 3
+
 
 */
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPage2State extends State<SignUpPage2> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm()],
+                          children: <Widget>[const SignUpForm2()],
                         ),
                       ),
                       Padding(
@@ -80,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   CustomDimens.smallSpacing,
                                   CustomDimens.smallSpacing),
                               child: Image.asset(
-                                "assets/images/signUpPageIndicators/signUpPageIndicator01.png",
+                                "assets/images/signUpPageIndicators/signUpPageIndicator02.png",
                                 height: 20,
                               ),
                             )),
@@ -106,9 +110,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                title: "Login Page",
-                              )),
+                              builder: (context) =>
+                                  SignUpPage(
+                                    title: "SignUp Page 1",
+                                  )),
                         );
                       },
                       icon: Image.asset("assets/images/backArrow.png"),

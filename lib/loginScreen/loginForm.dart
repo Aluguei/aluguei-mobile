@@ -1,5 +1,5 @@
 import 'package:aluguei/api/loginApi.dart';
-import 'package:aluguei/signUpScreen/signUp.dart';
+import 'package:aluguei/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/models/loginModel.dart';
