@@ -14,7 +14,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 /*TODO
-   - Ajustar o logo
    - Adicinar as outras paginas do cadastro
 
 
