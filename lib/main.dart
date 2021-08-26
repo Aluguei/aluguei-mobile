@@ -1,5 +1,5 @@
-import 'package:aluguei/login.dart';
-import 'package:aluguei/constants.dart';
+import 'package:aluguei/loginScreen/login.dart';
+import 'package:aluguei/resources/constants.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';

@@ -1,8 +1,8 @@
-import 'package:aluguei/login.dart';
+import 'package:aluguei/loginScreen/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:aluguei/constants.dart';
-import 'package:aluguei/signUpForm.dart';
+import 'package:aluguei/resources/constants.dart';
+import 'package:aluguei/signUpScreen/signUpForm.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key? key, required this.title}) : super(key: key);

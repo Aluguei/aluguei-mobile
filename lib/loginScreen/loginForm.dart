@@ -1,9 +1,9 @@
 import 'package:aluguei/api/loginApi.dart';
-import 'package:aluguei/signUp.dart';
+import 'package:aluguei/signUpScreen/signUp.dart';
 import 'package:flutter/material.dart';
-import 'package:aluguei/constants.dart';
+import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/models/loginModel.dart';
-import 'package:aluguei/strings.dart';
+import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
 

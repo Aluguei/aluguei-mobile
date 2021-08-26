@@ -1,8 +1,8 @@
-import 'package:aluguei/signUp.dart';
-import 'package:aluguei/signUpForm2.dart';
+import 'package:aluguei/signUpScreen/signUp.dart';
+import 'package:aluguei/signUpScreen/signUpForm2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:aluguei/constants.dart';
+import 'package:aluguei/resources/constants.dart';
 
 
 class SignUpPage2 extends StatefulWidget {
