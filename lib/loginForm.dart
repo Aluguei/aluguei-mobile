@@ -1,6 +1,8 @@
+import 'package:aluguei/api/loginApi.dart';
 import 'package:aluguei/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/constants.dart';
+import 'package:aluguei/models/loginModel.dart';
 import 'package:aluguei/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
@@ -16,6 +18,8 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final model = LoginModel("", "");
+  final LoginService loginService = LoginService();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class LoginFormState extends State<LoginForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
+                        BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldEmailTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -50,6 +54,7 @@ class LoginFormState extends State<LoginForm> {
                       !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
+                  model.email = value;
                   return null;
                 },
               )),
@@ -79,31 +84,48 @@ class LoginFormState extends State<LoginForm> {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldPasswordNull;
                 }
+                model.password = value;
                 return null;
               },
             ),
           ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, 0.0),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, 0.0),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,
                   child: OutlinedButton(
                     child: Text(
                       Strings.loginButtonText,
-                      style: TextStyle(color: CustomColors.white,fontSize: CustomFontSize.smallOutlinedButton),
+                      style: TextStyle(
+                          color: CustomColors.white,
+                          fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        print(model.toString());
                       }
+                      FutureBuilder(
+                        future: loginService.doLogin(model),
+                        builder: (context, loginResponse) {
+                          final response = loginResponse.data;
+                          final responseError = loginResponse.error;
+                          print('RESPOSTA API Sucesso: $response');
+                          print('RESPOSTA API Erro: $responseError');
+                          //TODO criar if, validando login, erro e loading (hasData false)
+                          return Center(
+                              child: Text(
+                              loginResponse.data.toString(),
+                              style: TextStyle(fontSize: 20.0),
+                          ),
+                          );
+                        },
+                      );
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (states) {
+                            (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }
@@ -118,8 +140,8 @@ class LoginFormState extends State<LoginForm> {
                     ),
                   ))),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                  0.0, CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -132,7 +154,8 @@ class LoginFormState extends State<LoginForm> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignUpPage(
+                                  builder: (context) =>
+                                      SignUpPage(
                                         title: "SignUp Page 1",
                                       )),
                             );
