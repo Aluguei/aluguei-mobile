@@ -39,33 +39,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 )
               ],
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        CustomDimens.smallSpacing,
-                        CustomDimens.smallSpacing,
-                        CustomDimens.smallSpacing,
-                        0.0),
-                    child: Container(
-                        child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                    title: "Login Page",
-                                  )),
-                        );
-                      },
-                      icon: Image.asset("assets/images/backArrow.png"),
-                      iconSize: 31,
-                    )))
-              ],
-            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, 0.0),
@@ -85,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Image.asset(
                           "assets/images/logo_aluguei.png",
                           height: CustomDimens.logoSize,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       Card(
@@ -118,6 +91,32 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        CustomDimens.mediumSpacing,
+                        CustomDimens.largeSpacing,
+                        CustomDimens.smallSpacing,
+                        0.0),
+                    child: IconButton(splashRadius: 20,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                title: "Login Page",
+                              )),
+                        );
+                      },
+                      icon: Image.asset("assets/images/backArrow.png"),
+                      iconSize: 31,
+                    )
+                )],
             ),
           ],
         ),

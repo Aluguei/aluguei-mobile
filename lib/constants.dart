@@ -17,6 +17,7 @@ class CustomDimens {
   static const smallSpacing = 24.0;
   static const mediumSpacing = 26.0;
   static const verySmallSpacing = 7.0;
+  static const largeSpacing = 40.0;
   static const buttonHeight = 45.0;
 }
 
