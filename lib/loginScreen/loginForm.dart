@@ -1,4 +1,4 @@
-import 'package:aluguei/Repository/LoginRepository.dart';
+import 'package:aluguei/Repository/authRepository.dart';
 import 'package:aluguei/home/home.dart';
 import 'package:aluguei/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,17 @@ class LoginForm extends StatefulWidget {
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final model = LoginModel("", "");
-  final LoginRepository loginRepository = LoginRepository();
+  final AuthRepository authRepository = AuthRepository();
+
+  doLogin() async {
+    try {
+      await authRepository.doLogin(model);
+      openHomeScreen();
+    } catch (e) {
+      //TODO tratar retornos dos erros e apresentar ao usuario
+      print(e);
+    }
+  }
 
   openHomeScreen() {
     Navigator.push(
@@ -119,12 +129,7 @@ class LoginFormState extends State<LoginForm> {
                         //TODO  apresentar loading
                         //TODO tratar erros
                         Future.delayed(Duration.zero, () {
-                          try {
-                            loginRepository.doLogin(model);
-                            openHomeScreen();
-                          } catch (e) {
-                            print(e);
-                          }
+                          doLogin();
                         });
                       }
                     },
