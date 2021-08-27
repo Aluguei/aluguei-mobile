@@ -73,7 +73,6 @@ class SignUpFormState extends State<SignUpForm> {
                   }
                   return null;
                 },
-
               )),
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
@@ -124,15 +123,14 @@ class SignUpFormState extends State<SignUpForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                    if (value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return Strings.fieldEmailNull;
                   }
-                    if (value != confirmPass){
-                      return Strings.forgotPasswordDifference;
-                    }
+                  if (value != confirmPass) {
+                    return Strings.forgotPasswordDifference;
+                  }
                   return null;
                 },
-
               )),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
