@@ -3,7 +3,8 @@ import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
-
+import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/services.dart';
 
 class SignUpForm2 extends StatefulWidget {
   const SignUpForm2({Key? key}) : super(key: key);
@@ -18,11 +19,6 @@ class SignUpForm2State extends State<SignUpForm2> {
   final _formKey = GlobalKey<FormState>();
 
   String dropdownValue = Strings.fieldGenderDropDownChose;
-
-  /*TODO
-   - Mudar as strings do dropdown button
-
-*/
 
   @override
   Widget build(BuildContext context) {
@@ -126,12 +122,13 @@ class SignUpForm2State extends State<SignUpForm2> {
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
+                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty
 
-                  /* TODO VALIDAR O RG */
+                      /* TODO VALIDAR O RG */
 
-                  ) {
+                      ) {
                     return Strings.fieldRGNull;
                   }
                   return null;
@@ -148,6 +145,11 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
                     height: CustomDimens.fieldHeight),
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CpfInputFormatter()
+                ],
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
@@ -158,12 +160,11 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty
+                  if (value == null || value.isEmpty
 
-                  /* TODO VALIDAR CPF */
+                      /* TODO VALIDAR CPF */
 
-                  ) {
+                      ) {
                     return Strings.fieldCPFNull;
                   }
                   return null;
@@ -194,9 +195,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                 iconSize: 24,
                 elevation: 16,
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      value == 'Escolha um') {
+                  if (value == null || value.isEmpty || value == 'Escolha um') {
                     return Strings.fieldGenderNull;
                   }
                 },
