@@ -148,8 +148,8 @@ class SignUpFormState extends State<SignUpForm> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
-                                title: "Sign Up Page2",
-                              )),
+                                    title: "Sign Up Page2",
+                                  )),
                         );
                       }
                     },

@@ -4,6 +4,7 @@ import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:email_validator/email_validator.dart';
 
+
 class SignUpForm2 extends StatefulWidget {
   const SignUpForm2({Key? key}) : super(key: key);
 
@@ -16,13 +17,12 @@ class SignUpForm2 extends StatefulWidget {
 class SignUpForm2State extends State<SignUpForm2> {
   final _formKey = GlobalKey<FormState>();
 
-  String dropdownValue = 'One';
+  String dropdownValue = Strings.fieldGenderDropDownChose;
 
   /*TODO
    - Mudar as strings do dropdown button
 
 */
-
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null ||
                       value.isEmpty ||
                       !EmailValidator.validate(value)) {
-                    return Strings.fieldEmailNull;
+                    return Strings.fieldFirstNameNull;
                   }
                   return null;
                 },
@@ -103,7 +103,7 @@ class SignUpForm2State extends State<SignUpForm2> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return Strings.fieldPasswordNull;
+                  return Strings.fieldLastNameNull;
                 }
                 return null;
               },
@@ -127,8 +127,12 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return Strings.fieldEmailNull;
+                  if (value == null || value.isEmpty
+
+                  /* TODO VALIDAR O RG */
+
+                  ) {
+                    return Strings.fieldRGNull;
                   }
                   return null;
                 },
@@ -155,9 +159,12 @@ class SignUpForm2State extends State<SignUpForm2> {
                     filled: true),
                 validator: (value) {
                   if (value == null ||
-                      value.isEmpty ||
-                      !EmailValidator.validate(value)) {
-                    return Strings.fieldEmailNull;
+                      value.isEmpty
+
+                  /* TODO VALIDAR CPF */
+
+                  ) {
+                    return Strings.fieldCPFNull;
                   }
                   return null;
                 },
@@ -179,19 +186,26 @@ class SignUpForm2State extends State<SignUpForm2> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldCPFTitle,
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldGenderTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 iconSize: 24,
                 elevation: 16,
+                validator: (value) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      value == 'Escolha um') {
+                    return Strings.fieldGenderNull;
+                  }
+                },
                 onChanged: (String? newValue) {
                   setState(() {
                     dropdownValue = newValue!;
                   });
                 },
-                items: <String>['One', 'Two', 'Free', 'Four']
+                items: <String>['Escolha um', 'Masculino', 'Feminino', 'Outro']
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
