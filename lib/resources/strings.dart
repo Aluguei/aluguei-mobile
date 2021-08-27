@@ -1,3 +1,5 @@
+/* TODO Separar as casntantes em grupos para encontra-la mais facilmente */
+
 class Strings {
   static const fieldEmailTitle = "E-mail";
   static const fieldNameTitle = "Nome";
