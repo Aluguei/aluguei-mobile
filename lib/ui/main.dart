@@ -1,9 +1,9 @@
-import 'package:aluguei/loginScreen/login.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'loginScreen/login.dart';
 
 void main() {
   runApp(MyApp());

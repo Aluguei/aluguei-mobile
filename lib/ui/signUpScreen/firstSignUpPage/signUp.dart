@@ -1,8 +1,8 @@
-import 'package:aluguei/loginScreen/login.dart';
+import 'package:aluguei/ui/loginScreen/login.dart';
+import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUpForm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
-import 'package:aluguei/signUpScreen/firstSignUpPage/signUpForm.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key? key, required this.title}) : super(key: key);
@@ -101,20 +101,21 @@ class _SignUpPageState extends State<SignUpPage> {
                         CustomDimens.largeSpacing,
                         CustomDimens.smallSpacing,
                         0.0),
-                    child: IconButton(splashRadius: 20,
+                    child: IconButton(
+                      splashRadius: 20,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => LoginPage(
-                                title: "Login Page",
-                              )),
+                                    title: "Login Page",
+                                  )),
                         );
                       },
                       icon: Image.asset("assets/images/backArrow.png"),
                       iconSize: 31,
-                    )
-                )],
+                    ))
+              ],
             ),
           ],
         ),

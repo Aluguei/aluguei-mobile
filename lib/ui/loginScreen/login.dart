@@ -1,7 +1,7 @@
+import 'package:aluguei/ui/loginScreen/loginForm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
-import 'package:aluguei/loginScreen/loginForm.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);

@@ -1,4 +1,4 @@
-import 'package:aluguei/api/authApi.dart';
+import 'api/authApi.dart';
 
 class AuthRepository {
 
