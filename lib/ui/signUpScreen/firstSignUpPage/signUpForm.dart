@@ -17,6 +17,8 @@ class SignUpForm extends StatefulWidget {
 class SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
+  var confirmPass;
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -71,6 +73,7 @@ class SignUpFormState extends State<SignUpForm> {
                   }
                   return null;
                 },
+
               )),
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
@@ -95,6 +98,7 @@ class SignUpFormState extends State<SignUpForm> {
                 filled: true,
               ),
               validator: (value) {
+                confirmPass = value;
                 if (value == null || value.isEmpty) {
                   return Strings.fieldPasswordNull;
                 }
@@ -120,11 +124,15 @@ class SignUpFormState extends State<SignUpForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                    if (value == null || value.isEmpty) {
                     return Strings.fieldEmailNull;
                   }
+                    if (value != confirmPass){
+                      return Strings.forgotPasswordDifference;
+                    }
                   return null;
                 },
+
               )),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,

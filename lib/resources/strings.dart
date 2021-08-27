@@ -15,6 +15,7 @@ class Strings {
   static const loginButtonText = "Entrar";
   static const signupButtonText = "Cadastrar";
   static const forgotPasswordButtonText = "Esqueci a senha";
+  static const forgotPasswordDifference = "Senhas não são iguais!";
   static const fieldEmailNull = "Insira um e-mail válido";
   static const fieldGenderNull = "Insira uma opção válida";
   static const fieldCPFNull = "Insira um CPF válido";
