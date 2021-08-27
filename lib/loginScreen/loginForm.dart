@@ -1,4 +1,5 @@
-import 'package:aluguei/api/loginApi.dart';
+import 'package:aluguei/Repository/LoginRepository.dart';
+import 'package:aluguei/home/home.dart';
 import 'package:aluguei/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -19,7 +20,17 @@ class LoginForm extends StatefulWidget {
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final model = LoginModel("", "");
-  final LoginService loginService = LoginService();
+  final LoginRepository loginRepository = LoginRepository();
+
+  openHomeScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => HomePage(
+                title: 'Home Page',
+              )),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +54,7 @@ class LoginFormState extends State<LoginForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldEmailTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -105,27 +116,21 @@ class LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         print(model.toString());
+                        //TODO  apresentar loading
+                        //TODO tratar erros
+                        Future.delayed(Duration.zero, () {
+                          try {
+                            loginRepository.doLogin(model);
+                            openHomeScreen();
+                          } catch (e) {
+                            print(e);
+                          }
+                        });
                       }
-                      FutureBuilder(
-                        future: loginService.doLogin(model),
-                        builder: (context, loginResponse) {
-                          final response = loginResponse.data;
-                          final responseError = loginResponse.error;
-                          print('RESPOSTA API Sucesso: $response');
-                          print('RESPOSTA API Erro: $responseError');
-                          //TODO criar if, validando login, erro e loading (hasData false)
-                          return Center(
-                              child: Text(
-                              loginResponse.data.toString(),
-                              style: TextStyle(fontSize: 20.0),
-                          ),
-                          );
-                        },
-                      );
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (states) {
+                        (states) {
                           if (states.contains(MaterialState.pressed)) {
                             return CustomColors.darkPrimaryColor;
                           }
@@ -154,8 +159,7 @@ class LoginFormState extends State<LoginForm> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      SignUpPage(
+                                  builder: (context) => SignUpPage(
                                         title: "SignUp Page 1",
                                       )),
                             );
