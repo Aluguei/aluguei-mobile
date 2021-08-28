@@ -6,6 +6,7 @@ class Strings {
   static const fieldLastNameTitle = "Sobrenome*";
   static const fieldRGTitle = "RG*";
   static const fieldCPFTitle = "CPF*";
+  static const fieldEstateTitle = "Estado*";
   static const fieldCEPTitle = "CEP*";
   static const fieldGenderTitle = "Sexo*";
   static const fieldMaleGenderTitle = "Masculino";

@@ -71,44 +71,44 @@ class SignUpForm4State extends State<SignUpForm4> {
                     labelText: Strings.fieldCEPTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
-
                     filled: true),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
                   }
                   return null;
                 },
               )),
           Padding(
-            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
-            child: TextFormField(
-              textInputAction: TextInputAction.next,
-              style: TextStyle(
-                fontSize: CustomDimens.fieldFontSize,
-                color: CustomColors.textGrey,
-                height: CustomDimens.fieldHeight,
-              ),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: CustomColors.fieldBorderColor),
-                ),
-                labelText: Strings.fieldLastNameTitle,
-                labelStyle: TextStyle(color: CustomColors.textGrey),
-                fillColor: CustomColors.greyBackgroundColor,
-                filled: true,
-              ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return Strings.fieldLastNameNull;
-                }
-                return null;
-              },
-            ),
-          ),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
+              child: DropdownButtonFormField<String>(
+                hint: Text(Strings.fieldEstateTitle),
+                onChanged: (selectedRegion) {
+                  print(selectedRegion);
+                },
+                icon: const Icon(Icons.arrow_downward),
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                iconSize: 24,
+                elevation: 16,
+                items: Regioes.listaRegioes.map((String Estado) {
+                  return DropdownMenuItem(
+                    value: Estado,
+                    child: Text(Estado),
+                  );
+                }).toList(),
+              )),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
@@ -190,8 +190,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                     enabledBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldGenderTitle,
-                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                                        labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 iconSize: 24,
