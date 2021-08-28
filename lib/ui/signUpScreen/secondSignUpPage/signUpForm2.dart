@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
@@ -40,7 +41,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Container(
               width: double.infinity,
-              child: Text(Strings.registrationPessoalDataText,
+              child: Text(Strings.registrationPersonalDataText,
                   style: TextStyle(
                       color: CustomColors.textGrey,
                       fontSize: CustomFontSize.smallFontSize)),
@@ -124,11 +125,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     filled: true),
                 keyboardType: TextInputType.number,
                 validator: (value) {
-                  if (value == null || value.isEmpty
-
-                      /* TODO VALIDAR O RG */
-
-                      ) {
+                  if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
                   }
                   return null;
@@ -231,6 +228,13 @@ class SignUpForm2State extends State<SignUpForm2> {
                           const SnackBar(content: Text('Processing Data')),
                         );
                       }
+
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage3(
+                                    title: "Sign Up Page3",
+                                  )));
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(

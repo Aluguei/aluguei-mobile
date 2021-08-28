@@ -1,19 +1,19 @@
-import 'package:aluguei/ui/loginScreen/login.dart';
-import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUpForm.dart';
+import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
+import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUpForm3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 
-class SignUpPage extends StatefulWidget {
-  SignUpPage({Key? key, required this.title}) : super(key: key);
+class SignUpPage3 extends StatefulWidget {
+  SignUpPage3({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _SignUpPage3State createState() => _SignUpPage3State();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPage3State extends State<SignUpPage3> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm()],
+                          children: <Widget>[const SignUpForm3()],
                         ),
                       ),
                       Padding(
@@ -75,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   CustomDimens.smallSpacing,
                                   CustomDimens.smallSpacing),
                               child: Image.asset(
-                                "assets/images/signUpPageIndicators/signUpPageIndicator01.png",
+                                "assets/images/signUpPageIndicators/signUpPageIndicator03.png",
                                 height: 20,
                               ),
                             )),
@@ -102,8 +102,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                    title: "Login Page",
+                            /* TODO FAZER A PROXIMA PAGINA*/
+                              builder: (context) => SignUpPage(
+                                    title: "SignUp Page 1",
                                   )),
                         );
                       },
