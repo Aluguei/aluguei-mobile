@@ -1,4 +1,4 @@
-import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
+import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUpForm3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -99,12 +99,12 @@ class _SignUpPage3State extends State<SignUpPage3> {
                     child: IconButton(
                       splashRadius: 20,
                       onPressed: () {
+                        FocusScope.of(context).unfocus();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            /* TODO FAZER A PROXIMA PAGINA*/
-                              builder: (context) => SignUpPage(
-                                    title: "SignUp Page 1",
+                              builder: (context) => SignUpPage4(
+                                    title: "SignUp Page 4",
                                   )),
                         );
                       },
