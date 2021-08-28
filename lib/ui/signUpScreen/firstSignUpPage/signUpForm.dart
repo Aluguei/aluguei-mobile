@@ -109,6 +109,9 @@ class SignUpFormState extends State<SignUpForm> {
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: TextFormField(
+                obscureText: true,
+                autocorrect: false,
+                enableSuggestions: false,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
