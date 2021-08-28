@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/services.dart';
 
@@ -54,6 +53,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -68,9 +69,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      !EmailValidator.validate(value)) {
+                  if (value == null || value.isEmpty) {
                     return Strings.fieldFirstNameNull;
                   }
                   return null;
@@ -80,9 +79,7 @@ class SignUpForm2State extends State<SignUpForm2> {
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                 CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
             child: TextFormField(
-              obscureText: true,
-              autocorrect: false,
-              enableSuggestions: false,
+              textInputAction: TextInputAction.next,
               style: TextStyle(
                 fontSize: CustomDimens.fieldFontSize,
                 color: CustomColors.textGrey,
@@ -110,6 +107,7 @@ class SignUpForm2State extends State<SignUpForm2> {
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -138,6 +136,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -157,11 +156,10 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null || value.isEmpty
-
-                      /* TODO VALIDAR CPF */
-
-                      ) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      UtilBrasilFields.isCPFValido(value) ||
+                      UtilBrasilFields.isCNPJValido(value)) {
                     return Strings.fieldCPFNull;
                   }
                   return null;

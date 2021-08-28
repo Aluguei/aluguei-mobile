@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/services.dart';
 
@@ -41,7 +40,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Container(
               width: double.infinity,
-              child: Text(Strings.registrationPersonalDataText,
+              child: Text(Strings.registrationAddressDataText,
                   style: TextStyle(
                       color: CustomColors.textGrey,
                       fontSize: CustomFontSize.smallFontSize)),
@@ -54,6 +53,12 @@ class SignUpForm4State extends State<SignUpForm4> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CepInputFormatter()
+                ],
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -63,15 +68,15 @@ class SignUpForm4State extends State<SignUpForm4> {
                     enabledBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldFirstNameTitle,
+                    labelText: Strings.fieldCEPTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
+
                     filled: true),
                 validator: (value) {
                   if (value == null ||
-                      value.isEmpty ||
-                      !EmailValidator.validate(value)) {
-                    return Strings.fieldFirstNameNull;
+                      value.isEmpty) {
+                    return Strings.fieldCEPNull;
                   }
                   return null;
                 },
@@ -80,9 +85,7 @@ class SignUpForm4State extends State<SignUpForm4> {
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                 CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
             child: TextFormField(
-              obscureText: true,
-              autocorrect: false,
-              enableSuggestions: false,
+              textInputAction: TextInputAction.next,
               style: TextStyle(
                 fontSize: CustomDimens.fieldFontSize,
                 color: CustomColors.textGrey,
@@ -110,6 +113,7 @@ class SignUpForm4State extends State<SignUpForm4> {
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -138,6 +142,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,

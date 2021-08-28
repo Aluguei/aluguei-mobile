@@ -1,7 +1,10 @@
+import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 class SignUpForm3 extends StatefulWidget {
   const SignUpForm3({Key? key}) : super(key: key);
@@ -50,6 +53,13 @@ class SignUpForm3State extends State<SignUpForm3> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                autofocus: true,
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  TelefoneInputFormatter()
+                ],
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -74,9 +84,12 @@ class SignUpForm3State extends State<SignUpForm3> {
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                 CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
             child: TextFormField(
-              obscureText: true,
-              autocorrect: false,
-              enableSuggestions: false,
+              textInputAction: TextInputAction.next,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                TelefoneInputFormatter()
+              ],
               style: TextStyle(
                 fontSize: CustomDimens.fieldFontSize,
                 color: CustomColors.textGrey,
@@ -94,6 +107,49 @@ class SignUpForm3State extends State<SignUpForm3> {
               ),
             ),
           ),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
+                  CustomDimens.smallSpacing, CustomDimens.smallSpacing),
+              child: Container(
+                  width: double.infinity,
+                  height: CustomDimens.buttonHeight,
+                  child: OutlinedButton(
+                    child: Text(
+                      Strings.advanceText,
+                      style: TextStyle(
+                          color: CustomColors.white,
+                          fontSize: CustomFontSize.smallOutlinedButton),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                      }
+
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage4(
+                                    title: "Sign Up Page 4",
+                                  )));
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (states) {
+                          if (states.contains(MaterialState.pressed)) {
+                            return CustomColors.darkPrimaryColor;
+                          }
+                          return CustomColors.primaryColor;
+                        },
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                      ),
+                    ),
+                  )))
         ],
       ),
     );

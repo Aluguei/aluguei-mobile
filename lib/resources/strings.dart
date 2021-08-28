@@ -6,6 +6,7 @@ class Strings {
   static const fieldLastNameTitle = "Sobrenome*";
   static const fieldRGTitle = "RG*";
   static const fieldCPFTitle = "CPF*";
+  static const fieldCEPTitle = "CEP*";
   static const fieldGenderTitle = "Sexo*";
   static const fieldMaleGenderTitle = "Masculino";
   static const fieldFemaleGenderTitle = "Feminino";
@@ -22,15 +23,18 @@ class Strings {
   static const fieldFirstNameNull = "Insira seu nome";
   static const fieldLastNameNull = "Insira seu sobrenome";
   static const fieldPasswordNull = "Insira a senha";
+  static const fieldCEPNull = "Insira um CEP válido";
   static const confirmPasswordText = "Confirmar senha*";
   static const registrationText = "Cadastro";
   static const registrationAccessDataText = "1. Dados de acesso";
   static const registrationPersonalDataText = "2. Dados pessoais";
   static const registrationContactDataText = "3. Dados de contato";
+  static const registrationAddressDataText = "4. Dados de endereço";
   static const advanceText = "Avançar";
   static const fieldGenderDropDownList = ['Masculino','Feminino','Outro'];
   static const fieldGenderDropDownChose = 'Escolha um';
   static const fieldFirstPhoneTitle = 'Telefone 1*';
   static const fieldSecondPhoneTitle = 'Telefone 2';
   static const fieldFirstPhoneNull = "Insira seu telefone";
+
 }

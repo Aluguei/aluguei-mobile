@@ -1,5 +1,5 @@
-import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
-import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUpForm2.dart';
+import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUpForm4.dart';
+import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -57,7 +57,7 @@ class _SignUpPage4State extends State<SignUpPage4> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm2()],
+                          children: <Widget>[const SignUpForm4()],
                         ),
                       ),
                       Padding(
@@ -103,8 +103,8 @@ class _SignUpPage4State extends State<SignUpPage4> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpPage(
-                                    title: "SignUp Page 1",
+                              builder: (context) => SignUpPage3(
+                                    title: "SignUp Page 3",
                                   )),
                         );
                       },

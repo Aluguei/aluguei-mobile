@@ -52,6 +52,8 @@ class SignUpFormState extends State<SignUpForm> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -81,6 +83,7 @@ class SignUpFormState extends State<SignUpForm> {
               obscureText: true,
               autocorrect: false,
               enableSuggestions: false,
+              textInputAction: TextInputAction.next,
               style: TextStyle(
                 fontSize: CustomDimens.fieldFontSize,
                 color: CustomColors.textGrey,
@@ -112,6 +115,7 @@ class SignUpFormState extends State<SignUpForm> {
                 obscureText: true,
                 autocorrect: false,
                 enableSuggestions: false,
+                textInputAction: TextInputAction.next,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,

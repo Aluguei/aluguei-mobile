@@ -1,4 +1,4 @@
-import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
+import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUpForm3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -103,8 +103,8 @@ class _SignUpPage3State extends State<SignUpPage3> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpPage4(
-                                    title: "SignUp Page 4",
+                              builder: (context) => SignUpPage2(
+                                    title: "SignUp Page 2",
                                   )),
                         );
                       },
