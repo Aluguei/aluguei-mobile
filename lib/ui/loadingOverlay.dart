@@ -34,6 +34,7 @@ class _FullScreenLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5)),
+        //TODO ajusta para o icone aluguei do figma rodando
         child: Center(child: CircularProgressIndicator()));
   }
 }
