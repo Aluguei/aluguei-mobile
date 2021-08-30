@@ -1,6 +1,7 @@
 import 'package:aluguei/Repository/authRepository.dart';
 import 'package:aluguei/repository/models/loginModel.dart';
 import 'package:aluguei/ui/home/home.dart';
+import 'package:aluguei/ui/loadingOverlay.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -126,11 +127,10 @@ class LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         print(model.toString());
-                        //TODO  apresentar loading
-                        //TODO tratar erros
-                        Future.delayed(Duration.zero, () {
+                        final loading = LoadingOverlay.of(context);
+                        loading.during(Future.delayed(Duration.zero, () {
                           doLogin();
-                        });
+                        }));
                       }
                     },
                     style: ButtonStyle(
