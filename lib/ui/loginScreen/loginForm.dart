@@ -27,8 +27,8 @@ class LoginFormState extends State<LoginForm> {
     try {
       await authRepository.doLogin(model);
       openHomeScreen();
-    } catch (e) {
-      //TODO tratar retornos dos erros e apresentar ao usuario
+    } on Exception catch (e) {
+      //TODO tratar aqui os erros
       print(e);
     }
   }
