@@ -29,8 +29,33 @@ class LoginFormState extends State<LoginForm> {
       openHomeScreen();
     } on Exception catch (e) {
       //TODO tratar aqui os erros
-      print(e);
+      showAlertDialog(context, e.toString());
     }
+  }
+  showAlertDialog(BuildContext context, String message) {
+
+    // set up the button
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () { Navigator.of(context).pop();},
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Ocorreu um erro"),
+      content: Text(message),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
   openHomeScreen() {
