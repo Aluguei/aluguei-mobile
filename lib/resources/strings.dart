@@ -37,5 +37,6 @@ class Strings {
   static const fieldFirstPhoneTitle = 'Telefone 1*';
   static const fieldSecondPhoneTitle = 'Telefone 2';
   static const fieldFirstPhoneNull = "Insira seu telefone";
-
+  static const genericErrorMessage = "O sistema está indisponível no momento, tente novamente mais tarde.";
+  static const loginErrorMessage = "Ops, ocorreu um erro ao efetuar login, por favor verifique os dados e tente novamente.";
 }

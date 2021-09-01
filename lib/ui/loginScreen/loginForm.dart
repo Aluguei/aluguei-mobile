@@ -1,5 +1,7 @@
 import 'package:aluguei/Repository/authRepository.dart';
+import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/models/loginModel.dart';
+import 'package:aluguei/ui/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:aluguei/ui/loadingOverlay.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
@@ -23,39 +25,17 @@ class LoginFormState extends State<LoginForm> {
   final model = LoginModel("", "");
   final AuthRepository authRepository = AuthRepository();
 
-  doLogin() async {
+  Future<void> doLogin() async {
     try {
       await authRepository.doLogin(model);
       openHomeScreen();
-    } on Exception catch (e) {
-      //TODO tratar aqui os erros
-      showAlertDialog(context, e.toString());
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ErrorsMessages.showLoginErrorMessage(context);
     }
-  }
-  showAlertDialog(BuildContext context, String message) {
-
-    // set up the button
-    Widget okButton = TextButton(
-      child: Text("OK"),
-      onPressed: () { Navigator.of(context).pop();},
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("Ocorreu um erro"),
-      content: Text(message),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
   }
 
   openHomeScreen() {
@@ -153,9 +133,7 @@ class LoginFormState extends State<LoginForm> {
                       if (_formKey.currentState!.validate()) {
                         print(model.toString());
                         final loading = LoadingOverlay.of(context);
-                        loading.during(Future.delayed(Duration.zero, () {
-                          doLogin();
-                        }));
+                        loading.during(doLogin());
                       }
                     },
                     style: ButtonStyle(

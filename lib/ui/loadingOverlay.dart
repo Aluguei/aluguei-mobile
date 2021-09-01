@@ -38,7 +38,7 @@ class _FullScreenLoader extends StatelessWidget {
         decoration: BoxDecoration(color: CustomColors.backgroundGrey),
 
         child: Center(
-            child: Center(child: CircularProgressIndicator())
+            child: Image.asset('assets/images/loading-logo.gif')
         ));
   }
 }

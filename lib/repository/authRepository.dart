@@ -4,13 +4,11 @@ class AuthRepository {
 
   AuthApi service = AuthApi();
 
-  Future<bool> doLogin(model) async {
+  Future<void> doLogin(model) async {
     await service.doLogin(model);
-    return true;
   }
 
-  Future<bool> doRegistration(model) async {
+  Future<void> doRegistration(model) async {
     await service.doRegister(model);
-    return true;
   }
 }
