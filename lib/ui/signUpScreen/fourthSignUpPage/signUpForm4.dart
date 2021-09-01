@@ -1,3 +1,5 @@
+import 'package:aluguei/ui/home/home.dart';
+import 'package:aluguei/ui/loadings/loadingOverlay.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -19,6 +21,16 @@ class SignUpForm4State extends State<SignUpForm4> {
   final _formKey = GlobalKey<FormState>();
 
   String dropdownValue = Strings.fieldGenderDropDownChose;
+
+  openHomeScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => HomePage(
+                title: 'Home Page',
+              )),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +202,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                     enabledBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: CustomColors.fieldBorderColor)),
-                                        labelStyle: TextStyle(color: CustomColors.textGrey),
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 iconSize: 24,
@@ -228,17 +240,13 @@ class SignUpForm4State extends State<SignUpForm4> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        //TODO oii, comentei aqui so adicionei o loading e saber o final do fluxo
+                        final loading = LoadingOverlay.of(context);
+                        loading.during(Future.delayed(
+                          const Duration(seconds: 200),
+                          () => {openHomeScreen()},
+                        ));
                       }
-
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage3(
-                                    title: "Sign Up Page3",
-                                  )));
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
