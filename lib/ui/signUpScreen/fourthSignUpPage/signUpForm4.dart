@@ -1,3 +1,7 @@
+import 'package:aluguei/repository/api/appExceptions.dart';
+import 'package:aluguei/repository/authRepository.dart';
+import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:aluguei/ui/loadings/loadingOverlay.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
@@ -20,7 +24,25 @@ class SignUpForm4 extends StatefulWidget {
 class SignUpForm4State extends State<SignUpForm4> {
   final _formKey = GlobalKey<FormState>();
 
+  //TODO ajustar o inicializar de model ou algo do tipo depois,o model deve ser preenchido durante o fluxo todo de cadastro
+  final model = RegisterModel(
+      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
   String dropdownValue = Strings.fieldGenderDropDownChose;
+
+  final AuthRepository authRepository = AuthRepository();
+
+  Future<void> doRegistration() async {
+    try {
+      await authRepository.doRegistration(model);
+      openHomeScreen();
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ErrorsMessages.showRegistrationErrorMessage(context);
+    }
+  }
 
   openHomeScreen() {
     Navigator.push(
@@ -240,12 +262,9 @@ class SignUpForm4State extends State<SignUpForm4> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        //TODO oii, comentei aqui so adicionei o loading e saber o final do fluxo
+                        //TODO oii, comentei aqui para dizer que adicionei o loading e saber o final do fluxo
                         final loading = LoadingOverlay.of(context);
-                        loading.during(Future.delayed(
-                          const Duration(seconds: 200),
-                          () => {openHomeScreen()},
-                        ));
+                        loading.during(doRegistration());
                       }
                     },
                     style: ButtonStyle(

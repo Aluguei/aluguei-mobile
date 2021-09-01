@@ -12,4 +12,9 @@ class ErrorsMessages {
     ScaffoldMessenger.of(context).
     showSnackBar(SnackBar(content: Text(Strings.loginErrorMessage)));
   }
+
+  static showRegistrationErrorMessage(context) {
+    ScaffoldMessenger.of(context).
+    showSnackBar(SnackBar(content: Text(Strings.registerErrorMessage)));
+  }
 }
