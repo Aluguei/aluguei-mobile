@@ -1,9 +1,9 @@
 import 'package:aluguei/Repository/authRepository.dart';
 import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/models/loginModel.dart';
-import 'package:aluguei/ui/errorsMessages.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
-import 'package:aluguei/ui/loadingOverlay.dart';
+import 'package:aluguei/ui/loadings/loadingOverlay.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
