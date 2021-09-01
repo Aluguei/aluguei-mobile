@@ -264,7 +264,12 @@ class SignUpForm4State extends State<SignUpForm4> {
                       if (_formKey.currentState!.validate()) {
                         //TODO oii, comentei aqui para dizer que adicionei o loading e saber o final do fluxo
                         final loading = LoadingOverlay.of(context);
-                        loading.during(doRegistration());
+                        loading.during(Future.delayed(
+                          const Duration(seconds: 2),
+                          () => {
+                            //doRegistration()
+                          },
+                        ));
                       }
                     },
                     style: ButtonStyle(
