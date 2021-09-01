@@ -33,12 +33,12 @@ class LoadingOverlay {
 class _FullScreenLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Container(
         decoration: BoxDecoration(color: CustomColors.backgroundGrey),
 
         child: Center(
-            child: Image.asset('assets/images/loading-logo.gif')
+            child: Image.asset('assets/images/aluguei_loading.gif',
+                width:CustomDimens.animationLoadingSize, height:CustomDimens.animationLoadingSize)
         ));
   }
 }

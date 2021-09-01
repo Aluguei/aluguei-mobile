@@ -12,6 +12,7 @@ class CustomColors {
 
 class CustomDimens {
   static const logoSize = 197.0;
+  static const animationLoadingSize = 124.0;
   static const splashDuration = 2000;
   static const fieldFontSize = 16.0;
   static const fieldHeight = 1.0;
