@@ -103,6 +103,13 @@ class _SignUpPage3State extends State<SignUpPage3> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
+                              builder: (context) => SignUpPage3(
+                                title: "SignUp Page 3",
+                              )),
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
                               builder: (context) => SignUpPage2(
                                     title: "SignUp Page 2",
                                   )),

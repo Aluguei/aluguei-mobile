@@ -100,6 +100,13 @@ class _SignUpPage4State extends State<SignUpPage4> {
                       splashRadius: 20,
                       onPressed: () {
                         FocusScope.of(context).unfocus();
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage4(
+                                title: "SignUp Page 4",
+                              )),
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(

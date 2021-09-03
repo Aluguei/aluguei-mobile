@@ -10,6 +10,8 @@ import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/services.dart';
+import 'package:csc_picker/csc_picker.dart';
+
 
 class SignUpForm4 extends StatefulWidget {
   const SignUpForm4({Key? key}) : super(key: key);
@@ -27,6 +29,10 @@ class SignUpForm4State extends State<SignUpForm4> {
   final model = RegisterModel(
       "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
   String dropdownValue = Strings.fieldGenderDropDownChose;
+  String countryValue = "";
+  String stateValue = "";
+  String cityValue = "";
+  String address = "";
 
   final AuthRepository authRepository = AuthRepository();
 
@@ -112,62 +118,88 @@ class SignUpForm4State extends State<SignUpForm4> {
                   return null;
                 },
               )),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
-              child: DropdownButtonFormField<String>(
-                hint: Text(Strings.fieldEstateTitle),
-                onChanged: (selectedRegion) {
-                  print(selectedRegion);
-                },
-                icon: const Icon(Icons.arrow_downward),
-                style: TextStyle(
-                    fontSize: CustomDimens.fieldFontSize,
-                    color: CustomColors.textGrey,
-                    height: CustomDimens.fieldHeight),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelStyle: TextStyle(color: CustomColors.textGrey),
-                    fillColor: CustomColors.greyBackgroundColor,
-                    filled: true),
-                iconSize: 24,
-                elevation: 16,
-                items: Regioes.listaRegioes.map((String Estado) {
-                  return DropdownMenuItem(
-                    value: Estado,
-                    child: Text(Estado),
-                  );
-                }).toList(),
-              )),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
-              child: TextFormField(
-                textInputAction: TextInputAction.next,
-                style: TextStyle(
-                    fontSize: CustomDimens.fieldFontSize,
-                    color: CustomColors.textGrey,
-                    height: CustomDimens.fieldHeight),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldRGTitle,
-                    labelStyle: TextStyle(color: CustomColors.textGrey),
-                    fillColor: CustomColors.greyBackgroundColor,
-                    filled: true),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return Strings.fieldRGNull;
-                  }
-                  return null;
-                },
-              )),
+
+          /* TODO FAZER O CAMPO DE ESTADO, E CIDADE */
+
+          CSCPicker(
+            ///Enable disable state dropdown [OPTIONAL PARAMETER]
+            showStates: true,
+
+            /// Enable disable city drop down [OPTIONAL PARAMETER]
+            showCities: true,
+
+            ///Enable (get flag with country name) / Disable (Disable flag) / ShowInDropdownOnly (display flag in dropdown only) [OPTIONAL PARAMETER]
+            flagState: CountryFlag.DISABLE,
+
+            ///Dropdown box decoration to style your dropdown selector [OPTIONAL PARAMETER] (USE with disabledDropdownDecoration)
+            dropdownDecoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Colors.white,
+                border:
+                Border.all(color: Colors.grey.shade300, width: 1)),
+
+            ///Disabled Dropdown box decoration to style your dropdown selector [OPTIONAL PARAMETER]  (USE with disabled dropdownDecoration)
+            disabledDropdownDecoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Colors.grey.shade300,
+                border:
+                Border.all(color: Colors.grey.shade300, width: 1)),
+
+            ///Default Country
+            defaultCountry: DefaultCountry.Brazil,
+
+            ///selected item style [OPTIONAL PARAMETER]
+            selectedItemStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+            ),
+
+            ///DropdownDialog Heading style [OPTIONAL PARAMETER]
+            dropdownHeadingStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 17,
+                fontWeight: FontWeight.bold),
+
+            ///DropdownDialog Item style [OPTIONAL PARAMETER]
+            dropdownItemStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+            ),
+
+            ///Dialog box radius [OPTIONAL PARAMETER]
+            dropdownDialogRadius: 10.0,
+
+            ///Search bar radius [OPTIONAL PARAMETER]
+            searchBarRadius: 10.0,
+
+            ///triggers once country selected in dropdown
+            onCountryChanged: (value) {
+              setState(() {
+                ///store value in country variable
+                countryValue = value;
+              });
+            },
+
+            ///triggers once state selected in dropdown
+            onStateChanged: (value) {
+              setState(() {
+                ///store value in state variable
+                stateValue = value!;
+              });
+            },
+
+            ///triggers once city selected in dropdown
+            onCityChanged: (value) {
+              setState(() {
+                ///store value in city variable
+                cityValue = value!;
+              });
+            },
+          ),
+
+          /* TODO TESTAR O CAMPO DE ESTADO E CIDADE ACIMA */
+
+
           Padding(
               padding: const EdgeInsets.fromLTRB(
                   CustomDimens.smallSpacing,

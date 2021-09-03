@@ -1,4 +1,5 @@
 import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
+import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -126,12 +127,17 @@ class SignUpForm3State extends State<SignUpForm3> {
                           const SnackBar(content: Text('Processing Data')),
                         );
                       }
-
+                      Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage3(
+                                title: "Close SignUpPage 3",
+                              )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage4(
-                                    title: "Sign Up Page 4",
+                                    title: "Open SignUpPage 4",
                                   )));
                     },
                     style: ButtonStyle(

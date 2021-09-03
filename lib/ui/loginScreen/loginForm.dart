@@ -4,6 +4,7 @@ import 'package:aluguei/repository/models/loginModel.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:aluguei/ui/loadings/loadingOverlay.dart';
+import 'package:aluguei/ui/loginScreen/login.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -164,13 +165,24 @@ class LoginFormState extends State<LoginForm> {
                       child: Container(
                         child: TextButton(
                           onPressed: () {
+
+                            Navigator.pop(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage(
+                                    title: "Close LoginPage",
+                                  )),
+                            );
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SignUpPage(
-                                        title: "SignUp Page 1",
+                                        title: "Open SignUpPage 1",
                                       )),
                             );
+
+
                           },
                           child: Text(
                             Strings.signupButtonText,

@@ -106,6 +106,14 @@ class _SignUpPage2State extends State<SignUpPage2> {
                         0.0),
                     child: IconButton(splashRadius: 20,
                       onPressed: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  SignUpPage2(
+                                    title: "Close SignUp Page 2",
+                                  )),
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(

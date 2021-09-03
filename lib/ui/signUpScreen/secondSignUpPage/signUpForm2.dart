@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -227,11 +228,17 @@ class SignUpForm2State extends State<SignUpForm2> {
                         );
                       }
 
+                      Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage2(
+                                title: "Close SignUpPage2",
+                              )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
-                                    title: "Sign Up Page3",
+                                    title: "Open SignUpPage3",
                                   )));
                     },
                     style: ButtonStyle(

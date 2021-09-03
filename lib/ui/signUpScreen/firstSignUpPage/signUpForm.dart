@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/loginScreen/login.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -157,11 +158,18 @@ class SignUpFormState extends State<SignUpForm> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                    title: "Close LoginPage",
+                                  )),
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
-                                    title: "Sign Up Page2",
+                                    title: "Go to SignUpPage 2",
                                   )),
                         );
                       }

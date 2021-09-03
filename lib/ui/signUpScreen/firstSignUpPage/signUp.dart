@@ -100,11 +100,18 @@ class _SignUpPageState extends State<SignUpPage> {
                       splashRadius: 20,
                       onPressed: () {
                         FocusScope.of(context).unfocus();
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage(
+                                title: "Close SignUpPage 1",
+                              )),
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => LoginPage(
-                                    title: "Login Page",
+                                    title: "Open LoginPage",
                                   )),
                         );
                       },

@@ -27,7 +27,7 @@ dependencies:
   brasil_fields: 1.1.4
   flutter:
     sdk: flutter
-
+  csc_picker: ^0.2.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
