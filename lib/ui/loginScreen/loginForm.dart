@@ -178,11 +178,9 @@ class LoginFormState extends State<LoginForm> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SignUpPage(
-                                        title: "Open SignUpPage 1",
+                                        title: "Open SignUpPage",
                                       )),
                             );
-
-
                           },
                           child: Text(
                             Strings.signupButtonText,

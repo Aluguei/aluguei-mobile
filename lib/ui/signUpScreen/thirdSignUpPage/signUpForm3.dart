@@ -29,6 +29,18 @@ class SignUpForm3State extends State<SignUpForm3> {
       child: Column(
         children: <Widget>[
           Padding(
+            padding: const EdgeInsets.fromLTRB(
+                CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing,
+                0.0),
+            child: Image.asset(
+              "assets/images/logo_aluguei.png",
+              height: CustomDimens.logoSize,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Text(Strings.registrationText,
