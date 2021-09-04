@@ -7,6 +7,7 @@ import 'package:aluguei/ui/loadings/loadingOverlay.dart';
 import 'package:aluguei/ui/loginScreen/login.dart';
 import 'package:aluguei/ui/passwordRecoveryPage/passwordRecovery.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';

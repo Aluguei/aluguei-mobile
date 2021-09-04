@@ -1,21 +1,21 @@
 class RegisterModel {
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String password;
-  final String passwordConfirmation;
-  final String RG;
-  final String CPF;
-  final String gender; // ENUM [ female, other, male ]
-  final String phoneOne;
-  final String phoneTwo;
-  final String CEP;
-  final String state;
-  final String city;
-  final String address;
-  final String neighborhood;
-  final String number;
-  final String complement;
+  String email;
+  String firstName;
+  String lastName;
+  String password;
+  String passwordConfirmation;
+  String RG;
+  String CPF;
+  String gender; // ENUM [ female, other, male ]
+  String phoneOne;
+  String phoneTwo;
+  String CEP;
+  String state;
+  String city;
+  String address;
+  String neighborhood;
+  String number;
+  String complement;
 
   RegisterModel(
       this.email,

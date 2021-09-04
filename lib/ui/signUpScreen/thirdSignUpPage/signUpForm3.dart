@@ -21,6 +21,7 @@ class SignUpForm3 extends StatefulWidget {
 
 class SignUpForm3State extends State<SignUpForm3> {
   SignUpForm3State(this.model);
+
   final RegisterModel model;
 
   final _formKey = GlobalKey<FormState>();
@@ -35,11 +36,8 @@ class SignUpForm3State extends State<SignUpForm3> {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-                CustomDimens.smallSpacing,
-                CustomDimens.smallSpacing,
-                CustomDimens.smallSpacing,
-                0.0),
+            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Image.asset(
               "assets/images/logo_aluguei.png",
               height: CustomDimens.logoSize,
@@ -96,6 +94,8 @@ class SignUpForm3State extends State<SignUpForm3> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldFirstPhoneNull;
                   }
+
+                  model.phoneOne = value;
                   return null;
                 },
               )),
@@ -124,6 +124,11 @@ class SignUpForm3State extends State<SignUpForm3> {
                 fillColor: CustomColors.greyBackgroundColor,
                 filled: true,
               ),
+              validator: (value) {
+                if (value != null) {
+                  model.phoneTwo = value;
+                }
+              },
             ),
           ),
           Padding(
@@ -149,9 +154,9 @@ class SignUpForm3State extends State<SignUpForm3> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
-                                title: "Close SignUpPage 3",
-                                model: model,
-                              )));
+                                    title: "Close SignUpPage 3",
+                                    model: model,
+                                  )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(

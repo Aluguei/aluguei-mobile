@@ -90,6 +90,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldFirstNameNull;
                   }
+
+                  model.firstName = value;
                   return null;
                 },
               )),
@@ -117,6 +119,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldLastNameNull;
                 }
+
+                model.lastName = value;
                 return null;
               },
             ),
@@ -144,6 +148,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
                   }
+
+                  model.RG = value;
                   return null;
                 },
               )),
@@ -180,6 +186,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                       UtilBrasilFields.isCNPJValido(value)) {
                     return Strings.fieldCPFNull;
                   }
+
+                  model.CPF = value;
                   return null;
                 },
               )),
@@ -211,6 +219,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null || value.isEmpty || value == 'Escolha um') {
                     return Strings.fieldGenderNull;
                   }
+
+                  model.gender = value;
                 },
                 onChanged: (String? newValue) {
                   setState(() {

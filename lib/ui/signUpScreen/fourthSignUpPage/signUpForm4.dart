@@ -131,6 +131,8 @@ class SignUpForm4State extends State<SignUpForm4> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
                   }
+
+                  model.CEP = value;
                   return null;
                 },
               )),
@@ -193,6 +195,7 @@ class SignUpForm4State extends State<SignUpForm4> {
               setState(() {
                 ///store value in country variable
                 countryValue = value;
+                model.address = value;
               });
             },
 
@@ -201,6 +204,7 @@ class SignUpForm4State extends State<SignUpForm4> {
               setState(() {
                 ///store value in state variable
                 stateValue = value!;
+                model.state = value;
               });
             },
 
@@ -209,6 +213,7 @@ class SignUpForm4State extends State<SignUpForm4> {
               setState(() {
                 ///store value in city variable
                 cityValue = value!;
+                model.city = value;
               });
             },
           ),
@@ -250,6 +255,8 @@ class SignUpForm4State extends State<SignUpForm4> {
                       ) {
                     return Strings.fieldCPFNull;
                   }
+
+                  model.CPF = value;
                   return null;
                 },
               )),
@@ -310,6 +317,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         final loading = LoadingOverlay.of(context);
+                        //TODO ajustar quando os campos faltantes estiverem ok
+                        model.neighborhood = "test";
+                        model.number = "000";
+                        model.complement = "casa teste";
                         loading.during(doRegistration(model));
                       }
                     },

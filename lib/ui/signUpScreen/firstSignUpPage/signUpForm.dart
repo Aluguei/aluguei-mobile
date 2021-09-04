@@ -20,6 +20,8 @@ class SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
   var confirmPass;
+  final model = RegisterModel(
+      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +89,7 @@ class SignUpFormState extends State<SignUpForm> {
                       !EmailValidator.validate(value)) {
                     return Strings.fieldEmailNull;
                   }
+                  model.email = value;
                   return null;
                 },
               )),
@@ -150,6 +153,8 @@ class SignUpFormState extends State<SignUpForm> {
                   if (value != confirmPass) {
                     return Strings.forgotPasswordDifference;
                   }
+
+                  model.password = value;
                   return null;
                 },
               )),
@@ -178,9 +183,6 @@ class SignUpFormState extends State<SignUpForm> {
                                     title: "Close LoginPage",
                                   )),
                         );
-
-                        final model = RegisterModel(
-                            "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
                         Navigator.push(
                           context,
