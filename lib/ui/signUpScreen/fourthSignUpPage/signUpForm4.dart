@@ -318,9 +318,15 @@ class SignUpForm4State extends State<SignUpForm4> {
                       if (_formKey.currentState!.validate()) {
                         final loading = LoadingOverlay.of(context);
                         //TODO ajustar quando os campos faltantes estiverem ok
+                        //TODO Invalid Request: {"fields":[{"gender":"precisa ser uma das opções:  Feminino, Masculino, Outro"},{"CEP":"precisa ser um CEP válido"}],"statusCode":400,"message":"Bad Request Exception"}
+                        model.CEP = "13020160";
+                        model.address = "Rua Ademar Vieira 10 Quadra 45 Lote 179";
+                        model.city = "Aiquara";
+                        model.state = "BA";
                         model.neighborhood = "test";
                         model.number = "000";
                         model.complement = "casa teste";
+                        model.gender = "Masculino";
                         loading.during(doRegistration(model));
                       }
                     },
