@@ -1,3 +1,4 @@
+import 'package:aluguei/repository/models/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUpForm4.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,15 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 
 class SignUpPage4 extends StatefulWidget {
-  SignUpPage4({Key? key, required this.title}) : super(key: key);
+  SignUpPage4({Key? key, required this.title, required this.model}) : super(key: key);
 
   final String title;
+  final RegisterModel model;
 
   @override
-  _SignUpPage4State createState() => _SignUpPage4State();
+  _SignUpPage4State createState() => _SignUpPage4State(model);
 }
 
 class _SignUpPage4State extends State<SignUpPage4> {
+  _SignUpPage4State(this.model);
+  final RegisterModel model;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,7 +51,7 @@ class _SignUpPage4State extends State<SignUpPage4> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm4()],
+                          children: <Widget>[SignUpForm4(model: model,)],
                         ),
                       ),
                       Padding(
@@ -94,6 +99,7 @@ class _SignUpPage4State extends State<SignUpPage4> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage4(
                                 title: "SignUp Page 4",
+                                model: model,
                               )),
                         );
                         Navigator.push(
@@ -101,6 +107,7 @@ class _SignUpPage4State extends State<SignUpPage4> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
                                     title: "SignUp Page 3",
+                                    model: model,
                                   )),
                         );
                       },

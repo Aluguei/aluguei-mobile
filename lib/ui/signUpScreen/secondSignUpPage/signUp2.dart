@@ -1,3 +1,4 @@
+import 'package:aluguei/repository/models/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUpForm2.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,12 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 
 class SignUpPage2 extends StatefulWidget {
-  SignUpPage2({Key? key, required this.title}) : super(key: key);
+  SignUpPage2({Key? key, required this.title, required this.model}) : super(key: key);
 
   final String title;
+  final RegisterModel model;
 
   @override
-  _SignUpPage2State createState() => _SignUpPage2State();
+  _SignUpPage2State createState() => _SignUpPage2State(model);
 }
 
 /*TODO
@@ -22,6 +24,9 @@ class SignUpPage2 extends StatefulWidget {
 */
 
 class _SignUpPage2State extends State<SignUpPage2> {
+  _SignUpPage2State(this.model);
+  final RegisterModel model;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,7 +59,7 @@ class _SignUpPage2State extends State<SignUpPage2> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm2()],
+                          children: <Widget>[SignUpForm2(model: model)],
                         ),
                       ),
                       Padding(
@@ -101,6 +106,7 @@ class _SignUpPage2State extends State<SignUpPage2> {
                               builder: (context) =>
                                   SignUpPage2(
                                     title: "Close SignUp Page 2",
+                                    model: model,
                                   )),
                         );
                         Navigator.push(

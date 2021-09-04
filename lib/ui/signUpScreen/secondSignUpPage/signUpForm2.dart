@@ -1,3 +1,4 @@
+import 'package:aluguei/repository/models/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +9,19 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/services.dart';
 
 class SignUpForm2 extends StatefulWidget {
-  const SignUpForm2({Key? key}) : super(key: key);
+  SignUpForm2({Key? key, required this.model}) : super(key: key);
+
+  final RegisterModel model;
 
   @override
   SignUpForm2State createState() {
-    return SignUpForm2State();
+    return SignUpForm2State(model);
   }
 }
 
 class SignUpForm2State extends State<SignUpForm2> {
+  SignUpForm2State(this.model);
+  final RegisterModel model;
   final _formKey = GlobalKey<FormState>();
 
   String dropdownValue = Strings.fieldGenderDropDownChose;
@@ -245,12 +250,14 @@ class SignUpForm2State extends State<SignUpForm2> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
                                 title: "Close SignUpPage2",
+                                model: model,
                               )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
                                     title: "Open SignUpPage3",
+                                    model: model,
                                   )));
                     },
                     style: ButtonStyle(

@@ -14,20 +14,24 @@ import 'package:csc_picker/csc_picker.dart';
 
 
 class SignUpForm4 extends StatefulWidget {
-  const SignUpForm4({Key? key}) : super(key: key);
+  const SignUpForm4({Key? key, required this.model}) : super(key: key);
+
+  final RegisterModel model;
 
   @override
   SignUpForm4State createState() {
-    return SignUpForm4State();
+    return SignUpForm4State(model);
   }
 }
 
 class SignUpForm4State extends State<SignUpForm4> {
+  SignUpForm4State(this.model);
+  final RegisterModel model;
+
   final _formKey = GlobalKey<FormState>();
 
   //TODO ajustar o inicializar de model ou algo do tipo depois,o model deve ser preenchido durante o fluxo todo de cadastro
-  final model = RegisterModel(
-      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+
   String dropdownValue = Strings.fieldGenderDropDownChose;
   String countryValue = "";
   String stateValue = "";
@@ -36,7 +40,7 @@ class SignUpForm4State extends State<SignUpForm4> {
 
   final AuthRepository authRepository = AuthRepository();
 
-  Future<void> doRegistration() async {
+  Future<void> doRegistration(model) async {
     try {
       await authRepository.doRegistration(model);
       openHomeScreen();
@@ -305,14 +309,8 @@ class SignUpForm4State extends State<SignUpForm4> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        //TODO oii, comentei aqui para dizer que adicionei o loading e saber o final do fluxo
                         final loading = LoadingOverlay.of(context);
-                        loading.during(Future.delayed(
-                          const Duration(seconds: 2),
-                          () => {
-                            //doRegistration()
-                          },
-                        ));
+                        loading.during(doRegistration(model));
                       }
                     },
                     style: ButtonStyle(

@@ -1,3 +1,4 @@
+import 'package:aluguei/repository/models/registerModel.dart';
 import 'package:aluguei/ui/loginScreen/login.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:flutter/material.dart';
@@ -177,11 +178,16 @@ class SignUpFormState extends State<SignUpForm> {
                                     title: "Close LoginPage",
                                   )),
                         );
+
+                        final model = RegisterModel(
+                            "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
                                     title: "Go to SignUpPage 2",
+                                    model: model,
                                   )),
                         );
                       }

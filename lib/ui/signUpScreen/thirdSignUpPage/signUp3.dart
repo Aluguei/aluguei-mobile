@@ -1,3 +1,4 @@
+import 'package:aluguei/repository/models/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUpForm3.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,15 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 
 class SignUpPage3 extends StatefulWidget {
-  SignUpPage3({Key? key, required this.title}) : super(key: key);
+  SignUpPage3({Key? key, required this.title, required this.model}) : super(key: key);
 
   final String title;
+  final RegisterModel model;
 
   @override
-  _SignUpPage3State createState() => _SignUpPage3State();
+  _SignUpPage3State createState() => _SignUpPage3State(model);
 }
 
 class _SignUpPage3State extends State<SignUpPage3> {
+  _SignUpPage3State(this.model);
+  final RegisterModel model;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,7 +50,7 @@ class _SignUpPage3State extends State<SignUpPage3> {
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[const SignUpForm3()],
+                          children: <Widget>[SignUpForm3(model: model,)],
                         ),
                       ),
                       Padding(
@@ -93,6 +98,7 @@ class _SignUpPage3State extends State<SignUpPage3> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
                                     title: "Close SignUp Page 3",
+                                    model: model,
                                   )),
                         );
                         Navigator.push(
@@ -100,6 +106,7 @@ class _SignUpPage3State extends State<SignUpPage3> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
                                     title: "Open SignUp Page 2",
+                                    model: model,
                                   )),
                         );
                       },
