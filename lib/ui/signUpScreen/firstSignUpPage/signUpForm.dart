@@ -121,6 +121,7 @@ class SignUpFormState extends State<SignUpForm> {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldPasswordNull;
                 }
+                model.password = value;
                 return null;
               },
             ),
@@ -154,7 +155,7 @@ class SignUpFormState extends State<SignUpForm> {
                     return Strings.forgotPasswordDifference;
                   }
 
-                  model.password = value;
+                  model.passwordConfirmation = value;
                   return null;
                 },
               )),
