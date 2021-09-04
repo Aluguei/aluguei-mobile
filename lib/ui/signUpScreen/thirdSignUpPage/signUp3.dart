@@ -42,7 +42,6 @@ class _SignUpPage3State extends State<SignUpPage3> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
-
                       Card(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -89,18 +88,18 @@ class _SignUpPage3State extends State<SignUpPage3> {
                       splashRadius: 20,
                       onPressed: () {
                         FocusScope.of(context).unfocus();
-                        Navigator.push(
+                        Navigator.pop(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage3(
-                                title: "SignUp Page 3",
-                              )),
+                                    title: "Close SignUp Page 3",
+                                  )),
                         );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
-                                    title: "SignUp Page 2",
+                                    title: "Open SignUp Page 2",
                                   )),
                         );
                       },

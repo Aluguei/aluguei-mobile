@@ -16,7 +16,8 @@ class Strings {
   static const fieldPasswordTitle = "Senha*";
   static const loginButtonText = "Entrar";
   static const signupButtonText = "Cadastrar";
-  static const forgotPasswordButtonText = "Esqueci a senha";
+  static const forgotPasswordText = "Esqueci a senha";
+  static const recoverySuccessful = "Sucesso!";
   static const forgotPasswordDifference = "Senhas não são iguais!";
   static const fieldEmailNull = "Insira um e-mail válido";
   static const fieldGenderNull = "Insira uma opção válida";
@@ -41,4 +42,6 @@ class Strings {
   static const genericErrorMessage = "O sistema está indisponível no momento, tente novamente mais tarde.";
   static const loginErrorMessage = "Ops, ocorreu um erro ao efetuar login, por favor verifique os dados e tente novamente.";
   static const registerErrorMessage = "Ops, ocorreu um erro ao cadastrar, por favor verifique os dados e tente novamente.";
+  static const recoverySuccessfulMessage = "Enviamos um e-mail com instruções.";
+
 }
