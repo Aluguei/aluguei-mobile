@@ -224,13 +224,13 @@ class SignUpForm2State extends State<SignUpForm2> {
                   }
                   if(value == 'Feminino'){
 
-                    model.gender = 'Female';
+                    model.gender = 'female';
                   }else if(value == 'Masculino'){
 
-                    model.gender = 'Male';
+                    model.gender = 'male';
                   }else{
 
-                    model.gender = 'Other';
+                    model.gender = 'other';
                   }
                 },
                 onChanged: (String? newValue) {
