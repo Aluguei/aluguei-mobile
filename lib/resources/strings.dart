@@ -20,7 +20,7 @@ class Strings {
   static const recoverySuccessful = "Sucesso!";
   static const forgotPasswordDifference = "Senhas não são iguais!";
   static const fieldEmailNull = "Insira um e-mail válido";
-  static const fieldGenderNull = "Insira uma opção válida";
+  static const fieldDropdownInvalidOption = "Insira uma opção válida";
   static const fieldCPFNull = "Insira um CPF válido";
   static const fieldRGNull = "Insira um RG válido";
   static const fieldFirstNameNull = "Insira seu nome";
@@ -34,8 +34,7 @@ class Strings {
   static const registrationContactDataText = "3. Dados de contato";
   static const registrationAddressDataText = "4. Dados de endereço";
   static const advanceText = "Avançar";
-  static const fieldGenderDropDownList = ['Masculino','Feminino','Outro'];
-  static const fieldGenderDropDownChose = 'Escolha um';
+  static const fieldDropDownChose = 'Escolha um(a)';
   static const fieldFirstPhoneTitle = 'Telefone 1*';
   static const fieldSecondPhoneTitle = 'Telefone 2';
   static const fieldFirstPhoneNull = "Insira seu telefone";
@@ -43,5 +42,10 @@ class Strings {
   static const loginErrorMessage = "Ops, ocorreu um erro ao efetuar login, por favor verifique os dados e tente novamente.";
   static const registerErrorMessage = "Ops, ocorreu um erro ao cadastrar, por favor verifique os dados e tente novamente.";
   static const recoverySuccessfulMessage = "Enviamos um e-mail com instruções.";
+
+  //Dropdowns
+  static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
+  static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
+  static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary
 
 }

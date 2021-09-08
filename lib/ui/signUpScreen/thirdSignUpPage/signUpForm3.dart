@@ -26,7 +26,7 @@ class SignUpForm3State extends State<SignUpForm3> {
 
   final _formKey = GlobalKey<FormState>();
 
-  String dropdownValue = Strings.fieldGenderDropDownChose;
+  String dropdownValue = Strings.fieldDropDownChose;
 
   @override
   Widget build(BuildContext context) {

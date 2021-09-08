@@ -24,7 +24,7 @@ class SignUpForm2State extends State<SignUpForm2> {
   final RegisterModel model;
   final _formKey = GlobalKey<FormState>();
 
-  String dropdownValue = Strings.fieldGenderDropDownChose;
+  String dropdownValue = Strings.fieldDropDownChose;
 
   @override
   Widget build(BuildContext context) {
@@ -216,8 +216,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                 iconSize: 24,
                 elevation: 16,
                 validator: (value) {
-                  if (value == null || value.isEmpty || value == 'Escolha um') {
-                    return Strings.fieldGenderNull;
+                  if (value == null || value.isEmpty || value == 'Escolha um(a)') {
+                    return Strings.fieldDropdownInvalidOption;
                   }
 
                   model.gender = value;
@@ -227,7 +227,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                     dropdownValue = newValue!;
                   });
                 },
-                items: <String>['Escolha um', 'Masculino', 'Feminino', 'Outro']
+                items: Strings.fieldGenderDropDownList
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
