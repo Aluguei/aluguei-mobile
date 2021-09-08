@@ -4,6 +4,9 @@ class Strings {
   static const fieldEmailTitle = "E-mail*";
   static const fieldFirstNameTitle = "Nome*";
   static const fieldLastNameTitle = "Sobrenome*";
+  static const fieldStreet = "Rua*";
+  static const fieldNeighbourhood = "Bairro*";
+  static const fieldNumber = "Nº*";
   static const fieldRGTitle = "RG*";
   static const fieldCPFTitle = "CPF*";
   static const fieldEstateTitle = "Estado*";
@@ -23,6 +26,9 @@ class Strings {
   static const fieldDropdownInvalidOption = "Insira uma opção válida";
   static const fieldCPFNull = "Insira um CPF válido";
   static const fieldRGNull = "Insira um RG válido";
+  static const fieldStreetNull = "Insira a rua";
+  static const fieldNeighbourhoodNull = "Insira o bairro";
+  static const fieldNumberNull = "Insira o número";
   static const fieldFirstNameNull = "Insira seu nome";
   static const fieldLastNameNull = "Insira seu sobrenome";
   static const fieldPasswordNull = "Insira a senha";

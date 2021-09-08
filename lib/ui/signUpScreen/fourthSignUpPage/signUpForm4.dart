@@ -153,13 +153,13 @@ class SignUpForm4State extends State<SignUpForm4> {
                     filled: true),
                 iconSize: 24,
                 elevation: 16,
-
                 validator: (value) {
-                  if (value == null || value.isEmpty || value == 'Escolha um(a)') {
-
+                  if (value == null ||
+                      value.isEmpty ||
+                      value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
                   }
-                  model.state= value;
+                  model.state = value;
                   return null;
                 },
                 onChanged: (String? newValue) {
@@ -167,7 +167,6 @@ class SignUpForm4State extends State<SignUpForm4> {
                     dropdownValue2 = newValue!;
                   });
                 },
-
                 items: Strings.fieldStateDropDownList
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
@@ -201,10 +200,12 @@ class SignUpForm4State extends State<SignUpForm4> {
                 iconSize: 24,
                 elevation: 16,
                 validator: (value) {
-                  if (value == null || value.isEmpty || value == 'Escolha um(a)') {
+                  if (value == null ||
+                      value.isEmpty ||
+                      value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
                   }
-                  model.state= value;
+                  model.state = value;
                   return null;
                 },
                 onChanged: (String? newValue) {
@@ -219,6 +220,132 @@ class SignUpForm4State extends State<SignUpForm4> {
                     child: Text(value),
                   );
                 }).toList(),
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldStreet,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldStreetNull;
+                  }
+                  model.address = value;
+                  return null;
+                },
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldNeighbourhood,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldNeighbourhoodNull;
+                  }
+                  model.neighborhood = value;
+                  return null;
+                },
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldNumber,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldNumberNull;
+                  }
+                  model.number = value;
+                  return null;
+                },
+              )),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  CustomDimens.smallSpacing,
+                  CustomDimens.verySmallSpacing,
+                  CustomDimens.smallSpacing,
+                  CustomDimens.mediumSpacing),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                autofocus: true,
+                style: TextStyle(
+                    fontSize: CustomDimens.fieldFontSize,
+                    color: CustomColors.textGrey,
+                    height: CustomDimens.fieldHeight),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: CustomColors.fieldBorderColor)),
+                    labelText: Strings.fieldNumber,
+                    labelStyle: TextStyle(color: CustomColors.textGrey),
+                    fillColor: CustomColors.greyBackgroundColor,
+                    filled: true),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.fieldNumberNull;
+                  }
+                  model.number = value;
+                  return null;
+                },
               )),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,

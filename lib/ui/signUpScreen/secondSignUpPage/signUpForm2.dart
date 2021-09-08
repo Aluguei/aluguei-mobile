@@ -21,6 +21,7 @@ class SignUpForm2 extends StatefulWidget {
 
 class SignUpForm2State extends State<SignUpForm2> {
   SignUpForm2State(this.model);
+
   final RegisterModel model;
   final _formKey = GlobalKey<FormState>();
 
@@ -34,11 +35,8 @@ class SignUpForm2State extends State<SignUpForm2> {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-                CustomDimens.smallSpacing,
-                CustomDimens.smallSpacing,
-                CustomDimens.smallSpacing,
-                0.0),
+            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Image.asset(
               "assets/images/logo_aluguei.png",
               height: CustomDimens.logoSize,
@@ -144,6 +142,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
@@ -216,11 +217,21 @@ class SignUpForm2State extends State<SignUpForm2> {
                 iconSize: 24,
                 elevation: 16,
                 validator: (value) {
-                  if (value == null || value.isEmpty || value == 'Escolha um(a)') {
+                  if (value == null ||
+                      value.isEmpty ||
+                      value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
                   }
+                  if(value == 'Feminino'){
 
-                  model.gender = value;
+                    model.gender = 'Female';
+                  }else if(value == 'Masculino'){
+
+                    model.gender = 'Male';
+                  }else{
+
+                    model.gender = 'Other';
+                  }
                 },
                 onChanged: (String? newValue) {
                   setState(() {
@@ -259,9 +270,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => SignUpPage2(
-                                title: "Close SignUpPage2",
-                                model: model,
-                              )));
+                                    title: "Close SignUpPage2",
+                                    model: model,
+                                  )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
