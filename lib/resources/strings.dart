@@ -7,6 +7,7 @@ class Strings {
   static const fieldStreet = "Rua*";
   static const fieldNeighbourhood = "Bairro*";
   static const fieldNumber = "Nº*";
+  static const fieldComplement = "Complemento";
   static const fieldRGTitle = "RG*";
   static const fieldCPFTitle = "CPF*";
   static const fieldEstateTitle = "Estado*";

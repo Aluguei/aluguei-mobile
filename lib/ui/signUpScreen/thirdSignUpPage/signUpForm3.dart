@@ -93,10 +93,10 @@ class SignUpForm3State extends State<SignUpForm3> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldFirstPhoneNull;
+                  } else {
+                    model.phoneOne = value;
+                    return null;
                   }
-
-                  model.phoneOne = value;
-                  return null;
                 },
               )),
           Padding(

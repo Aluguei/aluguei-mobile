@@ -25,6 +25,7 @@ dependencies:
   animated_splash_screen: ^1.1.0
   email_validator: ^2.0.1
   brasil_fields: 1.1.4
+  get: ^4.3.8
   flutter:
     sdk: flutter
   csc_picker: ^0.2.5

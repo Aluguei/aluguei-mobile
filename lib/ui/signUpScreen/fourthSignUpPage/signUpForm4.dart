@@ -30,7 +30,7 @@ class SignUpForm4State extends State<SignUpForm4> {
   final _formKey = GlobalKey<FormState>();
 
   //TODO ajustar o inicializar de model ou algo do tipo depois,o model deve ser preenchido durante o fluxo todo de cadastro
-
+  //TODO VERIFICAR PORQUE TODAS AS VALIDACOES DAS PAGINAS 2 E 3 PARARAM DE FUNCIONAR!
   String dropdownValue2 = Strings.fieldDropDownChose;
   String dropdownValue3 = Strings.fieldDropDownChose;
 
@@ -123,10 +123,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
+                  } else {
+                    model.CEP = value;
+                    return null;
                   }
-
-                  model.CEP = value;
-                  return null;
                 },
               )),
           Padding(
@@ -158,9 +158,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                       value.isEmpty ||
                       value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
+                  } else {
+                    model.state = value;
+                    return null;
                   }
-                  model.state = value;
-                  return null;
                 },
                 onChanged: (String? newValue) {
                   setState(() {
@@ -204,9 +205,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                       value.isEmpty ||
                       value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
+                  } else {
+                    model.state = value;
+                    return null;
                   }
-                  model.state = value;
-                  return null;
                 },
                 onChanged: (String? newValue) {
                   setState(() {
@@ -246,9 +248,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldStreetNull;
+                  } else {
+                    model.address = value;
+                    return null;
                   }
-                  model.address = value;
-                  return null;
                 },
               )),
           Padding(
@@ -276,9 +279,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldNeighbourhoodNull;
+                  } else {
+                    model.neighborhood = value;
+                    return null;
                   }
-                  model.neighborhood = value;
-                  return null;
                 },
               )),
           Padding(
@@ -309,9 +313,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldNumberNull;
+                  } else {
+                    model.number = value;
+                    return null;
                   }
-                  model.number = value;
-                  return null;
                 },
               )),
           Padding(
@@ -321,32 +326,26 @@ class SignUpForm4State extends State<SignUpForm4> {
                   CustomDimens.smallSpacing,
                   CustomDimens.mediumSpacing),
               child: TextFormField(
-                textInputAction: TextInputAction.next,
-                autofocus: true,
-                style: TextStyle(
-                    fontSize: CustomDimens.fieldFontSize,
-                    color: CustomColors.textGrey,
-                    height: CustomDimens.fieldHeight),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldNumber,
-                    labelStyle: TextStyle(color: CustomColors.textGrey),
-                    fillColor: CustomColors.greyBackgroundColor,
-                    filled: true),
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return Strings.fieldNumberNull;
-                  }
-                  model.number = value;
-                  return null;
-                },
-              )),
+                  textInputAction: TextInputAction.next,
+                  autofocus: true,
+                  style: TextStyle(
+                      fontSize: CustomDimens.fieldFontSize,
+                      color: CustomColors.textGrey,
+                      height: CustomDimens.fieldHeight),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: CustomColors.fieldBorderColor)),
+                      labelText: Strings.fieldComplement,
+                      labelStyle: TextStyle(color: CustomColors.textGrey),
+                      fillColor: CustomColors.greyBackgroundColor,
+                      filled: true),
+                  validator: (value) {
+                    if (value != null) {
+                      model.complement = value;
+                    }
+                  })),
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.smallSpacing),
