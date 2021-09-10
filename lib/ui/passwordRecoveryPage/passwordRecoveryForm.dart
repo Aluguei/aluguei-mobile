@@ -71,6 +71,7 @@ class passwordRecoveryFormState extends State<passwordRecoveryForm> {
                   CustomDimens.mediumSpacing),
               child: TextFormField(
                 textInputAction: TextInputAction.next,
+                autofocus: true,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -94,7 +95,10 @@ class passwordRecoveryFormState extends State<passwordRecoveryForm> {
                       value.isEmpty ||
                       UtilBrasilFields.isCPFValido(value) ||
                       UtilBrasilFields.isCNPJValido(value)) {
+
                     return Strings.fieldCPFNull;
+
+
                   }
                   return null;
                 },
@@ -116,10 +120,13 @@ class passwordRecoveryFormState extends State<passwordRecoveryForm> {
                     onPressed: () {
                       showDialog(context: context,
                           builder: (BuildContext context){
-                            return passwordRecoveryOk(
+                            return PasswordRecoveryOk(
                             );
                           }
                       );
+
+                      //TODO Colocar a função de enviar o email
+
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(

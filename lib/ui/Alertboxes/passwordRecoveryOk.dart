@@ -2,14 +2,15 @@ import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/material.dart';
 
-class passwordRecoveryOk extends StatefulWidget {
-  const passwordRecoveryOk({Key? key}) : super(key: key);
+
+class PasswordRecoveryOk extends StatefulWidget {
+  const PasswordRecoveryOk({Key? key}) : super(key: key);
 
   @override
-  _passwordRecoveryOkState createState() => _passwordRecoveryOkState();
+  _PasswordRecoveryOkState createState() => _PasswordRecoveryOkState();
 }
 
-class _passwordRecoveryOkState extends State<passwordRecoveryOk> {
+class _PasswordRecoveryOkState extends State<PasswordRecoveryOk> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -42,15 +43,36 @@ class _passwordRecoveryOkState extends State<passwordRecoveryOk> {
                     Column(
                       children: <Widget>[
                         Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                                310.0,
+                                CustomDimens.verySmallSpacing,
+                                CustomDimens.verySmallSpacing,
+                                0.0),
+                            child: IconButton(
+                              splashRadius: 20,
+                              onPressed: () {
+                                FocusScope.of(context).unfocus();
+                                Navigator.pop(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          PasswordRecoveryOk()),
+                                );
+                              },
+                              icon:
+                                  Image.asset("assets/images/closeButton.png"),
+                              iconSize: CustomDimens.closePopupButton,
+                            )),
+                        Padding(
                           padding: const EdgeInsets.fromLTRB(
                               CustomDimens.smallSpacing,
                               CustomDimens.smallSpacing,
                               CustomDimens.smallSpacing,
-                              0.0),
+                              CustomDimens.smallSpacing),
                           child: Image.asset(
                             "assets/images/likeHand.png",
-                            height: CustomDimens.logoSize,
                             fit: BoxFit.scaleDown,
+                            height: CustomDimens.likeSize,
                           ),
                         ),
                         Padding(
@@ -59,10 +81,23 @@ class _passwordRecoveryOkState extends State<passwordRecoveryOk> {
                               0.0,
                               CustomDimens.smallSpacing,
                               0.0),
-                          child: Text(Strings.recoverySuccessful,
+                          child: Text(
+                            Strings.recoverySuccessful,
+                            style: TextStyle(
+                                color: CustomColors.primaryColor,
+                                fontSize: CustomFontSize.largeFontSize),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                              CustomDimens.smallSpacing,
+                              CustomDimens.largeSpacing,
+                              CustomDimens.smallSpacing,
+                              CustomDimens.largeSpacing),
+                          child: Text(Strings.recoverySuccessfulMessage,
                               style: TextStyle(
-                                  color: CustomColors.primaryColor,
-                                  fontSize: CustomFontSize.largeFontSize)),
+                                  color: CustomColors.textGrey,
+                                  fontSize: CustomFontSize.mediumFontSize)),
                         ),
                       ],
                     ),

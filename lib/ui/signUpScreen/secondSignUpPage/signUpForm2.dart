@@ -88,10 +88,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldFirstNameNull;
-                  } else {
-                    model.firstName = value;
-                    return null;
                   }
+                  model.firstName = value;
+                  return null;
                 },
               )),
           Padding(
@@ -117,10 +116,9 @@ class SignUpForm2State extends State<SignUpForm2> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldLastNameNull;
-                } else {
-                  model.lastName = value;
-                  return null;
                 }
+                model.lastName = value;
+                return null;
               },
             ),
           ),
@@ -149,10 +147,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
-                  } else {
-                    model.RG = value;
-                    return null;
                   }
+                  model.RG = value;
+                  return null;
                 },
               )),
           Padding(
@@ -187,10 +184,9 @@ class SignUpForm2State extends State<SignUpForm2> {
                       !GetUtils.isCpf(value) ||
                       !GetUtils.isCnpj(value)) {
                     return Strings.fieldCPFNull;
-                  } else {
-                    model.CPF = value;
-                    return null;
                   }
+                  model.CPF = value;
+                  return null;
                 },
               )),
           Padding(

@@ -12,6 +12,8 @@ class CustomColors {
 
 class CustomDimens {
   static const logoSize = 197.0;
+  static const likeSize = 40.0;
+  static const closePopupButton = 26.0;
   static const animationLoadingSize = 124.0;
   static const splashDuration = 2000;
   static const fieldFontSize = 16.0;

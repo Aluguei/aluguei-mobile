@@ -149,7 +149,7 @@ class SignUpFormState extends State<SignUpForm> {
                     filled: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return Strings.fieldEmailNull;
+                    return Strings.fieldPasswordNull;
                   }
                   if (value != confirmPass) {
                     return Strings.forgotPasswordDifference;
