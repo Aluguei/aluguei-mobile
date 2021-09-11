@@ -179,7 +179,8 @@ class LoginFormState extends State<LoginForm> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignUpPage(
+                                //SignUpPage voltar para esse
+                                  builder: (context) => HomePage(
                                         title: "Open SignUpPage",
                                       )),
                             );
