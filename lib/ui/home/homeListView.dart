@@ -13,10 +13,10 @@ class HomeListView extends State<HomeListViewLayout> {
   //TODO pegar lista do backend
 
   List<String> titles = ["List 1", "List 2", "List 3"];
-  final subtitles = [
-    "Here is list 1 subtitle",
-    "Here is list 2 subtitle",
-    "Here is list 3 subtitle"
+  final categories = [
+    "Automovel",
+    "Eletronicos",
+    "Sustentavel"
   ];
   final values = [
     "RS 10,00",
@@ -38,7 +38,7 @@ class HomeListView extends State<HomeListViewLayout> {
         itemBuilder: (context, index) {
           return ProductItemViewLayout(
             title: titles[index],
-            subTitle: subtitles[index],
+            category: categories[index],
             value: values[index],
             image: "",
             action: () => onItemClicked('Teste de clique no item ${index+1}'),

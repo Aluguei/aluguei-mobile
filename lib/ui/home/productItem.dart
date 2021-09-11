@@ -5,29 +5,29 @@ import 'package:flutter/material.dart';
 class ProductItemViewLayout extends StatefulWidget {
   const ProductItemViewLayout(
       {required this.title,
-      required this.subTitle,
+      required this.category,
       required this.value,
       required this.image,
       required this.action});
 
   final String title;
-  final String subTitle;
+  final String category;
   final String value;
   final String image;
   final VoidCallback action;
 
   @override
   ProductItemView createState() {
-    return new ProductItemView(title, subTitle, value, image, action);
+    return new ProductItemView(title, category, value, image, action);
   }
 }
 
 class ProductItemView extends State<ProductItemViewLayout> {
   ProductItemView(
-      this.title, this.subTitle, this.value, this.image, this.action);
+      this.title, this.category, this.value, this.image, this.action);
 
   final String title;
-  final String subTitle;
+  final String category;
   final String value;
   final String image;
   final VoidCallback action;
@@ -52,27 +52,31 @@ class ProductItemView extends State<ProductItemViewLayout> {
                       Text(
                         title,
                         style: new TextStyle(
-                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                            fontSize: CustomFontSize.mediumFontSize,
+                            fontWeight: FontWeight.bold),
                       ),
                       new Text(
-                        subTitle,
+                        category,
                         style: new TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        ),
+                            fontSize: CustomFontSize.smallFontSize,
+                            fontWeight: FontWeight.normal,
+                            color: CustomColors.textGrey),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            value,
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          )
-                        ],
-                      ),
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                              0.0, CustomDimens.minimumSpacing, 0.0, 0.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                value,
+                                style: TextStyle(
+                                    fontSize: CustomFontSize.mediumFontSize,
+                                    fontWeight: FontWeight.bold,
+                                    color: CustomColors.orange),
+                              )
+                            ],
+                          )),
                     ],
                   ),
                 ),
