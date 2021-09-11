@@ -7,28 +7,31 @@ class ProductItemViewLayout extends StatefulWidget {
       {required this.title,
       required this.category,
       required this.value,
+      required this.time,
       required this.image,
       required this.action});
 
   final String title;
   final String category;
   final String value;
+  final String time;
   final String image;
   final VoidCallback action;
 
   @override
   ProductItemView createState() {
-    return new ProductItemView(title, category, value, image, action);
+    return new ProductItemView(title, category, value, time, image, action);
   }
 }
 
 class ProductItemView extends State<ProductItemViewLayout> {
   ProductItemView(
-      this.title, this.category, this.value, this.image, this.action);
+      this.title, this.category, this.value, this.time, this.image, this.action);
 
   final String title;
   final String category;
   final String value;
+  final String time;
   final String image;
   final VoidCallback action;
 
@@ -67,13 +70,19 @@ class ProductItemView extends State<ProductItemViewLayout> {
                           padding: const EdgeInsets.fromLTRB(
                               0.0, CustomDimens.minimumSpacing, 0.0, 0.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 value,
                                 style: TextStyle(
                                     fontSize: CustomFontSize.bigFontSize,
                                     fontWeight: FontWeight.bold,
+                                    color: CustomColors.orange),
+                              ),
+                              Text(
+                                time,
+                                style: TextStyle(
+                                    fontSize: CustomFontSize.smallFontSize,
+                                    fontWeight: FontWeight.normal,
                                     color: CustomColors.orange),
                               )
                             ],

@@ -19,11 +19,15 @@ class HomeListView extends State<HomeListViewLayout> {
     "Sustentavel"
   ];
   final values = [
-    "RS 10,00",
-    "RS 20,00",
-    "RS 30,00"
+    "RS 10",
+    "RS 20",
+    "RS 30"
   ];
-
+  final times = [
+    "\u005CHora",
+    "\u005CDia",
+    "\u005CMes"
+  ];
   onItemClicked(text) {
     //TODO
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
@@ -38,6 +42,7 @@ class HomeListView extends State<HomeListViewLayout> {
             title: titles[index],
             category: categories[index],
             value: values[index],
+            time: times[index],
             image: "",
             action: () => onItemClicked('Teste de clique no item ${index+1}'),
           );
