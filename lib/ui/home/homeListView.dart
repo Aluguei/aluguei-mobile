@@ -18,7 +18,11 @@ class HomeListView extends State<HomeListViewLayout> {
     "Here is list 2 subtitle",
     "Here is list 3 subtitle"
   ];
-  final icons = [Icons.ac_unit, Icons.access_alarm, Icons.access_time];
+  final values = [
+    "RS 10,00",
+    "RS 20,00",
+    "RS 30,00"
+  ];
 
   onItemClicked(text) {
     //TODO
@@ -35,6 +39,7 @@ class HomeListView extends State<HomeListViewLayout> {
           return ProductItemViewLayout(
             title: titles[index],
             subTitle: subtitles[index],
+            value: values[index],
             image: "",
             action: () => onItemClicked('Teste de clique no item ${index+1}'),
           );
