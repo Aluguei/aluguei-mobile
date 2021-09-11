@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/home/homeListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -17,9 +18,7 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: CustomColors.greyBackgroundColor,
-        body: Center(
-          child: Text("WIP"),
-        ),
+        body: HomeListViewLayout(),
       ),
     );
   }
