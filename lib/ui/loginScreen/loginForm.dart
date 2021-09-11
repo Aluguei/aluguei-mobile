@@ -167,20 +167,18 @@ class LoginFormState extends State<LoginForm> {
                       child: Container(
                         child: TextButton(
                           onPressed: () {
-
                             Navigator.pop(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => LoginPage(
-                                    title: "Close LoginPage",
-                                  )),
+                                        title: "Close LoginPage",
+                                      )),
                             );
 
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                //SignUpPage voltar para esse
-                                  builder: (context) => HomePage(
+                                  builder: (context) => SignUpPage(
                                         title: "Open SignUpPage",
                                       )),
                             );
@@ -201,23 +199,21 @@ class LoginFormState extends State<LoginForm> {
                       child: Container(
                         child: TextButton(
                           onPressed: () {
-
                             Navigator.pop(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => LoginPage(
-                                    title: "Close LoginPage",
-                                  )),
+                                        title: "Close LoginPage",
+                                      )),
                             );
 
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => passwordRecovery(
-                                    title: "Open Password Recovery Page",
-                                  )),
+                                        title: "Open Password Recovery Page",
+                                      )),
                             );
-
                           },
                           child: Text(
                             Strings.forgotPasswordText,

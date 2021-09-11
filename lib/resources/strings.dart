@@ -49,6 +49,14 @@ class Strings {
   static const loginErrorMessage = "Ops, ocorreu um erro ao efetuar login, por favor verifique os dados e tente novamente.";
   static const registerErrorMessage = "Ops, ocorreu um erro ao cadastrar, por favor verifique os dados e tente novamente.";
   static const recoverySuccessfulMessage = "Enviamos um e-mail com instruções.";
+  static const fieldSearchTittle = "Pesquisar";
+  static const AppBarAllTab = "Todas";
+  static const AppBarLeisureTab = "Lazer";
+  static const AppBarEletronicsTab = "Eletrônicos";
+  static const AppBarToolsTab = "Ferramentas";
+  static const AppBarOtherTab = "Outros";
+
+
 
   //Dropdowns
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
