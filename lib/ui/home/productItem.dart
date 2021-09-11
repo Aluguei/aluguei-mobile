@@ -36,12 +36,13 @@ class ProductItemView extends State<ProductItemViewLayout> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(CustomDimens.xSmallSpacing,
-            CustomDimens.xSmallSpacing, CustomDimens.xSmallSpacing, 0.0),
+        padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+            CustomDimens.xSmallSpacing, CustomDimens.smallSpacing, 0.0),
         child: Card(
           elevation: 3,
           color: CustomColors.white,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Flexible(
                 child: Padding(
