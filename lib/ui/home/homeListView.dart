@@ -12,7 +12,7 @@ class HomeListViewLayout extends StatefulWidget {
 class HomeListView extends State<HomeListViewLayout> {
   //TODO pegar lista do backend
 
-  List<String> titles = ["List 1", "List 2", "List 3"];
+  List<String> titles = ["BMW Eletrica", "Microondas", "Composteira"];
   final categories = [
     "Automovel",
     "Eletronicos",

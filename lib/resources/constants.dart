@@ -30,6 +30,6 @@ class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
-  static const bigFontSize = 30.0;
+  static const bigFontSize = 18.0;
   static const largeFontSize = 30.0;
 }

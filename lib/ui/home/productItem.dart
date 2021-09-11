@@ -71,7 +71,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                               Text(
                                 value,
                                 style: TextStyle(
-                                    fontSize: CustomFontSize.mediumFontSize,
+                                    fontSize: CustomFontSize.bigFontSize,
                                     fontWeight: FontWeight.bold,
                                     color: CustomColors.orange),
                               )
@@ -84,7 +84,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
               Padding(
                 padding: const EdgeInsets.all(CustomDimens.xSmallSpacing),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.33,
+                  width: MediaQuery.of(context).size.width * 0.25,
                   child: Image.asset(
                     "assets/images/logo_aluguei.png",
                     fit: BoxFit.fill,
