@@ -8,6 +8,7 @@ class CustomColors {
   static const greyBackgroundColor = Color(0xF9F9F9F9);
   static const fieldBorderColor = Color(0xDDDDDDDD);
   static const white = Color(0xFFFFFFFF);
+  static const orange = Color(0xFFFE7B37);
 }
 
 class CustomDimens {
@@ -18,6 +19,8 @@ class CustomDimens {
   static const splashDuration = 2000;
   static const fieldFontSize = 16.0;
   static const fieldHeight = 1.0;
+  static const minimumSpacing = 8.0;
+  static const xSmallSpacing = 16.0;
   static const smallSpacing = 24.0;
   static const mediumSpacing = 26.0;
   static const verySmallSpacing = 7.0;
@@ -29,5 +32,6 @@ class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
+  static const bigFontSize = 18.0;
   static const largeFontSize = 30.0;
 }

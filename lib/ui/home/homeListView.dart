@@ -10,16 +10,26 @@ class HomeListViewLayout extends StatefulWidget {
 }
 
 class HomeListView extends State<HomeListViewLayout> {
-
   //TODO pegar lista do backend
 
-  List<String> titles = ["List 1", "List 2", "List 3"];
-  final subtitles = [
-    "Here is list 1 subtitle",
-    "Here is list 2 subtitle",
-    "Here is list 3 subtitle"
+  List<String> titles = ["BMW Eletrica", "Microondas", "Composteira"];
+  final categories = [
+    "Automovel",
+    "Eletronicos",
+    "Sustentavel"
   ];
-  final icons = [Icons.ac_unit, Icons.access_alarm, Icons.access_time];
+  final values = [
+    "RS 10,00",
+    "RS 20,00",
+    "RS 30,00"
+  ];
+
+  onItemClicked(text) {
+    //TODO
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +37,12 @@ class HomeListView extends State<HomeListViewLayout> {
         itemCount: titles.length,
         itemBuilder: (context, index) {
           return ProductItemViewLayout(
-              title: titles[index], subTitle: subtitles[index], image: "");
+            title: titles[index],
+            category: categories[index],
+            value: values[index],
+            image: "",
+            action: () => onItemClicked('Teste de clique no item ${index+1}'),
+          );
         });
   }
 }
