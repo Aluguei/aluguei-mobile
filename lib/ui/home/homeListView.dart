@@ -26,9 +26,7 @@ class HomeListView extends State<HomeListViewLayout> {
 
   onItemClicked(text) {
     //TODO
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
-    });
   }
 
   @override
