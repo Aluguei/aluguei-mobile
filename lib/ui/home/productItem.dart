@@ -35,50 +35,60 @@ class ProductItemView extends State<ProductItemViewLayout> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Card(
-        elevation: 3,
-        color: CustomColors.white,
-        child: Row(
-          children: [
-            Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: new TextStyle(
-                        fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  new Text(
-                    subTitle,
-                    style: new TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(CustomDimens.xSmallSpacing,
+            CustomDimens.xSmallSpacing, CustomDimens.xSmallSpacing, 0.0),
+        child: Card(
+          elevation: 3,
+          color: CustomColors.white,
+          child: Row(
+            children: [
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.all(CustomDimens.xSmallSpacing),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        value,
-                        style: TextStyle(
-                          fontSize: 12.0,
+                        title,
+                        style: new TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                      ),
+                      new Text(
+                        subTitle,
+                        style: new TextStyle(
+                          fontSize: 14.0,
                           fontWeight: FontWeight.normal,
                         ),
-                      )
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            value,
+                            style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          )
+                        ],
+                      ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.33,
-              child: Image.asset(
-                "assets/images/logo_aluguei.png",
-                fit: BoxFit.fill,
+              Padding(
+                padding: const EdgeInsets.all(CustomDimens.xSmallSpacing),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.33,
+                  child: Image.asset(
+                    "assets/images/logo_aluguei.png",
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       onTap: () {
