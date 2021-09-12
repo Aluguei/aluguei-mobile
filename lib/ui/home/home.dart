@@ -1,9 +1,11 @@
 import 'dart:ui';
 import 'package:aluguei/resources/strings.dart';
+import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
+import 'package:flutter/rendering.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -16,131 +18,63 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  int currentTab = 0;
+  final List<Widget> screens = [
 
+    SearchScreen()
 
+  ];
+
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = SearchScreen();
 
 
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: DefaultTabController(
-          length: CustomDimens.appBarLenght,
-          child: Scaffold(
-            backgroundColor: CustomColors.greyBackgroundColor,
-            appBar: AppBar(
-                toolbarHeight: CustomDimens.appBarHeight,
-                title: Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        CustomDimens.verySmallSpacing,
-                        CustomDimens.smallSpacing,
-                        0.0,
-                        0.0),
-                    child: Container(
-                      height: CustomDimens.appBarTextFieldHeight,
-                      child: TextFormField(
-                        style: TextStyle(
-                            fontSize: CustomDimens.fieldFontSize,
-                            color: CustomColors.textGrey,
-                            height: CustomDimens.fieldHeight),
-                        decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              onPressed: () {},
-                              splashRadius: CustomDimens.appBarIconSplashRadius,
-                              padding: EdgeInsets.zero,
-                              icon: const Icon(
-                                Icons.search,
-                                size: CustomDimens.appBarIconSize,
-                                color: CustomColors.primaryColor,
-                              ),
-                            ),
-                            border: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: CustomColors.fieldBorderColor)),
-                            labelText: Strings.fieldSearchTittle,
-                            labelStyle: TextStyle(color: CustomColors.textGrey),
-                            fillColor: CustomColors.greyBackgroundColor,
-                            filled: true),
-                        validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              !EmailValidator.validate(value)) {
-                            return Strings.fieldEmailNull;
-                          }
+    return Scaffold(
 
-                          return null;
-                        },
-                      ),
-                    )),
-                actions: [
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          0.0,
-                          CustomDimens.smallSpacing,
-                          CustomDimens.verySmallSpacing,
-                          0.0),
-                      child: Container(
-                          width: CustomDimens.alertIconSpacing,
-                          child: IconButton(
-                              splashRadius: CustomDimens.appBarIconSplashRadius,
-                              onPressed: () {
-                                //TODO AÇÃO DO BOTAO NOTIFICAÇÃO
-                              },
-                              icon: Icon(
-                                Icons.notifications_none,
-                                size: CustomDimens.appBarIconSize,
-                              ))))
+      body: PageStorage(
+
+        child: currentScreen,
+        bucket: bucket,
+
+      )
+
+      ,
+
+      floatingActionButton:
+      FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+      floatingActionButtonLocation:
+      FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+
+                      setState(() {
+
+                      });
+
+                    },
+                  )
                 ],
-                bottom: PreferredSize(
-                    preferredSize: Size(100.0, 100.0),
-                    child: Container(
-                      height: CustomDimens.tabBarHeight,
-                      child: TabBar(
-                        labelPadding: EdgeInsets.all(0),
-                        tabs: [
-                          Tab(
-                            child: Text(
-                              Strings.AppBarAllTab,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Tab(
-                            child: Text(
-                              Strings.AppBarLeisureTab,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Tab(
-                            child: Text(
-                              Strings.AppBarEletronicsTab,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Tab(
-                            child: Text(
-                              Strings.AppBarToolsTab,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Tab(
-                            child: Text(
-                              Strings.AppBarOtherTab,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ))),
-
-            floatingActionButton: FloatingActionButton(
-                child: Icon(Icons.add),
-                onPressed: (){}),
-            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+
+    );
   }
 }
