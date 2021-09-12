@@ -85,7 +85,7 @@ class _PasswordRecoveryOkState extends State<PasswordRecoveryOk> {
                             Strings.recoverySuccessful,
                             style: TextStyle(
                                 color: CustomColors.primaryColor,
-                                fontSize: CustomFontSize.largeFontSize),
+                                fontSize: CustomFontSize.VeryLargeFontSize),
                           ),
                         ),
                         Padding(

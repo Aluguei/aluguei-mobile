@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:ui';
 import 'package:aluguei/resources/strings.dart';
 import 'package:email_validator/email_validator.dart';
@@ -21,11 +20,11 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
-          length: 5,
+          length: CustomDimens.appBarLenght,
           child: Scaffold(
             backgroundColor: CustomColors.greyBackgroundColor,
             appBar: AppBar(
-                toolbarHeight: 130.0,
+                toolbarHeight: CustomDimens.appBarHeight,
                 title: Padding(
                     padding: const EdgeInsets.fromLTRB(
                         CustomDimens.verySmallSpacing,
@@ -33,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                         0.0,
                         0.0),
                     child: Container(
-                      height: 50.0,
+                      height: CustomDimens.appBarTextFieldHeight,
                       child: TextFormField(
                         style: TextStyle(
                             fontSize: CustomDimens.fieldFontSize,
@@ -42,11 +41,11 @@ class _HomePageState extends State<HomePage> {
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
                               onPressed: () {},
-                              splashRadius: 15,
+                              splashRadius: CustomDimens.appBarIconSplashRadius,
                               padding: EdgeInsets.zero,
                               icon: const Icon(
                                 Icons.search,
-                                size: 40,
+                                size: CustomDimens.appBarIconSize,
                                 color: CustomColors.primaryColor,
                               ),
                             ),
@@ -77,21 +76,21 @@ class _HomePageState extends State<HomePage> {
                           CustomDimens.verySmallSpacing,
                           0.0),
                       child: Container(
-                          width: 70,
+                          width: CustomDimens.alertIconSpacing,
                           child: IconButton(
-                              splashRadius: 25,
+                              splashRadius: CustomDimens.appBarIconSplashRadius,
                               onPressed: () {
                                 //TODO AÇÃO DO BOTAO NOTIFICAÇÃO
                               },
                               icon: Icon(
                                 Icons.notifications_none,
-                                size: 40,
+                                size: CustomDimens.appBarIconSize,
                               ))))
                 ],
                 bottom: PreferredSize(
                     preferredSize: Size(100.0, 100.0),
                     child: Container(
-                      height: 40,
+                      height: CustomDimens.tabBarHeight,
                       child: TabBar(
                         labelPadding: EdgeInsets.all(0),
                         tabs: [

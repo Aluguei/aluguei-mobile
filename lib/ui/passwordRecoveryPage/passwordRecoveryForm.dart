@@ -61,7 +61,7 @@ class passwordRecoveryFormState extends State<passwordRecoveryForm> {
             child: Text(Strings.forgotPasswordText,
                 style: TextStyle(
                     color: CustomColors.textGrey,
-                    fontSize: CustomFontSize.largeFontSize)),
+                    fontSize: CustomFontSize.VeryLargeFontSize)),
           ),
           Padding(
               padding: const EdgeInsets.fromLTRB(

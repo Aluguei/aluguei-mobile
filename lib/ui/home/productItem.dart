@@ -72,7 +72,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                               Text(
                                 value,
                                 style: TextStyle(
-                                    fontSize: CustomFontSize.bigFontSize,
+                                    fontSize: CustomFontSize.largeFontSize,
                                     fontWeight: FontWeight.bold,
                                     color: CustomColors.orange),
                               )

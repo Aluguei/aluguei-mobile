@@ -26,12 +26,20 @@ class CustomDimens {
   static const verySmallSpacing = 7.0;
   static const largeSpacing = 40.0;
   static const buttonHeight = 45.0;
+  static const appBarHeight = 130.0;
+  static const appBarLenght = 5;
+  static const appBarTextFieldHeight = 50.0;
+  static const appBarIconSize = 40.0;
+  static const appBarIconSplashRadius = 25.0;
+  static const tabBarHeight = 40.0;
+  static const alertIconSpacing = 70.0;
+
 }
 
 class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
-  static const bigFontSize = 18.0;
-  static const largeFontSize = 30.0;
+  static const largeFontSize = 18.0;
+  static const VeryLargeFontSize = 30.0;
 }
