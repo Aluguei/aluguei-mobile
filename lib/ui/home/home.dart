@@ -15,6 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -127,7 +133,13 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ))),
-            body: Center(child: Text('WIP')),
+
+            floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: (){}),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+
           ),
         ));
   }
