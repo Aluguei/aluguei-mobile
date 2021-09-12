@@ -1,7 +1,4 @@
-import 'dart:ui';
-import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -17,36 +14,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int currentTab = 0;
-  final List<Widget> screens = [
-
-    SearchScreen()
-
-  ];
+  final List<Widget> screens = [SearchScreen()];
 
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = SearchScreen();
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: PageStorage(
-
         child: currentScreen,
         bucket: bucket,
-
-      )
-
-      ,
-
+      ),
       floatingActionButton:
-      FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.centerDocked,
+          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
@@ -61,12 +44,30 @@ class _HomePageState extends State<HomePage> {
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () {
-
                       setState(() {
-
+                        currentScreen = SearchScreen();
+                        currentTab = 0;
                       });
 
+                      /*TODO ADICIONAR OS OUTROS BOTOES,
+                      adicinar um material button na row da barra e passar a tela
+                      no "currentScreen" e passar o indice no currentTab
+                       */
                     },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.home_outlined,
+                            color: currentTab == 0
+                                ? CustomColors.primaryColor
+                                : CustomColors.textGrey,
+                            size: CustomDimens.navigationBarIconSize,
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               )
@@ -74,7 +75,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-
     );
   }
 }
