@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/home/favoritesScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentTab = 0;
-  final List<Widget> screens = [SearchScreen()];
+  final List<Widget> screens = [SearchScreen(), FavoriteScreen()];
 
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = SearchScreen();
@@ -61,6 +62,34 @@ class _HomePageState extends State<HomePage> {
                           child: Icon(
                             Icons.home_outlined,
                             color: currentTab == 0
+                                ? CustomColors.primaryColor
+                                : CustomColors.textGrey,
+                            size: CustomDimens.navigationBarIconSize,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = FavoriteScreen();
+                        currentTab = 1;
+                      });
+
+                      /*TODO ADICIONAR OS OUTROS BOTOES,
+                      adicinar um material button na row da barra e passar a tela
+                      no "currentScreen" e passar o indice no currentTab
+                       */
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.favorite_border_outlined,
+                            color: currentTab == 1
                                 ? CustomColors.primaryColor
                                 : CustomColors.textGrey,
                             size: CustomDimens.navigationBarIconSize,
