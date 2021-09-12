@@ -1,8 +1,8 @@
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
+import 'package:aluguei/ui/home/homeListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -18,6 +18,11 @@ class _SearchScreenState extends State<SearchScreen> {
       length: CustomDimens.appBarLenght,
       child: Scaffold(
         backgroundColor: CustomColors.greyBackgroundColor,
+        body: SingleChildScrollView(
+
+
+
+        ),
         appBar: AppBar(
             toolbarHeight: CustomDimens.appBarHeight,
             title: Padding(
@@ -53,9 +58,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         fillColor: CustomColors.greyBackgroundColor,
                         filled: true),
                     validator: (value) {
-                      if (value == null ||
-                          value.isEmpty) {
-                        return Strings.fieldEmailNull;
+                      if (value == null || value.isEmpty) {
+                        return Strings.fieldSearchNull;
                       }
 
                       return null;
@@ -121,7 +125,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ],
                   ),
                 ))),
-
       ),
     );
   }

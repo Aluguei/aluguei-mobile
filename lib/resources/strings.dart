@@ -55,6 +55,7 @@ class Strings {
   static const AppBarEletronicsTab = "Eletrônicos";
   static const AppBarToolsTab = "Ferramentas";
   static const AppBarOtherTab = "Outros";
+  static const fieldSearchNull = "Insira a pesquisa";
 
 
 

@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,76 +32,80 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 10,
-        child: Container(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = SearchScreen();
-                        currentTab = 0;
-                      });
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+        child: BottomAppBar(
+          child: Container(
+            height: 55,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // SearchScreen Button
+                    MaterialButton(
+                      minWidth: 110,
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = SearchScreen();
+                          currentTab = 0;
+                        });
 
-                      /*TODO ADICIONAR OS OUTROS BOTOES,
+                        /*TODO ADICIONAR OS OUTROS BOTOES,
                       adicinar um material button na row da barra e passar a tela
                       no "currentScreen" e passar o indice no currentTab
                        */
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Icon(
-                            Icons.home_outlined,
-                            color: currentTab == 0
-                                ? CustomColors.primaryColor
-                                : CustomColors.textGrey,
-                            size: CustomDimens.navigationBarIconSize,
-                          ),
-                        )
-                      ],
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(
+                              Icons.home_outlined,
+                              color: currentTab == 0
+                                  ? CustomColors.primaryColor
+                                  : CustomColors.textGrey,
+                              size: CustomDimens.navigationBarIconSize,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = FavoriteScreen();
-                        currentTab = 1;
-                      });
+                    // FavoriteScreen Button
+                    MaterialButton(
+                      minWidth: 110,
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = FavoriteScreen();
+                          currentTab = 1;
+                        });
 
-                      /*TODO ADICIONAR OS OUTROS BOTOES,
+                        /*TODO ADICIONAR OS OUTROS BOTOES,
                       adicinar um material button na row da barra e passar a tela
                       no "currentScreen" e passar o indice no currentTab
                        */
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Icon(
-                            Icons.favorite_border_outlined,
-                            color: currentTab == 1
-                                ? CustomColors.primaryColor
-                                : CustomColors.textGrey,
-                            size: CustomDimens.navigationBarIconSize,
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
-            ],
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(
+                              Icons.favorite_border_outlined,
+                              color: currentTab == 1
+                                  ? CustomColors.primaryColor
+                                  : CustomColors.textGrey,
+                              size: CustomDimens.navigationBarIconSize,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
