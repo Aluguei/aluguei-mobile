@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:aluguei/repository/models/loginModel.dart';
-import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/repository/models/authentication/loginModel.dart';
+import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:http/http.dart' as http;
 import 'appExceptions.dart';
 

@@ -1,4 +1,4 @@
-import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
 import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
 import 'package:brasil_fields/brasil_fields.dart';

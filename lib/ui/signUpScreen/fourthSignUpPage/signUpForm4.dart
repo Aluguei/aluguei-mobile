@@ -1,6 +1,6 @@
 import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/authRepository.dart';
-import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:aluguei/ui/loadings/loadingOverlay.dart';
