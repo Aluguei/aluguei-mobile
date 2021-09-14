@@ -128,10 +128,7 @@ class _HomePageState extends State<HomePage> {
                           currentTab = 2;
                         });
 
-                        /*TODO ADICIONAR OS OUTROS BOTOES,
-                      adicinar um material button na row da barra e passar a tela
-                      no "currentScreen" e passar o indice no currentTab
-                       */
+
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -157,10 +154,7 @@ class _HomePageState extends State<HomePage> {
                           currentTab = 3;
                         });
 
-                        /*TODO ADICIONAR OS OUTROS BOTOES,
-                      adicinar um material button na row da barra e passar a tela
-                      no "currentScreen" e passar o indice no currentTab
-                       */
+
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
