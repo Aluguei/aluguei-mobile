@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
         duration: CustomDimens.splashDuration,
-        nextScreen: LoginPage(title: 'Login'),
+        nextScreen: HomePage(title: 'Login'),
         backgroundColor: CustomColors.primaryColor,
         splashIconSize: CustomDimens.logoSize,
       ),

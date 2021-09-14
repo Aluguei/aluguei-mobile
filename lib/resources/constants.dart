@@ -30,10 +30,14 @@ class CustomDimens {
   static const appBarLenght = 5;
   static const appBarTextFieldHeight = 50.0;
   static const appBarIconSize = 40.0;
-  static const navigationBarIconSize = 30.0;
+  static const navigationBarIconSize = 24.0;
   static const appBarIconSplashRadius = 25.0;
   static const tabBarHeight = 40.0;
   static const alertIconSpacing = 70.0;
+  static const navigationBarButtonSize = 118.0;
+  static const navigationBarRadius = 30.0;
+  static const navigationBarFloatingButtonSize= 60.0;
+  static const navigationBarFloatingButtonIconSize= 24.0;
 
 }
 
