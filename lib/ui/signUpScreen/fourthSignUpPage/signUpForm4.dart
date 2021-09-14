@@ -119,10 +119,10 @@ class SignUpForm4State extends State<SignUpForm4> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
+                  value = value?.replaceAll('.','');
                   if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
                   } else {
-                    //TODO verificar
                     model.CEP = value;
                     return null;
                   }

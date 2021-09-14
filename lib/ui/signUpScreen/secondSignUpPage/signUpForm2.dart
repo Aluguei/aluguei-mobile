@@ -181,11 +181,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                     filled: true),
                 validator: (value) {
                   if (value == null ||
-                      value.isEmpty
-                  //TODO verificar a validacao do cpf, nao esta aceitando cpfs validos
-                  // ||
-                      // !GetUtils.isCpf(value) ||
-                      // !GetUtils.isCnpj(value)
+                      value.isEmpty ||
+                      !GetUtils.isCpf(value)
                   ) {
                     return Strings.fieldCPFNull;
                   }
