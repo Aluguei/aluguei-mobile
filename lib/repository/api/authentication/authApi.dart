@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:aluguei/repository/models/loginModel.dart';
-import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/repository/models/authentication/loginModel.dart';
+import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:http/http.dart' as http;
-import 'appExceptions.dart';
+import '../appExceptions.dart';
+import '../results.dart';
 
 class AuthApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com';
@@ -55,21 +56,17 @@ class AuthApi {
     return responseJson;
   }
 
-  dynamic returnResponse(http.Response response) {
-    switch (response.statusCode) {
-      case 200:
-        var responseJson = json.decode(response.body.toString());
-        print(responseJson);
-        return responseJson;
-      case 400:
-        throw BadRequestException(response.body.toString());
-      case 401:
-      case 403:
-        throw UnauthorisedException(response.body.toString());
-      case 500:
-      default:
-        throw FetchDataException(
-            'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+  Future<dynamic> requestPasswordReset(String cpf) async {
+    var responseJson;
+
+    try {
+      var url = Uri.parse('$baseUrl/api/auth/request-forgot-password');
+      final response = await http.post(url, body: {'cpf': cpf});
+
+      responseJson = returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
     }
+    return responseJson;
   }
 }

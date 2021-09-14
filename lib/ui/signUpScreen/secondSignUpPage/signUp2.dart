@@ -1,4 +1,4 @@
-import 'package:aluguei/repository/models/registerModel.dart';
+import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/firstSignUpPage/signUp.dart';
 import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUpForm2.dart';
 import 'package:flutter/cupertino.dart';
