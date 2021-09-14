@@ -33,6 +33,7 @@ class Strings {
   static const fieldFirstNameNull = "Insira seu nome";
   static const fieldLastNameNull = "Insira seu sobrenome";
   static const fieldPasswordNull = "Insira a senha";
+  static const fieldPasswordSize = "A senha precisa ter mais de 5 digitos";
   static const fieldCEPNull = "Insira um CEP válido";
   static const confirmPasswordText = "Confirmar senha*";
   static const registrationText = "Cadastro";
