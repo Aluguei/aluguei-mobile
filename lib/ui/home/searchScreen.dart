@@ -15,16 +15,13 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: CustomDimens.appBarLenght,
+      length: CustomDimens.appBarLength,
       child: Scaffold(
-        backgroundColor: CustomColors.greyBackgroundColor,
-        body: SingleChildScrollView(
-
-
-
-        ),
+        backgroundColor: CustomColors.greyHomeBackgroundColor,
+        body: HomeListViewLayout(),
         appBar: AppBar(
             toolbarHeight: CustomDimens.appBarHeight,
+            backgroundColor: CustomColors.primaryColor,
             title: Padding(
                 padding: const EdgeInsets.fromLTRB(
                     CustomDimens.verySmallSpacing,

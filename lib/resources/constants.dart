@@ -6,6 +6,7 @@ class CustomColors {
   static const textGrey = Color(0xFF7D7D7D);
   static const backgroundGrey = Color(0x80C4C4C4);
   static const greyBackgroundColor = Color(0xF9F9F9F9);
+  static const greyHomeBackgroundColor = Color(0xFFEBEBEB);
   static const fieldBorderColor = Color(0xDDDDDDDD);
   static const white = Color(0xFFFFFFFF);
   static const orange = Color(0xFFFE7B37);
@@ -27,17 +28,17 @@ class CustomDimens {
   static const largeSpacing = 40.0;
   static const buttonHeight = 45.0;
   static const appBarHeight = 130.0;
-  static const appBarLenght = 5;
+  static const appBarLength = 5;
   static const appBarTextFieldHeight = 50.0;
   static const appBarIconSize = 40.0;
-  static const navigationBarIconSize = 24.0;
+  static const navigationBarIconSize = 30.0;
   static const appBarIconSplashRadius = 25.0;
   static const tabBarHeight = 40.0;
   static const alertIconSpacing = 70.0;
   static const navigationBarButtonSize = 118.0;
   static const navigationBarRadius = 30.0;
-  static const navigationBarFloatingButtonSize= 60.0;
-  static const navigationBarFloatingButtonIconSize= 24.0;
+  static const navigationBarFloatingButtonSize= 70.0;
+  static const navigationBarFloatingButtonIconSize= 30.0;
 
 }
 
