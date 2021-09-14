@@ -14,9 +14,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.greyBackgroundColor,
+      backgroundColor: CustomColors.greyHomeBackgroundColor,
       appBar: AppBar(
         toolbarHeight: CustomDimens.appBarHeight,
+        backgroundColor: CustomColors.primaryColor,
         title: Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.verySmallSpacing,
                 CustomDimens.smallSpacing, 0.0, 0.0),
