@@ -148,6 +148,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
                   }
+                  //TODO validar RG
                   model.RG = value;
                   return null;
                 },
@@ -181,8 +182,8 @@ class SignUpForm2State extends State<SignUpForm2> {
                 validator: (value) {
                   if (value == null ||
                       value.isEmpty ||
-                      !GetUtils.isCpf(value) ||
-                      !GetUtils.isCnpj(value)) {
+                      !GetUtils.isCpf(value)
+                  ) {
                     return Strings.fieldCPFNull;
                   }
                   model.CPF = value;
@@ -259,22 +260,15 @@ class SignUpForm2State extends State<SignUpForm2> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SignUpPage3(
+                                      title: "Open SignUpPage3",
+                                      model: model,
+                                    )));
                       }
-
-                      Navigator.pop(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage2(
-                                    title: "Close SignUpPage2",
-                                    model: model,
-                                  )));
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage3(
-                                    title: "Open SignUpPage3",
-                                    model: model,
-                                  )));
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(

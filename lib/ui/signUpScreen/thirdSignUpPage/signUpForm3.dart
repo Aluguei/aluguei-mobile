@@ -149,14 +149,6 @@ class SignUpForm3State extends State<SignUpForm3> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
-                      }
-                      Navigator.pop(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage3(
-                                    title: "Close SignUpPage 3",
-                                    model: model,
-                                  )));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -164,6 +156,8 @@ class SignUpForm3State extends State<SignUpForm3> {
                                     title: "Open SignUpPage 4",
                                     model: model,
                                   )));
+
+                      }
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(

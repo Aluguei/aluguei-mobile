@@ -121,6 +121,9 @@ class SignUpFormState extends State<SignUpForm> {
                 if (value == null || value.isEmpty) {
                   return Strings.fieldPasswordNull;
                 }
+                if (value.length < 5) {
+                  return Strings.fieldPasswordSize;
+                }
                 model.password = value;
                 return null;
               },
@@ -151,6 +154,9 @@ class SignUpFormState extends State<SignUpForm> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldPasswordNull;
                   }
+                  if (value.length < 5) {
+                    return Strings.fieldPasswordSize;
+                  }
                   if (value != confirmPass) {
                     return Strings.forgotPasswordDifference;
                   }
@@ -176,13 +182,6 @@ class SignUpFormState extends State<SignUpForm> {
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
-                        );
-                        Navigator.pop(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                    title: "Close LoginPage",
-                                  )),
                         );
 
                         Navigator.push(

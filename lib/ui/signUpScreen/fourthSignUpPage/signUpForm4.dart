@@ -29,8 +29,6 @@ class SignUpForm4State extends State<SignUpForm4> {
 
   final _formKey = GlobalKey<FormState>();
 
-  //TODO ajustar o inicializar de model ou algo do tipo depois,o model deve ser preenchido durante o fluxo todo de cadastro
-  //TODO VERIFICAR PORQUE TODAS AS VALIDACOES DAS PAGINAS 2 E 3 PARARAM DE FUNCIONAR!
   String dropdownValue2 = Strings.fieldDropDownChose;
   String dropdownValue3 = Strings.fieldDropDownChose;
 
@@ -121,6 +119,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
+                  value = value?.replaceAll('.','');
                   if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
                   } else {
@@ -206,7 +205,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                       value == 'Escolha um(a)') {
                     return Strings.fieldDropdownInvalidOption;
                   } else {
-                    model.state = value;
+                    model.city = value;
                     return null;
                   }
                 },
@@ -362,17 +361,6 @@ class SignUpForm4State extends State<SignUpForm4> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         final loading = LoadingOverlay.of(context);
-                        //TODO ajustar quando os campos faltantes estiverem ok
-                        model.CEP = "23892-160";
-                        model.address =
-                            "Rua Ademar Vieira 10 Quadra 45 Lote 179";
-                        model.city = "Aiquara";
-                        model.state = "BA";
-                        model.neighborhood = "test";
-                        model.number = "000";
-                        model.complement = "casa teste";
-                        model.gender =
-                            "female"; //TODO verificar com o samuel, mas parece que deve mandar em ingles
                         loading.during(doRegistration(model));
                       }
                     },
