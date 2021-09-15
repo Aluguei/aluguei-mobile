@@ -30,10 +30,44 @@ class _FullScreenLoader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(color: CustomColors.backgroundGrey),
-
         child: Center(
-            child: Image.asset('assets/images/aluguei_loading.gif',
-                width:CustomDimens.animationLoadingSize, height:CustomDimens.animationLoadingSize)
-        ));
+            child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.close,
+                    color: Colors.red,
+                    size: 25,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+              Text("TEsteeeee alalalala lala",
+                  style: TextStyle(
+                    fontFamily: 'TTNorms',
+                    fontWeight: FontWeight.bold,
+                    wordSpacing: 0,
+                    letterSpacing: 0,
+                    fontSize: 25,
+                    color: Colors.yellow,
+                  )),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                    CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
+                child: Image.asset(
+                  'assets/images/logo_aluguei.png',
+                  height: CustomDimens.logoSize,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
+          ),
+        )));
   }
 }
