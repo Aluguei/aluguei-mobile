@@ -37,9 +37,10 @@ class CustomDimens {
   static const alertIconSpacing = 70.0;
   static const navigationBarButtonSize = 118.0;
   static const navigationBarRadius = 30.0;
-  static const navigationBarFloatingButtonSize= 70.0;
-  static const navigationBarFloatingButtonIconSize= 30.0;
+  static const navigationBarFloatingButtonSize = 70.0;
+  static const navigationBarFloatingButtonIconSize = 30.0;
 
+  static const closeButtonSize = 25.0;
 }
 
 class CustomFontSize {

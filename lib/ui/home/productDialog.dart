@@ -40,8 +40,8 @@ class _FullScreenLoader extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(
                     Icons.close,
-                    color: Colors.red,
-                    size: 25,
+                    color: CustomColors.primaryColor,
+                    size: CustomDimens.closeButtonSize,
                   ),
                   onPressed: () {
                     Navigator.pop(context);
