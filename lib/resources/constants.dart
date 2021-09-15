@@ -10,6 +10,7 @@ class CustomColors {
   static const fieldBorderColor = Color(0xDDDDDDDD);
   static const white = Color(0xFFFFFFFF);
   static const orange = Color(0xFFFE7B37);
+  static const blackText = Color(0xFF333333);
 }
 
 class CustomDimens {

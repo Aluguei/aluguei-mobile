@@ -51,14 +51,13 @@ class _FullScreenLoader extends StatelessWidget {
                     },
                   ),
                 ),
-                Text("TEsteeeee alalalala lala",
+                Text("Nome do produto",
                     style: TextStyle(
-                      fontFamily: 'TTNorms',
                       fontWeight: FontWeight.bold,
                       wordSpacing: 0,
                       letterSpacing: 0,
                       fontSize: 25,
-                      color: Colors.yellow,
+                      color: CustomColors.blackText,
                     )),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
