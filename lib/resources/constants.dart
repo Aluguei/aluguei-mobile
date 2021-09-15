@@ -42,6 +42,8 @@ class CustomDimens {
   static const navigationBarFloatingButtonIconSize = 30.0;
 
   static const closeButtonSize = 25.0;
+  static const mediumTextSize = 20.0;
+  static const smallTextSize = 12.0;
 }
 
 class CustomFontSize {
