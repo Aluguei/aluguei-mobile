@@ -40,16 +40,16 @@ class CustomDimens {
   static const navigationBarRadius = 30.0;
   static const navigationBarFloatingButtonSize = 70.0;
   static const navigationBarFloatingButtonIconSize = 30.0;
-
-  static const closeButtonSize = 25.0;
-  static const mediumTextSize = 20.0;
-  static const smallTextSize = 12.0;
 }
 
 class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
-  static const largeFontSize = 18.0;
+  static const xlargeFontSize = 18.0;
+  static const largeFontSize = 15.0;
   static const VeryLargeFontSize = 30.0;
+  static const closeButtonSize = 25.0;
+  static const mediumTextSize = 20.0;
+  static const smallTextSize = 12.0;
 }

@@ -32,8 +32,8 @@ class _FullScreenLoader extends StatelessWidget {
       decoration: BoxDecoration(color: CustomColors.backgroundGrey),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-              0.0, CustomDimens.smallSpacing, 0.0),
+          padding: const EdgeInsets.fromLTRB(
+              CustomDimens.smallSpacing, 0.0, CustomDimens.smallSpacing, 0.0),
           child: Card(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -44,7 +44,7 @@ class _FullScreenLoader extends StatelessWidget {
                     icon: Icon(
                       Icons.close,
                       color: CustomColors.primaryColor,
-                      size: CustomDimens.closeButtonSize,
+                      size: CustomFontSize.closeButtonSize,
                     ),
                     onPressed: () {
                       Navigator.pop(context);
@@ -56,7 +56,7 @@ class _FullScreenLoader extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       wordSpacing: 0,
                       letterSpacing: 0,
-                      fontSize: CustomDimens.mediumTextSize,
+                      fontSize: CustomFontSize.mediumTextSize,
                       color: CustomColors.blackText,
                     )),
                 Text("Categoria",
@@ -64,7 +64,7 @@ class _FullScreenLoader extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                       wordSpacing: 0,
                       letterSpacing: 0,
-                      fontSize: CustomDimens.smallTextSize,
+                      fontSize: CustomFontSize.smallTextSize,
                       color: CustomColors.blackText,
                     )),
                 Padding(
@@ -89,7 +89,7 @@ class _FullScreenLoader extends StatelessWidget {
                         Text(
                           "RS89",
                           style: TextStyle(
-                              fontSize: CustomFontSize.largeFontSize,
+                              fontSize: CustomFontSize.xlargeFontSize,
                               fontWeight: FontWeight.bold,
                               color: CustomColors.orange),
                         ),
@@ -102,6 +102,110 @@ class _FullScreenLoader extends StatelessWidget {
                         )
                       ],
                     )),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      0.0,
+                      CustomDimens.xSmallSpacing,
+                      0.0,
+                      CustomDimens.xSmallSpacing),
+                  child: Text(
+                    "Descrição",
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      wordSpacing: 0,
+                      letterSpacing: 0,
+                      fontSize: CustomFontSize.smallTextSize,
+                      color: CustomColors.blackText,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      CustomDimens.mediumSpacing,
+                      CustomDimens.xSmallSpacing,
+                      CustomDimens.mediumSpacing,
+                      CustomDimens.xSmallSpacing),
+                  child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has bee...Ver mais",
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        wordSpacing: 0,
+                        letterSpacing: 0,
+                        fontSize: CustomFontSize.smallTextSize,
+                        color: CustomColors.blackText,
+                      )),
+                ),
+                Text("Anunciante",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      wordSpacing: 0,
+                      letterSpacing: 0,
+                      fontSize: CustomFontSize.mediumTextSize,
+                      color: CustomColors.blackText,
+                    )),
+                //TODO estrelinha
+
+                Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "Nome:",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.largeFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColors.blackText),
+                            ),
+                            Text(
+                              "Samuel Ferracini",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.smallFontSize,
+                                  fontWeight: FontWeight.normal,
+                                  color: CustomColors.blackText),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Estado:",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.largeFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColors.blackText),
+                            ),
+                            Text(
+                              "São Paulo",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.smallFontSize,
+                                  fontWeight: FontWeight.normal,
+                                  color: CustomColors.blackText),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Cidade:",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.largeFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColors.blackText),
+                            ),
+                            Text(
+                              "Vinhedo",
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.smallFontSize,
+                                  fontWeight: FontWeight.normal,
+                                  color: CustomColors.blackText),
+                            )
+                          ],
+                        ),
+                      ],
+                    )),
+                //TODO botao
               ],
             ),
           ),
