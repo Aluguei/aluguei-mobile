@@ -111,7 +111,7 @@ class _FullScreenLoader extends StatelessWidget {
                   child: Text(
                     "Descrição",
                     style: TextStyle(
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                       wordSpacing: 0,
                       letterSpacing: 0,
                       fontSize: CustomFontSize.smallTextSize,
@@ -122,7 +122,7 @@ class _FullScreenLoader extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
                       CustomDimens.mediumSpacing,
-                      CustomDimens.xSmallSpacing,
+                      0.0,
                       CustomDimens.mediumSpacing,
                       CustomDimens.xSmallSpacing),
                   child: Text(
@@ -205,7 +205,42 @@ class _FullScreenLoader extends StatelessWidget {
                         ),
                       ],
                     )),
-                //TODO botao
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      CustomDimens.mediumSpacing,
+                      CustomDimens.xSmallSpacing,
+                      CustomDimens.mediumSpacing,
+                      CustomDimens.xSmallSpacing),
+                  child: Container(
+                    width: double.infinity,
+                    height: CustomDimens.buttonHeight,
+                    child: OutlinedButton(
+                      child: Text(
+                        "Alugar",
+                        style: TextStyle(
+                            color: CustomColors.white,
+                            fontSize: CustomFontSize.smallOutlinedButton),
+                      ),
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              return CustomColors.darkPrimaryColor;
+                            }
+                            return CustomColors.primaryColor;
+                          },
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
