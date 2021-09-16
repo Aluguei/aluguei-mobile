@@ -72,7 +72,7 @@ class _FullScreenLoader extends StatelessWidget {
                       CustomDimens.smallSpacing,
                       CustomDimens.smallSpacing,
                       CustomDimens.smallSpacing,
-                      CustomDimens.smallSpacing),
+                      0.0),
                   child: Image.asset(
                     'assets/images/logo_aluguei.png',
                     height: CustomDimens.logoSize,
@@ -144,9 +144,12 @@ class _FullScreenLoader extends StatelessWidget {
                       color: CustomColors.blackText,
                     )),
                 //TODO estrelinha
-
-                Align(
-                    alignment: Alignment.center,
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        CustomDimens.mediumSpacing,
+                        CustomDimens.xSmallSpacing,
+                        CustomDimens.mediumSpacing,
+                        0.0),
                     child: Column(
                       children: [
                         Row(
