@@ -11,16 +11,16 @@ import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
-class passwordRecoveryForm extends StatefulWidget {
-  const passwordRecoveryForm({Key? key}) : super(key: key);
+class PasswordRecoveryForm extends StatefulWidget {
+  const PasswordRecoveryForm({Key? key}) : super(key: key);
 
   @override
-  passwordRecoveryFormState createState() {
-    return passwordRecoveryFormState();
+  PasswordRecoveryFormState createState() {
+    return PasswordRecoveryFormState();
   }
 }
 
-class passwordRecoveryFormState extends State<passwordRecoveryForm> {
+class PasswordRecoveryFormState extends State<PasswordRecoveryForm> {
   final _formKey = GlobalKey<FormState>();
   final model = LoginModel("", "");
   final AuthRepository authRepository = AuthRepository();
@@ -61,7 +61,7 @@ class passwordRecoveryFormState extends State<passwordRecoveryForm> {
             child: Text(Strings.forgotPasswordText,
                 style: TextStyle(
                     color: CustomColors.textGrey,
-                    fontSize: CustomFontSize.VeryLargeFontSize)),
+                    fontSize: CustomFontSize.xLargeFontSize)),
           ),
           Padding(
               padding: const EdgeInsets.fromLTRB(

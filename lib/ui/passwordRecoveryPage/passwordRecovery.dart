@@ -57,7 +57,7 @@ class _passwordRecoveryState extends State<passwordRecovery> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          const passwordRecoveryForm()
+                          const PasswordRecoveryForm()
                         ],
                       ),
                     ),

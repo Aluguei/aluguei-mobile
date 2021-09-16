@@ -46,7 +46,7 @@ class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
-  static const xlargeFontSize = 18.0;
+  static const xLargeFontSize = 18.0;
   static const largeFontSize = 15.0;
   static const VeryLargeFontSize = 30.0;
   static const closeButtonSize = 25.0;

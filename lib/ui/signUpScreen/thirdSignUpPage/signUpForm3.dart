@@ -1,6 +1,6 @@
 import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
-import 'package:aluguei/ui/signUpScreen/thirdSignUpPage/signUp3.dart';
+
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -50,7 +50,7 @@ class SignUpForm3State extends State<SignUpForm3> {
             child: Text(Strings.registrationText,
                 style: TextStyle(
                     color: CustomColors.textGrey,
-                    fontSize: CustomFontSize.VeryLargeFontSize)),
+                    fontSize: CustomFontSize.xLargeFontSize)),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
