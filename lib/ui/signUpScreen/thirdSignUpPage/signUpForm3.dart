@@ -50,7 +50,7 @@ class SignUpForm3State extends State<SignUpForm3> {
             child: Text(Strings.registrationText,
                 style: TextStyle(
                     color: CustomColors.textGrey,
-                    fontSize: CustomFontSize.VeryLargeFontSize)),
+                    fontSize: CustomFontSize.veryLargeFontSize)),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,

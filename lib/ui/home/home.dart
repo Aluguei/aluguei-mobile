@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:aluguei/ui/addProduct/addProductScreen.dart';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,12 +34,28 @@ class _HomePageState extends State<HomePage> {
           height: CustomDimens.navigationBarFloatingButtonSize,
           width: CustomDimens.navigationBarFloatingButtonSize,
           child: FittedBox(
-            child: FloatingActionButton(backgroundColor: CustomColors.primaryColor,
+            child: FloatingActionButton(
+                backgroundColor: CustomColors.primaryColor,
                 child: Icon(
                   Icons.add,
                   size: CustomDimens.navigationBarFloatingButtonIconSize,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomePage(
+                              title: "Close Home Screen",
+                            )),
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddProductScreen(
+                              title: "Open Add Product Screen",
+                            )),
+                  );
+                }),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: ClipRRect(
@@ -127,8 +144,6 @@ class _HomePageState extends State<HomePage> {
                           currentScreen = SearchScreen();
                           currentTab = 2;
                         });
-
-
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -153,8 +168,6 @@ class _HomePageState extends State<HomePage> {
                           currentScreen = FavoriteScreen();
                           currentTab = 3;
                         });
-
-
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

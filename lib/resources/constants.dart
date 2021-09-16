@@ -47,5 +47,6 @@ class CustomFontSize {
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
   static const largeFontSize = 18.0;
-  static const VeryLargeFontSize = 30.0;
+  static const appBarFontSize = 20.0;
+  static const veryLargeFontSize = 30.0;
 }
