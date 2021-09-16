@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/home/productDialog.dart';
 import 'package:aluguei/ui/home/productItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +29,10 @@ class HomeListView extends State<HomeListViewLayout> {
     "\u005CDia",
     "\u005CMes"
   ];
+
   onItemClicked(text) {
-    //TODO
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+    final productDialog = ProductDialog.of(context);
+    productDialog.show();
   }
 
   @override
