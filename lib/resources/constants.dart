@@ -10,6 +10,7 @@ class CustomColors {
   static const fieldBorderColor = Color(0xDDDDDDDD);
   static const white = Color(0xFFFFFFFF);
   static const orange = Color(0xFFFE7B37);
+  static const blackText = Color(0xFF333333);
 }
 
 class CustomDimens {
@@ -37,15 +38,18 @@ class CustomDimens {
   static const alertIconSpacing = 70.0;
   static const navigationBarButtonSize = 118.0;
   static const navigationBarRadius = 30.0;
-  static const navigationBarFloatingButtonSize= 70.0;
-  static const navigationBarFloatingButtonIconSize= 30.0;
-
+  static const navigationBarFloatingButtonSize = 70.0;
+  static const navigationBarFloatingButtonIconSize = 30.0;
 }
 
 class CustomFontSize {
   static const smallOutlinedButton = 16.0;
   static const smallFontSize = 12.0;
   static const mediumFontSize = 14.0;
-  static const largeFontSize = 18.0;
+  static const xLargeFontSize = 18.0;
+  static const largeFontSize = 15.0;
   static const VeryLargeFontSize = 30.0;
+  static const closeButtonSize = 25.0;
+  static const mediumTextSize = 20.0;
+  static const smallTextSize = 12.0;
 }

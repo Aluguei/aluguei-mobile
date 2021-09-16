@@ -89,7 +89,7 @@ class _FullScreenLoader extends StatelessWidget {
                         Text(
                           "RS89",
                           style: TextStyle(
-                              fontSize: CustomFontSize.xlargeFontSize,
+                              fontSize: CustomFontSize.xLargeFontSize,
                               fontWeight: FontWeight.bold,
                               color: CustomColors.orange),
                         ),

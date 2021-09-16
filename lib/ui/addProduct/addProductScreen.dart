@@ -24,7 +24,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               0.0, CustomDimens.smallSpacing, CustomDimens.largeSpacing, 0.0),
           child: Text(
             'Anunciar Produto',
-            style: TextStyle(fontSize: CustomFontSize.appBarFontSize,fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: CustomFontSize.mediumFontSize,fontWeight: FontWeight.bold),
           ),
         )),
         leading: Padding(
