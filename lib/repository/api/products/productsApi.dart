@@ -6,6 +6,7 @@ import '../results.dart';
 
 class ProductApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com';
+  //TODO Passar no header da requisição device=mobile para persistir a autenticação do usuário
 
   Future<dynamic> getAvailableProducts() async {
     var responseJson;
