@@ -10,8 +10,7 @@ class ProductApi {
     'device': 'mobile',
   };
 
-  //TODO Passar no header da requisição device=mobile para persistir a autenticação do usuário
-
+  // GET - products/available
   Future<dynamic> getAvailableProducts() async {
     var responseJson;
 
@@ -26,11 +25,12 @@ class ProductApi {
     return responseJson;
   }
 
+  // GET - products/owned
   Future<dynamic> getMyProducts() async {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/my');
+      var url = Uri.parse('$baseUrl/owned');
       final response = await http.get(url, headers: header);
 
       responseJson = returnResponse(response);
@@ -54,6 +54,7 @@ class ProductApi {
     return responseJson;
   }
 
+  // POST - products
   Future<dynamic> registerProduct(ProductModel model) async {
     var responseJson;
 
@@ -77,6 +78,7 @@ class ProductApi {
     return responseJson;
   }
 
+  // PUT - products/{productId}
   Future<dynamic> editProduct(int id, ProductModel model) async {
     var responseJson;
 
@@ -100,6 +102,7 @@ class ProductApi {
     return responseJson;
   }
 
+  // DELETE - products/{productId}
   Future<dynamic> deleteProduct(int id) async {
     var responseJson;
 
@@ -114,6 +117,7 @@ class ProductApi {
     return responseJson;
   }
 
+  // POST - products/{productId}/rent
   Future<dynamic> rentProduct(int id) async {
     var responseJson;
 
