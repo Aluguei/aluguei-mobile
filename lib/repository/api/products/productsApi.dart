@@ -10,6 +10,8 @@ class ProductApi {
     'device': 'mobile',
   };
 
+  //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
+
   // GET - products/available
   Future<dynamic> getAvailableProducts() async {
     var responseJson;
