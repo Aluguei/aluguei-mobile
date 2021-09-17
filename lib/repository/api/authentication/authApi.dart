@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:aluguei/repository/models/authentication/loginModel.dart';
 import 'package:aluguei/repository/models/authentication/registerModel.dart';
@@ -7,13 +6,13 @@ import '../appExceptions.dart';
 import '../results.dart';
 
 class AuthApi {
-  final baseUrl = 'https://aluguei-backend.herokuapp.com';
+  final baseUrl = 'https://aluguei-backend.herokuapp.com/api/auth';
 
   Future<dynamic> doLogin(LoginModel model) async {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/api/auth/login');
+      var url = Uri.parse('$baseUrl/login');
       final response = await http
           .post(url, body: {'email': model.email, 'password': model.password});
 
@@ -28,7 +27,7 @@ class AuthApi {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/api/auth/register');
+      var url = Uri.parse('$baseUrl/register');
       final response = await http.post(url, body: {
         'email': model.email,
         'firstName': model.firstName,
@@ -60,7 +59,7 @@ class AuthApi {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/api/auth/request-forgot-password');
+      var url = Uri.parse('$baseUrl/request-forgot-password');
       final response = await http.post(url, body: {'cpf': cpf});
 
       responseJson = returnResponse(response);
