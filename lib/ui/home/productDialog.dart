@@ -1,9 +1,11 @@
 import 'package:aluguei/resources/constants.dart';
+import 'package:aluguei/ui/home/productData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductDialog {
-  BuildContext _context;
+  final BuildContext _context;
+  final ProductData data;
 
   void hide() {
     Navigator.of(_context).pop();
@@ -14,18 +16,22 @@ class ProductDialog {
         context: _context,
         barrierDismissible: false,
         builder: (BuildContext context) {
-          return _FullScreenLoader();
+          return ProductDialogLayout(data: data);
         });
   }
 
-  ProductDialog._create(this._context);
+  ProductDialog._create(this._context, this.data);
 
-  factory ProductDialog.of(BuildContext context) {
-    return ProductDialog._create(context);
+  factory ProductDialog.of(BuildContext context, ProductData data) {
+    return ProductDialog._create(context, data);
   }
 }
 
-class _FullScreenLoader extends StatelessWidget {
+class ProductDialogLayout extends StatelessWidget {
+  const ProductDialogLayout({required this.data});
+
+  final ProductData data;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

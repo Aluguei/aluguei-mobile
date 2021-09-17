@@ -1,3 +1,4 @@
+import 'package:aluguei/ui/home/productData.dart';
 import 'package:aluguei/ui/home/productDialog.dart';
 import 'package:aluguei/ui/home/productItem.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,24 +15,22 @@ class HomeListView extends State<HomeListViewLayout> {
   //TODO pegar lista do backend
 
   List<String> titles = ["BMW Eletrica", "Microondas", "Composteira"];
-  final categories = [
-    "Automovel",
-    "Eletronicos",
-    "Sustentavel"
-  ];
-  final values = [
-    "RS 10",
-    "RS 20",
-    "RS 30"
-  ];
-  final times = [
-    "\u005CHora",
-    "\u005CDia",
-    "\u005CMes"
-  ];
+  final categories = ["Automovel", "Eletronicos", "Sustentavel"];
+  final values = ["RS 10", "RS 20", "RS 30"];
+  final times = ["\u005CHora", "\u005CDia", "\u005CMes"];
 
   onItemClicked(text) {
-    final productDialog = ProductDialog.of(context);
+    //TODO product data mockado, deve ser pego do retorno do backend quando estiver ok
+    final productDialog = ProductDialog.of(
+        context,
+        ProductData(
+            "Fogão",
+            "Eletrodomestico",
+            "ImageUrl",
+            "15,00",
+            "mes",
+            "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
+            Advertiser("Rodolfinho", "Acre", "cidade teste")));
     productDialog.show();
   }
 
@@ -46,7 +45,7 @@ class HomeListView extends State<HomeListViewLayout> {
             value: values[index],
             time: times[index],
             image: "",
-            action: () => onItemClicked('Teste de clique no item ${index+1}'),
+            action: () => onItemClicked('Teste de clique no item ${index + 1}'),
           );
         });
   }
