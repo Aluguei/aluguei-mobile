@@ -1,3 +1,6 @@
+import 'package:aluguei/repository/api/appExceptions.dart';
+import 'package:aluguei/repository/productsRepository.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:aluguei/ui/home/product/productDialog.dart';
 import 'package:aluguei/ui/home/product/productItem.dart';
@@ -14,32 +17,46 @@ class HomeListViewLayout extends StatefulWidget {
 class HomeListView extends State<HomeListViewLayout> {
   //TODO pegar lista do backend
 
+  final ProductsRepository repository = ProductsRepository();
+
   List<String> titles = ["BMW Eletrica", "Microondas", "Composteira"];
   final categories = ["Automovel", "Eletronicos", "Sustentavel"];
   final values = ["RS 10", "RS 20", "RS 30"];
   final times = ["\u005CHora", "\u005CDia", "\u005CMes"];
+  final product = ProductData(
+    0,
+    "Fogão",
+    "Eletrodomestico",
+    "https://picsum.photos/250?image=9",
+    "15,00",
+    "mes",
+    "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
+    Advertiser("Rodolfinho", "Acre", "cidade teste"),
+  );
 
-  onItemClicked(text) {
-    //TODO product data mockado, deve ser pego do retorno do backend quando estiver ok
+  showProductDialog(productData, productId) {
     final productDialog = ProductDialog.of(
       context,
-      ProductData(
-        "Fogão",
-        "Eletrodomestico",
-        "https://picsum.photos/250?image=9",
-        "15,00",
-        "mes",
-        "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
-        Advertiser("Rodolfinho", "Acre", "cidade teste"),
-      ),
-      () => rentProduct(),
+      productData,
+      () => rentProduct(productId),
     );
     productDialog.show();
   }
 
-  rentProduct() {
-    ScaffoldMessenger.of(context).
-    showSnackBar(SnackBar(content: Text("Alugaaaaaa")));
+  Future<void> rentProduct(productId) async {
+    try {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Alugaaaaaa")));
+      await repository.rentProduct(productId);
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      //TODO trocar apresentacao do erro depois
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      //TODO trocar apresentacao do erro depois
+      ErrorsMessages.showLoginErrorMessage(context);
+    }
   }
 
   @override
@@ -53,7 +70,8 @@ class HomeListView extends State<HomeListViewLayout> {
             value: values[index],
             time: times[index],
             image: "",
-            action: () => onItemClicked('Teste de clique no item ${index + 1}'),
+            action: () =>
+                showProductDialog(product, index),
           );
         });
   }

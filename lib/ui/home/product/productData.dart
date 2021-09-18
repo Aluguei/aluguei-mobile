@@ -1,4 +1,5 @@
 class ProductData {
+  int id;
   String productName;
   String category;
   String imageUrl;
@@ -9,6 +10,7 @@ class ProductData {
 
 
   ProductData (
+      this.id,
       this.productName,
       this.category,
       this.imageUrl,
