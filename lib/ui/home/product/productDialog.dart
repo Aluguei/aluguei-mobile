@@ -1,6 +1,6 @@
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
-import 'package:aluguei/ui/home/productData.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

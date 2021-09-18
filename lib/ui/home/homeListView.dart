@@ -1,6 +1,6 @@
-import 'package:aluguei/ui/home/productData.dart';
-import 'package:aluguei/ui/home/productDialog.dart';
-import 'package:aluguei/ui/home/productItem.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:aluguei/ui/home/product/productDialog.dart';
+import 'package:aluguei/ui/home/product/productItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
