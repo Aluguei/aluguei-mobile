@@ -1,6 +1,7 @@
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -82,10 +83,10 @@ class ProductDialogLayout extends StatelessWidget {
                           CustomDimens.smallSpacing,
                           CustomDimens.smallSpacing,
                           0.0),
-                      child: Image.network(
-                        data.imageUrl,
-                        height: CustomDimens.logoSize,
-                        fit: BoxFit.cover,
+                      child: CachedNetworkImage(
+                        placeholder: (context, url) =>
+                            const CircularProgressIndicator(),
+                        imageUrl: data.imageUrl,
                       ),
                     ),
                     Padding(
