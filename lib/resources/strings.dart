@@ -65,4 +65,17 @@ class Strings {
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary
 
+
+  //Products Dialog
+
+  static const valueIndicator = "R\u0024";
+  static const separator = "\u005C";
+  static const productDescriptionText = "Descrição";
+  static const rentButtonText = "Alugar";
+
+  static const advertiserText = "Anunciante";
+  static const advertiserName = "Nome:";
+  static const advertiserState = "Estado:";
+  static const advertiserCity = "Cidade:";
+
 }

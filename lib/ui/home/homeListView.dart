@@ -26,7 +26,7 @@ class HomeListView extends State<HomeListViewLayout> {
         ProductData(
             "Fogão",
             "Eletrodomestico",
-            "ImageUrl",
+            "https://picsum.photos/250?image=9",
             "15,00",
             "mes",
             "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",

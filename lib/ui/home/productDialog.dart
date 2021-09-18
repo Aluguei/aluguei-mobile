@@ -1,4 +1,5 @@
 import 'package:aluguei/resources/constants.dart';
+import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/home/productData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class ProductDialogLayout extends StatelessWidget {
                         },
                       ),
                     ),
-                    Text("Nome do produto",
+                    Text(data.productName,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           wordSpacing: 0,
@@ -67,7 +68,7 @@ class ProductDialogLayout extends StatelessWidget {
                           fontSize: CustomFontSize.mediumTextSize,
                           color: CustomColors.blackText,
                         )),
-                    Text("Categoria",
+                    Text(data.category,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           wordSpacing: 0,
@@ -81,8 +82,8 @@ class ProductDialogLayout extends StatelessWidget {
                           CustomDimens.smallSpacing,
                           CustomDimens.smallSpacing,
                           0.0),
-                      child: Image.asset(
-                        'assets/images/logo_aluguei.png',
+                      child: Image.network(
+                        data.imageUrl,
                         height: CustomDimens.logoSize,
                         fit: BoxFit.cover,
                       ),
@@ -95,14 +96,14 @@ class ProductDialogLayout extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "RS89",
+                              "${Strings.valueIndicator}${data.value}",
                               style: TextStyle(
                                   fontSize: CustomFontSize.xLargeFontSize,
                                   fontWeight: FontWeight.bold,
                                   color: CustomColors.orange),
                             ),
                             Text(
-                              "\u005CHora",
+                              "${Strings.separator}${data.rentTime}",
                               style: TextStyle(
                                   fontSize: CustomFontSize.smallFontSize,
                                   fontWeight: FontWeight.normal,
@@ -117,7 +118,7 @@ class ProductDialogLayout extends StatelessWidget {
                           0.0,
                           CustomDimens.xSmallSpacing),
                       child: Text(
-                        "Descrição",
+                        Strings.productDescriptionText,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           wordSpacing: 0,
@@ -133,8 +134,7 @@ class ProductDialogLayout extends StatelessWidget {
                           0.0,
                           CustomDimens.mediumSpacing,
                           CustomDimens.xSmallSpacing),
-                      child: Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has bee...Ver mais",
+                      child: Text(data.description,
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             wordSpacing: 0,
@@ -143,7 +143,7 @@ class ProductDialogLayout extends StatelessWidget {
                             color: CustomColors.blackText,
                           )),
                     ),
-                    Text("Anunciante",
+                    Text(Strings.advertiserText,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           wordSpacing: 0,
@@ -151,7 +151,6 @@ class ProductDialogLayout extends StatelessWidget {
                           fontSize: CustomFontSize.mediumTextSize,
                           color: CustomColors.blackText,
                         )),
-                    //TODO estrelinha
                     Padding(
                         padding: const EdgeInsets.fromLTRB(
                             CustomDimens.mediumSpacing,
@@ -163,14 +162,14 @@ class ProductDialogLayout extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Nome:",
+                                  Strings.advertiserName,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.largeFontSize,
                                       fontWeight: FontWeight.bold,
                                       color: CustomColors.blackText),
                                 ),
                                 Text(
-                                  "Samuel Ferracini",
+                                  data.advertiser.name,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.smallFontSize,
                                       fontWeight: FontWeight.normal,
@@ -181,14 +180,14 @@ class ProductDialogLayout extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Estado:",
+                                  Strings.advertiserState,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.largeFontSize,
                                       fontWeight: FontWeight.bold,
                                       color: CustomColors.blackText),
                                 ),
                                 Text(
-                                  "São Paulo",
+                                  data.advertiser.state,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.smallFontSize,
                                       fontWeight: FontWeight.normal,
@@ -199,14 +198,14 @@ class ProductDialogLayout extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Cidade:",
+                                  Strings.advertiserCity,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.largeFontSize,
                                       fontWeight: FontWeight.bold,
                                       color: CustomColors.blackText),
                                 ),
                                 Text(
-                                  "Vinhedo",
+                                  data.advertiser.city,
                                   style: TextStyle(
                                       fontSize: CustomFontSize.smallFontSize,
                                       fontWeight: FontWeight.normal,
@@ -227,7 +226,7 @@ class ProductDialogLayout extends StatelessWidget {
                         height: CustomDimens.buttonHeight,
                         child: OutlinedButton(
                           child: Text(
-                            "Alugar",
+                            Strings.rentButtonText,
                             style: TextStyle(
                                 color: CustomColors.white,
                                 fontSize: CustomFontSize.smallOutlinedButton),
