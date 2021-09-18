@@ -53,7 +53,7 @@ class Strings {
   static const fieldSearchTittle = "Pesquisar";
   static const AppBarAllTab = "Todas";
   static const AppBarLeisureTab = "Lazer";
-  static const AppBarEletronicsTab = "Eletrônicos";
+  static const AppBarElectronicsTab = "Eletrônicos";
   static const AppBarToolsTab = "Ferramentas";
   static const AppBarOtherTab = "Outros";
   static const fieldSearchNull = "Insira a pesquisa";

@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -63,7 +64,11 @@ class _HomePageState extends State<HomePage> {
             topLeft: Radius.circular(CustomDimens.navigationBarRadius),
             topRight: Radius.circular(CustomDimens.navigationBarRadius)),
         child: BottomAppBar(
+
           child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.only( topLeft: Radius.circular(CustomDimens.navigationBarRadius),
+                topRight: Radius.circular(CustomDimens.navigationBarRadius))),
+
             height: 55,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     // SearchScreen Button
                     MaterialButton(
-                      minWidth: CustomDimens.navigationBarButtonSize,
+
                       onPressed: () {
                         setState(() {
                           currentScreen = SearchScreen();
@@ -103,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     // FavoriteScreen Button
                     MaterialButton(
-                      minWidth: CustomDimens.navigationBarButtonSize,
+
                       onPressed: () {
                         setState(() {
                           currentScreen = FavoriteScreen();
@@ -138,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     // SearchScreen Button
                     MaterialButton(
-                      minWidth: CustomDimens.navigationBarButtonSize,
+
                       onPressed: () {
                         setState(() {
                           currentScreen = SearchScreen();
@@ -162,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     // FavoriteScreen Button
                     MaterialButton(
-                      minWidth: CustomDimens.navigationBarButtonSize,
+
                       onPressed: () {
                         setState(() {
                           currentScreen = FavoriteScreen();

@@ -88,35 +88,36 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: CustomDimens.tabBarHeight,
                   child: TabBar(
                     labelPadding: EdgeInsets.all(0),
+                    indicatorColor: CustomColors.white,
                     tabs: [
                       Tab(
                         child: Text(
                           Strings.AppBarAllTab,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarLeisureTab,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
-                          Strings.AppBarEletronicsTab,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          Strings.AppBarElectronicsTab,
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarToolsTab,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarOtherTab,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                     ],

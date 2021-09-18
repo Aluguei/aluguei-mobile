@@ -42,6 +42,7 @@ class SignUpForm3State extends State<SignUpForm3> {
               "assets/images/logo_aluguei.png",
               height: CustomDimens.logoSize,
               fit: BoxFit.scaleDown,
+
             ),
           ),
           Padding(

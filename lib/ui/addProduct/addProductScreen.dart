@@ -1,4 +1,5 @@
 import 'package:aluguei/resources/constants.dart';
+import 'package:aluguei/ui/addProduct/addProductScreenForm.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.greyHomeBackgroundColor,
+      backgroundColor: CustomColors.white,
+      body: AddProductScreenForm(),
       appBar: AppBar(
         toolbarHeight: CustomDimens.appBarHeight,
         backgroundColor: CustomColors.primaryColor,
