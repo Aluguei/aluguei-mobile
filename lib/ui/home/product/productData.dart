@@ -8,7 +8,6 @@ class ProductData {
   String description;
   Advertiser advertiser;
 
-
   ProductData (
       this.id,
       this.productName,

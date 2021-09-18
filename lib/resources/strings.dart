@@ -74,8 +74,8 @@ class Strings {
   static const rentButtonText = "Alugar";
 
   static const advertiserText = "Anunciante";
-  static const advertiserName = "Nome:";
-  static const advertiserState = "Estado:";
-  static const advertiserCity = "Cidade:";
+  static const advertiserName = "Nome:\u2800";
+  static const advertiserState = "Estado:\u2800";
+  static const advertiserCity = "Cidade:\u2800";
 
 }
