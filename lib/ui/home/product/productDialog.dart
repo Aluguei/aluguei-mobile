@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class ProductDialog {
   final BuildContext _context;
   final ProductData data;
+  final VoidCallback rentAction;
 
   void hide() {
     Navigator.of(_context).pop();
@@ -18,21 +19,23 @@ class ProductDialog {
         context: _context,
         barrierDismissible: false,
         builder: (BuildContext context) {
-          return ProductDialogLayout(data: data);
+          return ProductDialogLayout(data: data, rentAction: rentAction,);
         });
   }
 
-  ProductDialog._create(this._context, this.data);
+  ProductDialog._create(this._context, this.data, this.rentAction);
 
-  factory ProductDialog.of(BuildContext context, ProductData data) {
-    return ProductDialog._create(context, data);
+  factory ProductDialog.of(
+      BuildContext context, ProductData data, VoidCallback rentAction) {
+    return ProductDialog._create(context, data, rentAction);
   }
 }
 
 class ProductDialogLayout extends StatelessWidget {
-  const ProductDialogLayout({required this.data});
+  const ProductDialogLayout({required this.data, required this.rentAction});
 
   final ProductData data;
+  final VoidCallback rentAction;
 
   @override
   Widget build(BuildContext context) {
@@ -232,7 +235,7 @@ class ProductDialogLayout extends StatelessWidget {
                                 color: CustomColors.white,
                                 fontSize: CustomFontSize.smallOutlinedButton),
                           ),
-                          onPressed: () {},
+                          onPressed: () => rentAction(),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.resolveWith<Color>(

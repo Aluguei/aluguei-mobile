@@ -22,16 +22,24 @@ class HomeListView extends State<HomeListViewLayout> {
   onItemClicked(text) {
     //TODO product data mockado, deve ser pego do retorno do backend quando estiver ok
     final productDialog = ProductDialog.of(
-        context,
-        ProductData(
-            "Fogão",
-            "Eletrodomestico",
-            "https://picsum.photos/250?image=9",
-            "15,00",
-            "mes",
-            "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
-            Advertiser("Rodolfinho", "Acre", "cidade teste")));
+      context,
+      ProductData(
+        "Fogão",
+        "Eletrodomestico",
+        "https://picsum.photos/250?image=9",
+        "15,00",
+        "mes",
+        "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
+        Advertiser("Rodolfinho", "Acre", "cidade teste"),
+      ),
+      () => rentProduct(),
+    );
     productDialog.show();
+  }
+
+  rentProduct() {
+    ScaffoldMessenger.of(context).
+    showSnackBar(SnackBar(content: Text("Alugaaaaaa")));
   }
 
   @override
