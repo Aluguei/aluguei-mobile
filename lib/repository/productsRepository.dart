@@ -1,7 +1,7 @@
 import 'api/products/productsApi.dart';
 import 'models/products/productModel.dart';
 
-class AuthRepository {
+class ProductsRepository {
   ProductApi service = ProductApi();
 
   Future<void> getAvailableProducts() async {

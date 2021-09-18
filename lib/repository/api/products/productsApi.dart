@@ -124,9 +124,9 @@ class ProductApi {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/$id/rent');
+      var url = Uri.parse('$baseUrl/${id.toString()}/rent');
       final response =
-          await http.put(url, body: {'productId': id}, headers: header);
+          await http.put(url, body: {'productId': id.toString()}, headers: header);
 
       responseJson = returnResponse(response);
     } on SocketException {
