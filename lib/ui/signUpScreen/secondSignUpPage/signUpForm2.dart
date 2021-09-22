@@ -148,7 +148,7 @@ class SignUpForm2State extends State<SignUpForm2> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldRGNull;
                   }
-                  //TODO validar RG
+
                   model.RG = value;
                   return null;
                 },

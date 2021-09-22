@@ -13,6 +13,7 @@ class Strings {
   static const fieldEstateTitle = "Estado*";
   static const fieldCityTitle = "Cidade*";
   static const fieldCEPTitle = "CEP*";
+  static const fieldDescriptionTitle = "Descrição*";
   static const fieldGenderTitle = "Sexo*";
   static const fieldMaleGenderTitle = "Masculino";
   static const fieldFemaleGenderTitle = "Feminino";
@@ -29,6 +30,9 @@ class Strings {
   static const fieldRGNull = "Insira um RG válido";
   static const fieldStreetNull = "Insira a rua";
   static const fieldNeighbourhoodNull = "Insira o bairro";
+  static const fieldProductNameNull = "Insira o nome do produto";
+  static const fieldDescriptionNull = "Insira a descrição";
+  static const fieldProductNameTitle = "Nome do produto*";
   static const fieldNumberNull = "Insira o número";
   static const fieldFirstNameNull = "Insira seu nome";
   static const fieldLastNameNull = "Insira seu sobrenome";
@@ -42,6 +46,7 @@ class Strings {
   static const registrationContactDataText = "3. Dados de contato";
   static const registrationAddressDataText = "4. Dados de endereço";
   static const advanceText = "Avançar";
+  static const rentText = "Alugar";
   static const fieldDropDownChose = 'Escolha um(a)';
   static const fieldFirstPhoneTitle = 'Telefone 1*';
   static const fieldSecondPhoneTitle = 'Telefone 2';
@@ -57,10 +62,17 @@ class Strings {
   static const AppBarToolsTab = "Ferramentas";
   static const AppBarOtherTab = "Outros";
   static const fieldSearchNull = "Insira a pesquisa";
+  static const fieldPriceTitle = "R\$ Valor*";
+  static const fieldPriceNull = "Insira o valor";
+  static const fieldPricePer = "Por";
+
+
+
 
 
 
   //Dropdowns
+  static const fieldRentTimeScaleDropDownList = ['Hora','Dia','Semana','Mês'];
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary

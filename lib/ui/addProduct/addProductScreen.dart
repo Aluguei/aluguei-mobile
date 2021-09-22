@@ -16,7 +16,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.white,
-      body: AddProductScreenForm(),
+      body: ListView(
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      children: [AddProductScreenForm()]),
       appBar: AppBar(
         toolbarHeight: CustomDimens.appBarHeight,
         backgroundColor: CustomColors.primaryColor,

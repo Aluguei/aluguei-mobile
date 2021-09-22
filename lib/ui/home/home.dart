@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentTab = 0;
+
   final List<Widget> screens = [SearchScreen(), FavoriteScreen()];
 
   final PageStorageBucket bucket = PageStorageBucket();

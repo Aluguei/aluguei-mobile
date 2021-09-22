@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:aluguei/repository/models/authentication/registerModel.dart';
-
-import 'package:aluguei/ui/signUpScreen/secondSignUpPage/signUp2.dart';
+import 'package:aluguei/repository/models/products/productModel.dart';
+import 'package:aluguei/ui/home/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
@@ -35,9 +35,15 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
     }
   }
 
-  var confirmPass;
-  final model = RegisterModel(
-      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+  String dropdownPriceValue = 'Hora';
+  final model = ProductModel(
+    "",
+    "",
+    "",
+    0,
+    0,
+    "",
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +56,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
             child: Container(
-              width: 200,height: 200,
+                width: 200,
+                height: 200,
                 child: IconButton(
                     onPressed: () => pickImage(),
                     icon: image != null
@@ -62,25 +69,10 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                           ))),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
-                CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
-            child: Container(
-              width: double.infinity,
-              child: Text(Strings.registrationAccessDataText,
-                  style: TextStyle(
-                      color: CustomColors.textGrey,
-                      fontSize: CustomFontSize.smallFontSize)),
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  CustomDimens.smallSpacing,
-                  CustomDimens.verySmallSpacing,
-                  CustomDimens.smallSpacing,
-                  CustomDimens.mediumSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
               child: TextFormField(
                 textInputAction: TextInputAction.next,
-                autofocus: true,
                 style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
@@ -90,7 +82,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                     enabledBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldEmailTitle,
+                    labelText: Strings.fieldProductNameTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
@@ -98,93 +90,146 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                   if (value == null ||
                       value.isEmpty ||
                       !EmailValidator.validate(value)) {
-                    return Strings.fieldEmailNull;
+                    return Strings.fieldProductNameNull;
                   }
-                  model.email = value;
+                  model.name = value;
                   return null;
                 },
               )),
           Padding(
-            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
-            child: TextFormField(
-              obscureText: true,
-              autocorrect: false,
-              enableSuggestions: false,
-              textInputAction: TextInputAction.next,
-              style: TextStyle(
-                fontSize: CustomDimens.fieldFontSize,
-                color: CustomColors.textGrey,
-                height: CustomDimens.fieldHeight,
-              ),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: CustomColors.fieldBorderColor),
-                ),
-                labelText: Strings.fieldPasswordTitle,
-                labelStyle: TextStyle(color: CustomColors.textGrey),
-                fillColor: CustomColors.greyBackgroundColor,
-                filled: true,
-              ),
-              validator: (value) {
-                confirmPass = value;
-                if (value == null || value.isEmpty) {
-                  return Strings.fieldPasswordNull;
-                }
-                if (value.length < 5) {
-                  return Strings.fieldPasswordSize;
-                }
-                model.password = value;
-                return null;
-              },
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                  CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
-              child: TextFormField(
-                obscureText: true,
-                autocorrect: false,
-                enableSuggestions: false,
-                textInputAction: TextInputAction.next,
-                style: TextStyle(
+            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
+            child: SizedBox(
+                height: CustomDimens.addProductTextBoxLineSize *
+                    CustomDimens.addProductTextBoxMaxLines,
+                child: TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  autocorrect: true,
+                  maxLines: CustomDimens.addProductTextBoxMaxLines,
+                  textAlignVertical: TextAlignVertical.top,
+                  enableSuggestions: true,
+                  textInputAction: TextInputAction.next,
+                  style: TextStyle(
                     fontSize: CustomDimens.fieldFontSize,
                     color: CustomColors.textGrey,
-                    height: CustomDimens.fieldHeight),
-                decoration: InputDecoration(
+                    height: CustomDimens.fieldHeight,
+                  ),
+                  decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.confirmPasswordText,
+                      borderSide:
+                          BorderSide(color: CustomColors.fieldBorderColor),
+                    ),
+                    labelText: Strings.fieldDescriptionTitle,
+                    alignLabelWithHint: true,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
-                    filled: true),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return Strings.fieldPasswordNull;
-                  }
-                  if (value.length < 5) {
-                    return Strings.fieldPasswordSize;
-                  }
-                  if (value != confirmPass) {
-                    return Strings.forgotPasswordDifference;
-                  }
+                    filled: true,
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return Strings.fieldDescriptionNull;
+                    }
+                    model.description = value;
+                    return null;
+                  },
+                )),
+          ),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 5.0,
+                  CustomDimens.smallSpacing, 0.0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      flex: 3,
+                      child: TextFormField(
+                        textInputAction: TextInputAction.next,
+                        style: TextStyle(
+                            fontSize: CustomDimens.fieldFontSize,
+                            color: CustomColors.textGrey,
+                            height: CustomDimens.fieldHeight),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: CustomColors.fieldBorderColor)),
+                            labelText: Strings.fieldPriceTitle,
+                            labelStyle: TextStyle(color: CustomColors.textGrey),
+                            fillColor: CustomColors.greyBackgroundColor,
+                            filled: true),
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              !EmailValidator.validate(value)) {
+                            return Strings.fieldPriceNull;
+                          }
+                          model.price = value as int;
+                          return null;
+                        },
+                      )),
+                  Expanded(
+                    flex: 4,
+                    child: Text(Strings.fieldPricePer),
+                  ),
+                  Expanded(
+                      flex: 3,
+                      child: DropdownButtonFormField<String>(
+                        value: dropdownPriceValue,
+                        icon: const Icon(Icons.arrow_downward),
+                        style: TextStyle(
+                            fontSize: CustomDimens.fieldFontSize,
+                            color: CustomColors.textGrey,
+                            height: CustomDimens.fieldHeight),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: CustomColors.fieldBorderColor)),
 
-                  model.passwordConfirmation = value;
-                  return null;
-                },
+                            labelStyle: TextStyle(color: CustomColors.textGrey),
+                            fillColor: CustomColors.greyBackgroundColor,
+                            filled: true),
+                        iconSize: 24,
+                        elevation: 16,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return Strings.fieldDropdownInvalidOption;
+                          } else {
+                            if (value == 'Hora') {
+                              model.timeQuantity = 'hour';
+                            } else if (value == 'Dia') {
+                              model.timeQuantity = 'day';
+                            } else if (value == 'Semana') {
+                              model.timeQuantity = 'week';
+                            } else {
+                              model.timeQuantity = 'month';
+                            }
+                          }
+                        },
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownPriceValue = newValue!;
+                          });
+                        },
+                        items: Strings.fieldRentTimeScaleDropDownList
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      )),
+                ],
               )),
           Padding(
-              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
-                  CustomDimens.smallSpacing, CustomDimens.smallSpacing),
+              padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                  CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
               child: Container(
                   width: double.infinity,
                   height: CustomDimens.buttonHeight,
                   child: OutlinedButton(
                     child: Text(
-                      Strings.advanceText,
+                      Strings.rentText,
                       style: TextStyle(
                           color: CustomColors.white,
                           fontSize: CustomFontSize.smallOutlinedButton),
@@ -198,9 +243,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpPage2(
+                              builder: (context) => HomePage(
                                     title: "Go to SignUpPage 2",
-                                    model: model,
                                   )),
                         );
                       }
