@@ -168,8 +168,15 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                         },
                       )),
                   Expanded(
-                    flex: 4,
-                    child: Text(Strings.fieldPricePer),
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+
+                        Text(Strings.fieldPricePer,style: TextStyle(fontSize: CustomFontSize.largeFontSize),),
+                      ],
+
+                    )
                   ),
                   Expanded(
                       flex: 3,
