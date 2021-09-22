@@ -37,10 +37,20 @@ class _SearchScreenState extends State<SearchScreen> {
     productName: "Macbook pro",
     category: "Notebook ",
     imageUrl: "https://picsum.photos/250?image=9",
-    value: "200,00",
-    rentTime: "mês",
-    description: "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
-    advertiser: Advertiser("Rodolfinho", "Acre", "Alagoinha"),
+    value: 200,
+    rentTime: 2,
+    isActive: true,
+    isLent: true,
+    description:
+        "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
+    advertiser: Advertiser(
+        id: 1,
+        name: "Rodolfinho",
+        fullName: "Rodolfinho",
+        lastName: "Rodolfinho",
+        address: "Acre",
+        state: "Acre",
+        city: "Alagoinha"),
   );
 
   @override
