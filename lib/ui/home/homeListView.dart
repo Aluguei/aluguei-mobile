@@ -37,8 +37,6 @@ class HomeListView extends State<HomeListViewLayout> {
 
   Future<void> rentProduct(productId) async {
     try {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Alugaaaaaa")));
       await repository.rentProduct(productId);
     } on FetchDataException catch (e) {
       print(e.toString());
