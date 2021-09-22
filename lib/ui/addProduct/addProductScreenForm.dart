@@ -173,7 +173,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
 
-                        Text(Strings.fieldPricePer,style: TextStyle(fontSize: CustomFontSize.largeFontSize),),
+                        Text(Strings.fieldPricePer,style: TextStyle(fontSize: CustomFontSize.smallOutlinedButton,fontWeight: FontWeight.bold,color: CustomColors.textGrey )),
                       ],
 
                     )

@@ -26,7 +26,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
         title: Container(alignment: Alignment.center,
             child: Padding(
           padding: const EdgeInsets.fromLTRB(
-              0.0, CustomDimens.smallSpacing, CustomDimens.largeSpacing, 0.0),
+              0.0, CustomDimens.smallSpacing, CustomDimens.addProductRightAppbarPadding, 0.0),
           child: Text(
             'Anunciar Produto',
             style: TextStyle(fontSize: CustomFontSize.mediumFontSize,fontWeight: FontWeight.bold),

@@ -66,25 +66,17 @@ class Strings {
   static const fieldPriceNull = "Insira o valor";
   static const fieldPricePer = "Por";
 
-
-
-
-
-
   //Dropdowns
   static const fieldRentTimeScaleDropDownList = ['Hora','Dia','Semana','Mês'];
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary
 
-
   //Products Dialog
-
   static const valueIndicator = "R\u0024";
   static const separator = "\u005C";
   static const productDescriptionText = "Descrição";
   static const rentButtonText = "Alugar";
-
   static const advertiserText = "Anunciante";
   static const advertiserName = "Nome:\u2800";
   static const advertiserState = "Estado:\u2800";
