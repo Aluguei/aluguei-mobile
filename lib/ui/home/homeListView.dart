@@ -34,6 +34,7 @@ class HomeListView extends State<HomeListViewLayout> {
     Advertiser("Rodolfinho", "Acre", "cidade teste"),
   );
 
+  //TODO a chamda do rent product esta funcionando, so tem que passar um id valido que provavelmente vem da lista de produtos disponiveis
   showProductDialog(productData, productId) {
     final productDialog = ProductDialog.of(
       context,
