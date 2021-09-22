@@ -25,15 +25,16 @@ class HomeListView extends State<HomeListViewLayout> {
   final times = ["\u005CHora", "\u005CDia", "\u005CMes"];
   final product = ProductData(
     0,
-    "Fogão",
-    "Eletrodomestico",
+    "Macbook pro",
+    "Notebook ",
     "https://picsum.photos/250?image=9",
-    "15,00",
-    "mes",
-    "O fogão é um utensílio culinário usado para cozinhar, geralmente em panelas ou frigideiras, e por meio de calor.",
-    Advertiser("Rodolfinho", "Acre", "cidade teste"),
+    "200,00",
+    "mês",
+    "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
+    Advertiser("Rodolfinho", "Acre", "Alagoinha"),
   );
 
+  //TODO a chamda do rent product esta funcionando, so tem que passar um id valido que provavelmente vem da lista de produtos disponiveis
   showProductDialog(productData, productId) {
     final productDialog = ProductDialog.of(
       context,
