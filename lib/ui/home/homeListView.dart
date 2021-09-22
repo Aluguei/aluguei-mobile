@@ -8,13 +8,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeListViewLayout extends StatefulWidget {
+  const HomeListViewLayout({required this.productList});
+
+  final List<ProductData> productList;
+
   @override
   HomeListView createState() {
-    return new HomeListView();
+    return new HomeListView(productList);
   }
 }
 
 class HomeListView extends State<HomeListViewLayout> {
+  HomeListView(this.productList);
+
+  final List<ProductData> productList;
+
   //TODO pegar lista do backend
 
   final ProductsRepository repository = ProductsRepository();
@@ -71,8 +79,7 @@ class HomeListView extends State<HomeListViewLayout> {
             value: values[index],
             time: times[index],
             image: "",
-            action: () =>
-                showProductDialog(product, index),
+            action: () => showProductDialog(product, index),
           );
         });
   }

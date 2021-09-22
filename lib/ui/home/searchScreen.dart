@@ -1,6 +1,8 @@
+import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/home/homeListView.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +13,44 @@ class SearchScreen extends StatefulWidget {
   _SearchScreenState createState() => _SearchScreenState();
 }
 
+
 class _SearchScreenState extends State<SearchScreen> {
+
+  final ProductsRepository repository = ProductsRepository();
+
+  //TODO chamada da lista de produtos do back
+  // Future<List<ProductData>> getProductsList() async {
+  //   try {
+  //     await repository.getAvailableProducts();
+  //     openHomeScreen();
+  //   } on FetchDataException catch (e) {
+  //     print(e.toString());
+  //     ErrorsMessages.showGenericErrorMessage(context);
+  //   } catch (e) {
+  //     print(e.toString());
+  //     ErrorsMessages.showLoginErrorMessage(context);
+  //   }
+  // }
+  final product = ProductData(
+    0,
+    "Macbook pro",
+    "Notebook ",
+    "https://picsum.photos/250?image=9",
+    "200,00",
+    "mês",
+    "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
+    Advertiser("Rodolfinho", "Acre", "Alagoinha"),
+  );
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: CustomDimens.appBarLength,
       child: Scaffold(
         backgroundColor: CustomColors.greyHomeBackgroundColor,
-        body: HomeListViewLayout(),
+        body: HomeListViewLayout(
+          productList: [product, product, product],
+        ),
         appBar: AppBar(
             toolbarHeight: CustomDimens.appBarHeight,
             backgroundColor: CustomColors.primaryColor,
