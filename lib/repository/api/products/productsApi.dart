@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:aluguei/repository/models/products/productModel.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
@@ -21,11 +22,18 @@ class ProductApi {
       var url = Uri.parse('$baseUrl/available');
       final response = await http.get(url, headers: header);
 
+      //TODO fazer o parse pra lista de produtos
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
     return responseJson;
+  }
+
+  List<ProductData> parseProductList(String responseBody) {
+    final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+
+    return parsed.map<ProductData>((json) => ProductData.fromJson(json)).toList();
   }
 
   // GET - products/owned

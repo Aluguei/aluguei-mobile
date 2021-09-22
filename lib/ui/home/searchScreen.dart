@@ -33,14 +33,14 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   final product = ProductData(
-    0,
-    "Macbook pro",
-    "Notebook ",
-    "https://picsum.photos/250?image=9",
-    "200,00",
-    "mês",
-    "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
-    Advertiser("Rodolfinho", "Acre", "Alagoinha"),
+    id: 0,
+    productName: "Macbook pro",
+    category: "Notebook ",
+    imageUrl: "https://picsum.photos/250?image=9",
+    value: "200,00",
+    rentTime: "mês",
+    description: "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
+    advertiser: Advertiser("Rodolfinho", "Acre", "Alagoinha"),
   );
 
   @override
