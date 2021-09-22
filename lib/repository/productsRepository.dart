@@ -1,11 +1,13 @@
+import 'package:aluguei/ui/home/product/productData.dart';
+
 import 'api/products/productsApi.dart';
 import 'models/products/productModel.dart';
 
 class ProductsRepository {
   ProductApi service = ProductApi();
 
-  Future<void> getAvailableProducts() async {
-    await service.getAvailableProducts();
+  Future<List<ProductData>> getAvailableProducts() async {
+    return await service.getAvailableProducts();
   }
 
   Future<void> getMyProducts() async {

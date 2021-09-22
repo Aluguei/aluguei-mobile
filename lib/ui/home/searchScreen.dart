@@ -1,6 +1,8 @@
+import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/homeListView.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,24 +15,23 @@ class SearchScreen extends StatefulWidget {
   _SearchScreenState createState() => _SearchScreenState();
 }
 
-
 class _SearchScreenState extends State<SearchScreen> {
-
   final ProductsRepository repository = ProductsRepository();
 
   //TODO chamada da lista de produtos do back
-  // Future<List<ProductData>> getProductsList() async {
-  //   try {
-  //     await repository.getAvailableProducts();
-  //     openHomeScreen();
-  //   } on FetchDataException catch (e) {
-  //     print(e.toString());
-  //     ErrorsMessages.showGenericErrorMessage(context);
-  //   } catch (e) {
-  //     print(e.toString());
-  //     ErrorsMessages.showLoginErrorMessage(context);
-  //   }
-  // }
+  Future<List<ProductData>> getProductsList() async {
+    try {
+      return await repository.getAvailableProducts();
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ErrorsMessages.showLoginErrorMessage(context);
+    }
+    return [];
+  }
+
   final product = ProductData(
     0,
     "Macbook pro",
@@ -125,31 +126,41 @@ class _SearchScreenState extends State<SearchScreen> {
                       Tab(
                         child: Text(
                           Strings.AppBarAllTab,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarLeisureTab,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarElectronicsTab,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarToolsTab,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                       Tab(
                         child: Text(
                           Strings.AppBarOtherTab,
-                          style: TextStyle(fontWeight: FontWeight.bold,fontSize: CustomFontSize.smallFontSize),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
                         ),
                       ),
                     ],

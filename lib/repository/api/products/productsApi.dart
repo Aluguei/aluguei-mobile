@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:aluguei/repository/models/products/productModel.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
 import '../results.dart';
@@ -13,7 +14,7 @@ class ProductApi {
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
 
   // GET - products/available
-  Future<dynamic> getAvailableProducts() async {
+  Future<List<ProductData>> getAvailableProducts() async {
     var responseJson;
 
     try {
