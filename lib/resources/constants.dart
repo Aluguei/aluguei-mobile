@@ -42,6 +42,7 @@ class CustomDimens {
   static const navigationBarFloatingButtonIconSize = 30.0;
   static const addProductTextBoxMaxLines = 6;
   static const addProductTextBoxLineSize = 24.0;
+  static const addProductRightAppbarPadding = 60.0;
 
 }
 
