@@ -52,11 +52,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         MaterialPageRoute(
                             builder: (context) => HomePage(
                                   title: "Open Home Page",
+
+
                                 )),
                       );
                     },
                     icon: Icon(
                       Icons.arrow_back,
+
                       size: CustomDimens.appBarIconSize,
                     )))),
       ),

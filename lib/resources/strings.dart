@@ -65,9 +65,11 @@ class Strings {
   static const fieldPriceTitle = "R\$ Valor*";
   static const fieldPriceNull = "Insira o valor";
   static const fieldPricePer = "Por";
+  static const fieldTimeQuantityError = "Deve ser entre 1h e 24h";
+
 
   //Dropdowns
-  static const fieldRentTimeScaleDropDownList = ['Hora','Dia','Semana','Mês'];
+  static const fieldRentTimeScaleDropDownList = ['Hora','Dia','Semana'];
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary

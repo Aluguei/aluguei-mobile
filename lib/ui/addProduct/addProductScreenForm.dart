@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:aluguei/repository/models/products/productModel.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/rendering.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/services.dart';
+import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddProductScreenForm extends StatefulWidget {
@@ -87,9 +86,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      !EmailValidator.validate(value)) {
+                  if (value == null || value.isEmpty) {
                     return Strings.fieldProductNameNull;
                   }
                   model.name = value;
@@ -129,9 +126,10 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return Strings.fieldDescriptionNull;
+                    } else {
+                      model.description = value;
+                      return null;
                     }
-                    model.description = value;
-                    return null;
                   },
                 )),
           ),
@@ -148,6 +146,10 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             fontSize: CustomDimens.fieldFontSize,
                             color: CustomColors.textGrey,
                             height: CustomDimens.fieldHeight),
+                        inputFormatters: [
+                          CurrencyTextInputFormatter(
+                              decimalDigits: 2, locale: 'br', symbol: '')
+                        ],
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(
@@ -156,28 +158,29 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             labelText: Strings.fieldPriceTitle,
                             labelStyle: TextStyle(color: CustomColors.textGrey),
                             fillColor: CustomColors.greyBackgroundColor,
+                            hintText: '0,00',
                             filled: true),
                         validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              !EmailValidator.validate(value)) {
+                          if (value == null || value.isEmpty) {
                             return Strings.fieldPriceNull;
+                          } else {
+                            model.price = value as double;
+                            return null;
                           }
-                          model.price = value as int;
-                          return null;
                         },
                       )),
                   Expanded(
-                    flex: 1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-
-                        Text(Strings.fieldPricePer,style: TextStyle(fontSize: CustomFontSize.smallOutlinedButton,fontWeight: FontWeight.bold,color: CustomColors.textGrey )),
-                      ],
-
-                    )
-                  ),
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(Strings.fieldPricePer,
+                              style: TextStyle(
+                                  fontSize: CustomFontSize.smallOutlinedButton,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColors.textGrey)),
+                        ],
+                      )),
                   Expanded(
                       flex: 3,
                       child: DropdownButtonFormField<String>(
@@ -192,7 +195,6 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: CustomColors.fieldBorderColor)),
-
                             labelStyle: TextStyle(color: CustomColors.textGrey),
                             fillColor: CustomColors.greyBackgroundColor,
                             filled: true),
@@ -203,13 +205,11 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             return Strings.fieldDropdownInvalidOption;
                           } else {
                             if (value == 'Hora') {
-                              model.timeQuantity = 'hour';
+                              model.timeQuantity = 'H';
                             } else if (value == 'Dia') {
-                              model.timeQuantity = 'day';
-                            } else if (value == 'Semana') {
-                              model.timeQuantity = 'week';
+                              model.timeQuantity = 'D';
                             } else {
-                              model.timeQuantity = 'month';
+                              model.timeQuantity = 'W';
                             }
                           }
                         },

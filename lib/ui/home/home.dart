@@ -66,15 +66,23 @@ class _HomePageState extends State<HomePage> {
             topRight: Radius.circular(CustomDimens.navigationBarRadius)),
         child: BottomAppBar(
 
+
+
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.only( topLeft: Radius.circular(CustomDimens.navigationBarRadius),
                 topRight: Radius.circular(CustomDimens.navigationBarRadius))),
 
             height: 55,
-            child: Row(
+
+            child:
+            Expanded(child:
+
+
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 //LEFT ROW
+
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,6 +150,8 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
+
                     // SearchScreen Button
                     MaterialButton(
 
@@ -193,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )
               ],
-            ),
+            )),
           ),
         ),
       ),

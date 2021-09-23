@@ -2,7 +2,7 @@ class ProductModel {
   String name;
   String description;
   String category;
-  int price;
+  double price;
   int timeUnit;
   String timeQuantity;
 
