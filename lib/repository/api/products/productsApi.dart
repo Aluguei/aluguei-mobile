@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:aluguei/repository/models/products/productModel.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
 import '../results.dart';
@@ -13,18 +15,25 @@ class ProductApi {
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
 
   // GET - products/available
-  Future<dynamic> getAvailableProducts() async {
+  Future<List<ProductData>> getAvailableProducts() async {
     var responseJson;
 
     try {
       var url = Uri.parse('$baseUrl/available');
       final response = await http.get(url, headers: header);
 
+      //TODO fazer o parse pra lista de produtos
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
     return responseJson;
+  }
+
+  List<ProductData> parseProductList(String responseBody) {
+    final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+
+    return parsed.map<ProductData>((json) => ProductData.fromJson(json)).toList();
   }
 
   // GET - products/owned
@@ -59,7 +68,13 @@ class ProductApi {
   // POST - products
   Future<dynamic> registerProduct(ProductModel model) async {
     var responseJson;
-
+    // timeQuantity
+    // H -> hour
+    // D - day
+    // W - week
+    // H -> min 1 max 24
+    // D -> min 1 max 7
+    // W -> min 1 max 2
     try {
       var url = Uri.parse('$baseUrl');
       final response = await http.post(url,

@@ -23,24 +23,7 @@ class HomeListView extends State<HomeListViewLayout> {
 
   final List<ProductData> productList;
 
-  //TODO pegar lista do backend
-
   final ProductsRepository repository = ProductsRepository();
-
-  List<String> titles = ["BMW Eletrica", "Microondas", "Composteira"];
-  final categories = ["Automovel", "Eletronicos", "Sustentavel"];
-  final values = ["RS 10", "RS 20", "RS 30"];
-  final times = ["\u005CHora", "\u005CDia", "\u005CMes"];
-  final product = ProductData(
-    0,
-    "Macbook pro",
-    "Notebook ",
-    "https://picsum.photos/250?image=9",
-    "200,00",
-    "mês",
-    "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
-    Advertiser("Rodolfinho", "Acre", "Alagoinha"),
-  );
 
   //TODO a chamda do rent product esta funcionando, so tem que passar um id valido que provavelmente vem da lista de produtos disponiveis
   showProductDialog(productData, productId) {
@@ -54,8 +37,6 @@ class HomeListView extends State<HomeListViewLayout> {
 
   Future<void> rentProduct(productId) async {
     try {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Alugaaaaaa")));
       await repository.rentProduct(productId);
     } on FetchDataException catch (e) {
       print(e.toString());
@@ -71,15 +52,16 @@ class HomeListView extends State<HomeListViewLayout> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: titles.length,
+        itemCount: productList.length,
         itemBuilder: (context, index) {
           return ProductItemViewLayout(
-            title: titles[index],
-            category: categories[index],
-            value: values[index],
-            time: times[index],
+            title: productList[index].productName,
+            category: productList[index].category,
+            value: productList[index].value.toString(),
+            time: productList[index].rentTime.toString(),
             image: "",
-            action: () => showProductDialog(product, index),
+            action: () =>
+                showProductDialog(productList[index], productList[index].id),
           );
         });
   }
