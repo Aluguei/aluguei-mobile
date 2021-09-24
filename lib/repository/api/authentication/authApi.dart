@@ -20,6 +20,7 @@ class AuthApi {
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
+    //TODO salvar em cache a string do token
     return responseJson;
   }
 
