@@ -1,3 +1,5 @@
+import 'package:json_annotation/json_annotation.dart';
+
 class ProductData {
   final int id;
   final String productName;
@@ -23,7 +25,6 @@ class ProductData {
     required this.advertiser,
   });
 
-  //TODO ver o .fromJson(json) do advertiser
   factory ProductData.fromJson(Map<String, dynamic> json) {
     return ProductData(
       id: json['id'] as int,
@@ -35,11 +36,12 @@ class ProductData {
       description: json['description'] as String,
       isActive: json['isActive'] as bool,
       isLent: json['isLent'] as bool,
-      advertiser: json['owner'] as Advertiser,
+      advertiser: Advertiser.fromJson(json['owner'])
     );
   }
 }
 
+@JsonSerializable()
 class Advertiser {
   final int id;
   final String name;
