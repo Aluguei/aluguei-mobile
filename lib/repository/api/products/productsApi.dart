@@ -8,8 +8,10 @@ import '../results.dart';
 
 class ProductApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com/api/products';
+  //"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTI2MTE1LCJleHAiOjE2MzI1Mjk3MTV9.sBtFvUHxpHay_Wwgc2YwTBu4aTcQrgCDw_c06cfMuKE
   final Map<String, String>? header = {
     'device': 'mobile',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTI2MTE1LCJleHAiOjE2MzI1Mjk3MTV9.sBtFvUHxpHay_Wwgc2YwTBu4aTcQrgCDw_c06cfMuKE'
   };
 
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido

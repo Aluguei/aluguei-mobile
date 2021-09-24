@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      //TODO nextScreen verificar se ja existe um token de login salvo em cache, se ja existir manda direto pra home
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
         duration: CustomDimens.splashDuration,
