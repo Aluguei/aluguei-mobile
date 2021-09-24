@@ -135,6 +135,7 @@ class LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         print(model.toString());
+                        //TODO salvar o token de login para usar nas chamadas da home etc..
                         final loading = LoadingOverlay.of(context);
                         loading.during(doLogin());
                       }
