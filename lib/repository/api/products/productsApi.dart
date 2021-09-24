@@ -27,13 +27,16 @@ class ProductApi {
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    return responseJson;
+
+    return parseProductList(responseJson);
   }
 
   List<ProductData> parseProductList(String responseBody) {
     final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
 
-    return parsed.map<ProductData>((json) => ProductData.fromJson(json)).toList();
+    return parsed
+        .map<ProductData>((json) => ProductData.fromJson(json))
+        .toList();
   }
 
   // GET - products/owned
@@ -140,8 +143,8 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/${id.toString()}/rent');
-      final response =
-          await http.put(url, body: {'productId': id.toString()}, headers: header);
+      final response = await http.put(url,
+          body: {'productId': id.toString()}, headers: header);
 
       responseJson = returnResponse(response);
     } on SocketException {

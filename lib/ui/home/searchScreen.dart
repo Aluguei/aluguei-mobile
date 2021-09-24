@@ -27,7 +27,8 @@ class _SearchScreenState extends State<SearchScreen> {
       ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      ErrorsMessages.showLoginErrorMessage(context);
+      ScaffoldMessenger.of(context).
+      showSnackBar(SnackBar(content: Text(e.toString())));
     }
     return [];
   }
@@ -55,6 +56,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final productsList = getProductsList();
+
     return DefaultTabController(
       length: CustomDimens.appBarLength,
       child: Scaffold(
