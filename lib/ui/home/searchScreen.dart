@@ -21,38 +21,19 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Future<List<ProductData>> getProductsList() async {
     try {
-      return await repository.getAvailableProducts().then((value) => listProducts = value);
+      return await repository
+          .getAvailableProducts()
+          .then((value) => listProducts = value);
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      ScaffoldMessenger.of(context).
-      showSnackBar(SnackBar(content: Text(e.toString())));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
     }
     return [];
   }
-
-  final product = ProductData(
-    id: 0,
-    productName: "Macbook pro",
-    category: "Notebook ",
-    value: 200,
-    rentTime: "2",
-    timeUnit: 1,
-    isActive: true,
-    isLent: true,
-    description:
-        "Notebook Mac novinho, pouco usado e com todos os aplicativos para seu uso escolar ou profissional! Possui photoshop original. ",
-    advertiser: Advertiser(
-        id: 1,
-        name: "Rodolfinho",
-        fullName: "Rodolfinho",
-        lastName: "Rodolfinho",
-        address: "Acre",
-        state: "Acre",
-        city: "Alagoinha"),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 productList: listProducts,
               );
             } else {
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             }
           },
         ),
