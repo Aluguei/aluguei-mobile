@@ -18,27 +18,21 @@ class ProductApi {
 
   // GET - products/available
   Future<List<ProductData>> getAvailableProducts() async {
-    var responseJson;
+    List<ProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/available');
       final response = await http.get(url, headers: header);
 
-      //TODO fazer o parse pra lista de produtos
-      responseJson = returnResponse(response);
+      var productListResponse = jsonDecode(response.body.toString())['data'] as List;
+      print(productListResponse.toString());
+
+      productList = productListResponse.map((product) => ProductData.fromJson(product)).toList();
+
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-
-    return parseProductList(responseJson);
-  }
-
-  List<ProductData> parseProductList(String responseBody) {
-    final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
-
-    return parsed
-        .map<ProductData>((json) => ProductData.fromJson(json))
-        .toList();
+    return productList;
   }
 
   // GET - products/owned
