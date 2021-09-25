@@ -11,7 +11,7 @@ class ProductApi {
   //"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTI2MTE1LCJleHAiOjE2MzI1Mjk3MTV9.sBtFvUHxpHay_Wwgc2YwTBu4aTcQrgCDw_c06cfMuKE
   final Map<String, String>? header = {
     'device': 'mobile',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTMwMDM2LCJleHAiOjE2MzI1MzM2MzZ9.SKfJBzoaF0C1IVQJ-hYHTbxdTsxs7btuQS6jWKgYhFs'
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTMxMjI3LCJleHAiOjE2MzI1MzQ4Mjd9.LZUmDaSstflSXqgVieh5xXdQK5VJ6A0-jcOMcvEik7c'
   };
 
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
