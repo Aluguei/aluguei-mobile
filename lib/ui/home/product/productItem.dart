@@ -1,4 +1,5 @@
 import 'package:aluguei/resources/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +26,8 @@ class ProductItemViewLayout extends StatefulWidget {
 }
 
 class ProductItemView extends State<ProductItemViewLayout> {
-  ProductItemView(
-      this.title, this.category, this.value, this.time, this.image, this.action);
+  ProductItemView(this.title, this.category, this.value, this.time, this.image,
+      this.action);
 
   final String title;
   final String category;
@@ -95,9 +96,10 @@ class ProductItemView extends State<ProductItemViewLayout> {
                 padding: const EdgeInsets.all(CustomDimens.xSmallSpacing),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.25,
-                  child: Image.asset(
-                    "assets/images/logo_aluguei.png",
-                    fit: BoxFit.fill,
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    imageUrl: image,
                   ),
                 ),
               ),

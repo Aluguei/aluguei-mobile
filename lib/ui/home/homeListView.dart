@@ -59,7 +59,7 @@ class HomeListView extends State<HomeListViewLayout> {
             category: productList[index].category,
             value: productList[index].value.toString(),
             time: productList[index].rentTime.toString(),
-            image: "",
+            image: productList[index].imageUrl,
             action: () =>
                 showProductDialog(productList[index], productList[index].id),
           );
