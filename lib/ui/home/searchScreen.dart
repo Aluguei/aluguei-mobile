@@ -19,7 +19,6 @@ class _SearchScreenState extends State<SearchScreen> {
   final ProductsRepository repository = ProductsRepository();
   List<ProductData> listProducts = [];
 
-  //TODO chamada da lista de produtos do back
   Future<List<ProductData>> getProductsList() async {
     try {
       return await repository.getAvailableProducts().then((value) => listProducts = value);
