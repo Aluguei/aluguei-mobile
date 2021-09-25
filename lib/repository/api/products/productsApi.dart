@@ -14,6 +14,7 @@ class ProductApi {
   };
 
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
+  //TODO Ajustar todos os outros retornos e parses quando for utilizar as chamadas
 
   // GET - products/available
   Future<List<ProductData>> getAvailableProducts() async {
@@ -22,7 +23,7 @@ class ProductApi {
     try {
       var url = Uri.parse('$baseUrl/available');
       final response = await http.get(url, headers: header);
-
+      //TODO verificar erros
       var productListResponse = jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
