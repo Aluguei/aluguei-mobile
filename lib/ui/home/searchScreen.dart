@@ -17,11 +17,12 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final ProductsRepository repository = ProductsRepository();
+  List<ProductData> listProducts = [];
 
   //TODO chamada da lista de produtos do back
   Future<List<ProductData>> getProductsList() async {
     try {
-      return await repository.getAvailableProducts();
+      return await repository.getAvailableProducts().then((value) => listProducts = value);
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
@@ -56,14 +57,23 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final list = getProductsList();
+    final products = getProductsList();
 
     return DefaultTabController(
       length: CustomDimens.appBarLength,
       child: Scaffold(
         backgroundColor: CustomColors.greyHomeBackgroundColor,
-        body: HomeListViewLayout(
-          productList: [product, product, product],
+        body: FutureBuilder(
+          future: products,
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return HomeListViewLayout(
+                productList: listProducts,
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          },
         ),
         appBar: AppBar(
             toolbarHeight: CustomDimens.appBarHeight,
