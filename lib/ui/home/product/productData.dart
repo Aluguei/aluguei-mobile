@@ -4,7 +4,7 @@ class ProductData {
   final int id;
   final String productName;
   final String category;
-  final String imageUrl = "";
+  final String imageUrl = "https://picsum.photos/250?image=9";
   final int value;
   final String rentTime;
   final int timeUnit;
