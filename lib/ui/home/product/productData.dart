@@ -4,9 +4,10 @@ class ProductData {
   final int id;
   final String productName;
   final String category;
-  final String imageUrl;
+  final String imageUrl = "";
   final int value;
-  final int rentTime;
+  final String rentTime;
+  final int timeUnit;
   final String description;
   final bool isActive;
   final bool isLent;
@@ -16,9 +17,9 @@ class ProductData {
     required this.id,
     required this.productName,
     required this.category,
-    required this.imageUrl,
     required this.value,
     required this.rentTime,
+    required this.timeUnit,
     required this.description,
     required this.isActive,
     required this.isLent,
@@ -27,17 +28,16 @@ class ProductData {
 
   factory ProductData.fromJson(Map<String, dynamic> json) {
     return ProductData(
-      id: json['id'] as int,
-      productName: json['name'] as String,
-      category: json['category'] as String,
-      imageUrl: json['albumId'] as String,
-      value: json['price'] as int,
-      rentTime: json['timeQuantity'] as int,
-      description: json['description'] as String,
-      isActive: json['isActive'] as bool,
-      isLent: json['isLent'] as bool,
-      advertiser: Advertiser.fromJson(json['owner'])
-    );
+        id: json['id'] as int,
+        productName: json['name'] as String,
+        category: json['category'] as String,
+        value: json['price'] as int,
+        rentTime: json['timeQuantity'] as String,
+        timeUnit: json['timeUnit'] as int,
+        description: json['description'] as String,
+        isActive: json['isActive'] as bool,
+        isLent: json['isLent'] as bool,
+        advertiser: Advertiser.fromJson(json['owner']));
   }
 }
 

@@ -37,9 +37,9 @@ class _SearchScreenState extends State<SearchScreen> {
     id: 0,
     productName: "Macbook pro",
     category: "Notebook ",
-    imageUrl: "https://picsum.photos/250?image=9",
     value: 200,
-    rentTime: 2,
+    rentTime: "2",
+    timeUnit: 1,
     isActive: true,
     isLent: true,
     description:
@@ -56,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final productsList = getProductsList();
+    // final productsList = getProductsList();
 
     return DefaultTabController(
       length: CustomDimens.appBarLength,
