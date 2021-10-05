@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:aluguei/repository/models/authentication/loginResponse.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +8,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'home/home.dart';
 import 'loginScreen/login.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart' as pathProvider;
 
-void main() {
+Future<void> main() async {
+  Directory directory = await pathProvider.getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
+
+  Hive.registerAdapter(LoginResponseAdapter());
   runApp(MyApp());
 }
 
@@ -25,7 +34,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
         duration: CustomDimens.splashDuration,
-        nextScreen: HomePage(title: 'Login'),
+        nextScreen: LoginPage(title: 'Login'),
         backgroundColor: CustomColors.primaryColor,
         splashIconSize: CustomDimens.logoSize,
       ),
