@@ -11,20 +11,44 @@ import 'loginScreen/login.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 
+Future<bool> haveAccessToken() async {
+  final box = await Hive.openBox<LoginResponse>('loginResponse');
+  final LoginResponse? loginResponseCache =  box.getAt(0);
+  if (loginResponseCache != null) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 Future<void> main() async {
   //TODO https://codingwithdhrumil.com/2021/03/hive-flutter-local-database-example.html
   WidgetsFlutterBinding.ensureInitialized();
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   Hive.registerAdapter(LoginResponseAdapter());
-  runApp(MyApp());
+
+  StatefulWidget nextScreen = HomePage(title: 'Home');
+  final hasAccessToken = await haveAccessToken();
+  if(hasAccessToken) {
+    nextScreen = HomePage(title: 'Home');
+  } else {
+    nextScreen = LoginPage(title: 'Login');
+  }
+
+  runApp(MyApp(nextScreen));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp(this.nextScreen);
+
+  final StatefulWidget nextScreen;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     _portraitModeOnly();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -35,7 +59,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
         duration: CustomDimens.splashDuration,
-        nextScreen: LoginPage(title: 'Login'),
+        nextScreen: nextScreen,
         backgroundColor: CustomColors.primaryColor,
         splashIconSize: CustomDimens.logoSize,
       ),
