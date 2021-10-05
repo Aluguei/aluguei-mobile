@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:aluguei/repository/models/authentication/loginModel.dart';
+import 'package:aluguei/repository/models/authentication/loginResponse.dart';
 import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
@@ -16,12 +18,18 @@ class AuthApi {
       final response = await http
           .post(url, body: {'email': model.email, 'password': model.password});
 
-      responseJson = returnResponse(response);
+      // responseJson = returnResponse(response);
+      //TODO verificar erros
+
+      final Map parsed = json.decode(response.body);
+      final loginResponse = LoginResponse.fromJson(parsed);
+
+      //TODO salvar em cache a string do token -> accessToken LoginResponse
+      print("accessToken:     ${loginResponse.accessToken}" );
+
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    //TODO salvar em cache a string do token -> accessToken
-    print("AAAAAAAAA:     $responseJson" );
 
     return responseJson;
   }
