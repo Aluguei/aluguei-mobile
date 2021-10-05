@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:aluguei/repository/models/authentication/loginModel.dart';
 import 'package:aluguei/repository/models/authentication/loginResponse.dart';
 import 'package:aluguei/repository/models/authentication/registerModel.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
 import '../results.dart';
@@ -11,8 +12,6 @@ class AuthApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com/api/auth';
 
   Future<dynamic> doLogin(LoginModel model) async {
-    var responseJson;
-
     try {
       var url = Uri.parse('$baseUrl/login');
       final response = await http
@@ -27,11 +26,12 @@ class AuthApi {
       //TODO salvar em cache a string do token -> accessToken LoginResponse
       print("accessToken:     ${loginResponse.accessToken}" );
 
+      var box = await Hive.openBox<LoginResponse>('loginResponse');
+      return await box.add(loginResponse);
+
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-
-    return responseJson;
   }
 
   Future<String> doRegister(RegisterModel model) async {

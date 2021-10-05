@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:aluguei/repository/models/authentication/loginResponse.dart';
 import 'package:aluguei/repository/models/products/productModel.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
 import '../results.dart';
@@ -23,6 +25,10 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/available');
+
+      final box = await Hive.openBox<LoginResponse>('loginResponse');
+      print("AAAAAAAAAAAAAA: ${box.getAt(0)}");
+
       final response = await http.get(url, headers: header);
       //TODO verificar erros
       var productListResponse = jsonDecode(response.body.toString())['data'] as List;
