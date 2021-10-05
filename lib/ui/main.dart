@@ -12,9 +12,10 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 
 Future<void> main() async {
+  //TODO https://codingwithdhrumil.com/2021/03/hive-flutter-local-database-example.html
+  WidgetsFlutterBinding.ensureInitialized();
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-
   Hive.registerAdapter(LoginResponseAdapter());
   runApp(MyApp());
 }
