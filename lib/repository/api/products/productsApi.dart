@@ -8,9 +8,10 @@ import '../results.dart';
 
 class ProductApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com/api/products';
+  //TODO TEM QUE FICAR ATUALIZANDO ESSE accessToken, PEGAR LA NO https://aluguei-backend.herokuapp.com/api/docs/#/
   final Map<String, String>? header = {
     'device': 'mobile',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMyNTMxMjI3LCJleHAiOjE2MzI1MzQ4Mjd9.LZUmDaSstflSXqgVieh5xXdQK5VJ6A0-jcOMcvEik7c'
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMzNDQ4MDg0LCJleHAiOjE2MzM0NTE2ODR9.0wGI9qPk27SVGNlcsh1FRGfGNMTkB95v2AwVaGStAJM'
   };
 
   //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
@@ -28,6 +29,7 @@ class ProductApi {
       print(productListResponse.toString());
 
       productList = productListResponse.map((product) => ProductData.fromJson(product)).toList();
+      print("PRODUCTLIST: ${productList.toString()}");
 
     } on SocketException {
       throw FetchDataException('No Internet connection');

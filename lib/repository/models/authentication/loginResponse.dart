@@ -1,8 +1,20 @@
+import 'package:hive/hive.dart';
+
+@HiveType(typeId: 0)
 class LoginResponse {
+  @HiveField(0)
   final int expiresIn;
+
+  @HiveField(1)
   final String accessToken;
+
+  @HiveField(2)
   final int userId;
+
+  @HiveField(3)
   final int id;
+
+  @HiveField(4)
   final String createdAt;
 
   const LoginResponse({
