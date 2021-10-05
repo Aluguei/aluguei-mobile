@@ -30,7 +30,7 @@ class LoginFormState extends State<LoginForm> {
 
   Future<void> doLogin() async {
     try {
-      return await authRepository.doLogin(model).then(openHomeScreen());
+      return await authRepository.doLogin(model);
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
@@ -134,8 +134,10 @@ class LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         print(model.toString());
+                        final Future future = doLogin();
                         final loading = LoadingOverlay.of(context);
-                        loading.during(doLogin());
+                        loading.during(future);
+                        future.whenComplete(() => openHomeScreen());
                       }
                     },
                     style: ButtonStyle(
