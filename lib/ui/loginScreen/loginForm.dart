@@ -30,8 +30,7 @@ class LoginFormState extends State<LoginForm> {
 
   Future<void> doLogin() async {
     try {
-      await authRepository.doLogin(model);
-      openHomeScreen();
+      return await authRepository.doLogin(model).then(openHomeScreen());
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
