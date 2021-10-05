@@ -10,14 +10,17 @@ import '../results.dart';
 
 class ProductApi {
   final baseUrl = 'https://aluguei-backend.herokuapp.com/api/products';
-  //TODO TEM QUE FICAR ATUALIZANDO ESSE accessToken, PEGAR LA NO https://aluguei-backend.herokuapp.com/api/docs/#/
-  final Map<String, String>? header = {
-    'device': 'mobile',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjMzNDQ4MDg0LCJleHAiOjE2MzM0NTE2ODR9.0wGI9qPk27SVGNlcsh1FRGfGNMTkB95v2AwVaGStAJM'
-  };
 
-  //TODO ajustar os bodys depois, o back ainda esta sendo desenvolvido
-  //TODO Ajustar todos os outros retornos e parses quando for utilizar as chamadas
+  //TODO ajustar os bodys, criar os objetos de retorno e .fromJson de cada um
+
+  Future<Map<String, String>> getHeader() async {
+    final box = await Hive.openBox<LoginResponse>('loginResponse');
+    final LoginResponse? loginResponseCache =  box.getAt(0);
+    return  {
+      'device': 'mobile',
+      'Authorization': 'Bearer ${loginResponseCache?.accessToken}'
+    };
+  }
 
   // GET - products/available
   Future<List<ProductData>> getAvailableProducts() async {
@@ -26,16 +29,12 @@ class ProductApi {
     try {
       var url = Uri.parse('$baseUrl/available');
 
-      final box = await Hive.openBox<LoginResponse>('loginResponse');
-      print("AAAAAAAAAAAAAA: ${box.getAt(0)}");
-
-      final response = await http.get(url, headers: header);
+      final response = await http.get(url, headers: await getHeader());
       //TODO verificar erros
       var productListResponse = jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
       productList = productListResponse.map((product) => ProductData.fromJson(product)).toList();
-      print("PRODUCTLIST: ${productList.toString()}");
 
     } on SocketException {
       throw FetchDataException('No Internet connection');
@@ -49,7 +48,7 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/owned');
-      final response = await http.get(url, headers: header);
+      final response = await http.get(url, headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -63,7 +62,7 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/rented');
-      final response = await http.get(url, headers: header);
+      final response = await http.get(url, headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -93,7 +92,7 @@ class ProductApi {
             'timeUnit': model.timeUnit,
             'timeQuantity': model.timeQuantity
           },
-          headers: header);
+          headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -117,7 +116,7 @@ class ProductApi {
             'timeUnit': model.timeUnit,
             'timeQuantity': model.timeQuantity
           },
-          headers: header);
+          headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -132,7 +131,7 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/$id');
-      final response = await http.delete(url, headers: header);
+      final response = await http.delete(url, headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -148,7 +147,7 @@ class ProductApi {
     try {
       var url = Uri.parse('$baseUrl/${id.toString()}/rent');
       final response = await http.put(url,
-          body: {'productId': id.toString()}, headers: header);
+          body: {'productId': id.toString()}, headers: await getHeader());
 
       responseJson = returnResponse(response);
     } on SocketException {
