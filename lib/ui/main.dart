@@ -28,15 +28,15 @@ Future<void> main() async {
   Hive.init(directory.path);
   Hive.registerAdapter(LoginResponseAdapter());
 
-  StatefulWidget nextScreen = HomePage(title: 'Home');
+ /* StatefulWidget nextScreen = HomePage(title: 'Home');
   final hasAccessToken = await haveAccessToken();
   if(hasAccessToken) {
     nextScreen = HomePage(title: 'Home');
   } else {
     nextScreen = LoginPage(title: 'Login');
-  }
+  } */
 
-  runApp(MyApp(nextScreen));
+  runApp(MyApp( LoginPage(title: 'Login')));
 }
 
 class MyApp extends StatelessWidget {
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: 'assets/images/logo_animation.gif',
         duration: CustomDimens.splashDuration,
-        nextScreen: nextScreen,
+        nextScreen: LoginPage(title: "login"),
         backgroundColor: CustomColors.primaryColor,
         splashIconSize: CustomDimens.logoSize,
       ),

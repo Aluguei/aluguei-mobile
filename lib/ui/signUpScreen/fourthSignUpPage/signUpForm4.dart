@@ -36,8 +36,7 @@ class SignUpForm4State extends State<SignUpForm4> {
 
   Future<void> doRegistration(model) async {
     try {
-      await authRepository.doRegistration(model);
-      openHomeScreen();
+      return await authRepository.doRegistration(model);
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
@@ -119,7 +118,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                     fillColor: CustomColors.greyBackgroundColor,
                     filled: true),
                 validator: (value) {
-                  value = value?.replaceAll('.','');
+                  value = value?.replaceAll('.', '');
                   if (value == null || value.isEmpty) {
                     return Strings.fieldCEPNull;
                   } else {
@@ -360,8 +359,13 @@ class SignUpForm4State extends State<SignUpForm4> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        final Future future = doRegistration(model);
                         final loading = LoadingOverlay.of(context);
-                        loading.during(doRegistration(model));
+                        loading.during(future);
+                        future.whenComplete(() => openHomeScreen());
+
+                        //TODO Rever o porque a tela está continuando em login e nao vai para a proxima
+
                       }
                     },
                     style: ButtonStyle(
