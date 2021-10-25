@@ -4,6 +4,7 @@ import 'package:aluguei/repository/models/authentication/registerModel.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
 import 'package:aluguei/ui/loadings/loadingOverlay.dart';
+import 'package:aluguei/ui/signUpScreen/fourthSignUpPage/signUp4.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
@@ -363,6 +364,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
                         future.whenComplete(() => openHomeScreen());
+                        //todo o overlay de loading nao esta sumindo
                       }
                     },
                     style: ButtonStyle(
