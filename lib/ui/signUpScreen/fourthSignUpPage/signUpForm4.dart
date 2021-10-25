@@ -51,8 +51,8 @@ class SignUpForm4State extends State<SignUpForm4> {
       context,
       MaterialPageRoute(
           builder: (context) => HomePage(
-                title: 'Home Page',
-              )),
+            title: 'Home Page',
+          )),
     );
   }
 
@@ -363,9 +363,6 @@ class SignUpForm4State extends State<SignUpForm4> {
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
                         future.whenComplete(() => openHomeScreen());
-
-                        //TODO Rever o porque a tela está continuando em login e nao vai para a proxima
-
                       }
                     },
                     style: ButtonStyle(

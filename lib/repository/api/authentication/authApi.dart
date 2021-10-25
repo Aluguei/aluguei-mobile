@@ -34,9 +34,7 @@ class AuthApi {
     }
   }
 
-  Future<String> doRegister(RegisterModel model) async {
-    var responseJson;
-
+  Future<dynamic> doRegister(RegisterModel model) async {
     try {
       var url = Uri.parse('$baseUrl/register');
       final response = await http.post(url, body: {
@@ -59,11 +57,18 @@ class AuthApi {
         'complement': model.complement
       });
 
-      responseJson = returnResponse(response);
+      final Map parsed = json.decode(response.body);
+      final registerResponse = LoginResponse.fromJson(parsed);
+
+      //TODO salvar em cache a string do token -> accessToken LoginResponse
+      print("accessToken:     ${registerResponse.accessToken}" );
+
+      var box = await Hive.openBox<LoginResponse>('loginResponse');
+      return await box.add(registerResponse);
+
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    return responseJson;
   }
 
   Future<dynamic> requestPasswordReset(String cpf) async {
