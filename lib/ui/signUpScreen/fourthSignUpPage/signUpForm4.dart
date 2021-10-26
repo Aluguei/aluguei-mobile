@@ -52,8 +52,8 @@ class SignUpForm4State extends State<SignUpForm4> {
       context,
       MaterialPageRoute(
           builder: (context) => HomePage(
-            title: 'Home Page',
-          )),
+                title: 'Home Page',
+              )),
     );
   }
 
