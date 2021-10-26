@@ -55,6 +55,12 @@ class SignUpForm4State extends State<SignUpForm4> {
                 title: 'Home Page',
               )),
     );
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (BuildContext context) => HomePage(
+          title: 'Home Page',
+        )),
+            (Route<dynamic> route) => false
+    );
   }
 
   @override
@@ -364,6 +370,7 @@ class SignUpForm4State extends State<SignUpForm4> {
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
                         future.whenComplete(() => openHomeScreen());
+
                         //todo o overlay de loading nao esta sumindo
                       }
                     },

@@ -13,7 +13,7 @@ import 'package:path_provider/path_provider.dart' as pathProvider;
 
 Future<bool> haveAccessToken() async {
   final box = await Hive.openBox<LoginResponse>('loginResponse');
-  final LoginResponse? loginResponseCache =  box.getAt(0);
+  final LoginResponse? loginResponseCache = box.isNotEmpty? box.getAt(0) : null;
   if (loginResponseCache != null) {
     return true;
   } else {
