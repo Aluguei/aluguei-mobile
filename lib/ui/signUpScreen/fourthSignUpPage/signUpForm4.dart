@@ -40,10 +40,10 @@ class SignUpForm4State extends State<SignUpForm4> {
       return await authRepository.doRegistration(model);
     } on FetchDataException catch (e) {
       print(e.toString());
-      ErrorsMessages.showGenericErrorMessage(context);
+      // ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      ErrorsMessages.showRegistrationErrorMessage(context);
+      // ErrorsMessages.showRegistrationErrorMessage(context);
     }
   }
 
@@ -54,12 +54,6 @@ class SignUpForm4State extends State<SignUpForm4> {
           builder: (context) => HomePage(
                 title: 'Home Page',
               )),
-    );
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (BuildContext context) => HomePage(
-          title: 'Home Page',
-        )),
-            (Route<dynamic> route) => false
     );
   }
 
@@ -367,8 +361,8 @@ class SignUpForm4State extends State<SignUpForm4> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         final Future future = doRegistration(model);
-                        final loading = LoadingOverlay.of(context);
-                        loading.during(future);
+                        // final loading = LoadingOverlay.of(context);
+                        // loading.during(future);
                         future.whenComplete(() => openHomeScreen());
 
                         //todo o overlay de loading nao esta sumindo
