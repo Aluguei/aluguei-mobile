@@ -150,6 +150,7 @@ class ProductApi {
       final response = await http.put(url,
           body: {'productId': id.toString()}, headers: await getHeader());
 
+      print("ALUGAR: ${response.body.toString()}");
       responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
