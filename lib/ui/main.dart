@@ -22,7 +22,6 @@ Future<bool> haveAccessToken() async {
 }
 
 Future<void> main() async {
-  //TODO https://codingwithdhrumil.com/2021/03/hive-flutter-local-database-example.html
   WidgetsFlutterBinding.ensureInitialized();
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
