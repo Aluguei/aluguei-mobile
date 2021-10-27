@@ -1,14 +1,11 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'appExceptions.dart';
 
-dynamic returnResponse(http.Response response) {
+dynamic verifyResponse(http.Response response) {
   switch (response.statusCode) {
     case 200:
     case 201:
-      var responseJson = json.decode(response.body.toString());
-      print(responseJson);
-      return responseJson;
+      return response;
     case 400:
       throw BadRequestException(response.body.toString());
     case 401:

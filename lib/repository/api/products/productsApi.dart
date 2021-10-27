@@ -30,7 +30,8 @@ class ProductApi {
       var url = Uri.parse('$baseUrl/available');
 
       final response = await http.get(url, headers: await getHeader());
-      //TODO verificar erros
+      verifyResponse(response);
+
       var productListResponse = jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
@@ -50,7 +51,7 @@ class ProductApi {
       var url = Uri.parse('$baseUrl/owned');
       final response = await http.get(url, headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -64,7 +65,7 @@ class ProductApi {
       var url = Uri.parse('$baseUrl/rented');
       final response = await http.get(url, headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -94,7 +95,7 @@ class ProductApi {
           },
           headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -118,7 +119,7 @@ class ProductApi {
           },
           headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -133,7 +134,7 @@ class ProductApi {
       var url = Uri.parse('$baseUrl/$id');
       final response = await http.delete(url, headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -149,7 +150,7 @@ class ProductApi {
       final response = await http.put(url,
           body: {'productId': id.toString()}, headers: await getHeader());
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }

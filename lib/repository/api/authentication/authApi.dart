@@ -17,14 +17,10 @@ class AuthApi {
       final response = await http
           .post(url, body: {'email': model.email, 'password': model.password});
 
-      // responseJson = returnResponse(response);
-      //TODO verificar erros
+      verifyResponse(response);
 
       final Map parsed = json.decode(response.body);
       final loginResponse = LoginResponse.fromJson(parsed);
-
-      //TODO salvar em cache a string do token -> accessToken LoginResponse
-      print("accessToken:     ${loginResponse.accessToken}" );
 
       var box = await Hive.openBox<LoginResponse>('loginResponse');
       return await box.add(loginResponse);
@@ -57,11 +53,10 @@ class AuthApi {
         'complement': model.complement
       });
 
+      verifyResponse(response);
+
       final Map parsed = json.decode(response.body);
       final registerResponse = LoginResponse.fromJson(parsed);
-
-      //TODO salvar em cache a string do token -> accessToken LoginResponse
-      print("accessToken:     ${registerResponse.accessToken}" );
 
       var box = await Hive.openBox<LoginResponse>('loginResponse');
       return await box.add(registerResponse);
@@ -78,7 +73,7 @@ class AuthApi {
       var url = Uri.parse('$baseUrl/request-forgot-password');
       final response = await http.post(url, body: {'cpf': cpf});
 
-      responseJson = returnResponse(response);
+      responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }

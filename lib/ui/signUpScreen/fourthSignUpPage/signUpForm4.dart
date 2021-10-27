@@ -40,10 +40,10 @@ class SignUpForm4State extends State<SignUpForm4> {
       return await authRepository.doRegistration(model);
     } on FetchDataException catch (e) {
       print(e.toString());
-      // ErrorsMessages.showGenericErrorMessage(context);
+      ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      // ErrorsMessages.showRegistrationErrorMessage(context);
+      ErrorsMessages.showRegistrationErrorMessage(context);
     }
   }
 
