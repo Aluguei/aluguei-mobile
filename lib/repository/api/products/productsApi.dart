@@ -147,10 +147,8 @@ class ProductApi {
 
     try {
       var url = Uri.parse('$baseUrl/${id.toString()}/rent');
-      final response = await http.put(url,
-          body: {'productId': id.toString()}, headers: await getHeader());
+      final response = await http.post(url, headers: await getHeader());
 
-      print("ALUGAR: ${response.body.toString()}");
       responseJson = verifyResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
