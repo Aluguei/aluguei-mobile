@@ -37,6 +37,7 @@ class HomeListView extends State<HomeListViewLayout> {
   Future<void> rentProduct(productId) async {
     try {
       await repository.rentProduct(productId);
+      //TODO precisar dar refresh na home apos alugar e fechar a modal
     } on FetchDataException catch (e) {
       print(e.toString());
       //TODO trocar apresentacao do erro depois
