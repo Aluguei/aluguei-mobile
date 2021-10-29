@@ -47,6 +47,7 @@ class Strings {
   static const registrationAddressDataText = "4. Dados de endereço";
   static const advanceText = "Avançar";
   static const rentText = "Alugar";
+  static const addProductText = "Anunciar";
   static const fieldDropDownChose = 'Escolha um(a)';
   static const fieldFirstPhoneTitle = 'Telefone 1*';
   static const fieldSecondPhoneTitle = 'Telefone 2';

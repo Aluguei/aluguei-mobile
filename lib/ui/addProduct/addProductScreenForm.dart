@@ -236,7 +236,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                   height: CustomDimens.buttonHeight,
                   child: OutlinedButton(
                     child: Text(
-                      Strings.rentText,
+                      Strings.addProductText,
                       style: TextStyle(
                           color: CustomColors.white,
                           fontSize: CustomFontSize.smallOutlinedButton),
@@ -246,14 +246,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage(
-                                    title: "Go to SignUpPage 2",
-                                  )),
-                        );
+                        //TODO chamar registerProduct
+                        Navigator.of(context).pop();
                       }
                     },
                     style: ButtonStyle(
