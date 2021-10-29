@@ -1,4 +1,3 @@
-import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
@@ -7,8 +6,11 @@ import 'package:aluguei/ui/home/product/productItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'messageDialog.dart';
+
 class HomeListViewLayout extends StatefulWidget {
-  const HomeListViewLayout({required this.productList, required this.onRentAction});
+  const HomeListViewLayout(
+      {required this.productList, required this.onRentAction});
 
   final List<ProductData> productList;
   final VoidCallback onRentAction;
@@ -21,7 +23,9 @@ class HomeListViewLayout extends StatefulWidget {
 
 class HomeListView extends State<HomeListViewLayout> {
   HomeListView(this.productList, this.onRentAction);
-  var dialogContext;
+
+  var productDialogContext;
+  var successDialogContext;
 
   final List<ProductData> productList;
   final VoidCallback onRentAction;
@@ -30,16 +34,25 @@ class HomeListView extends State<HomeListViewLayout> {
 
   showProductDialog(productData, productId) {
     final productDialog = ProductDialog.of(
-      dialogContext = context,
+      productDialogContext = context,
       productData,
-      () => rentProduct(productId).then((value) => closeAndReloadPage()),
+      () => rentProduct(productId).then((value) => showSuccess()),
     );
     productDialog.show();
   }
 
+  showSuccess() {
+    final successDialog = MessageDialog.of(
+        successDialogContext = context, "Alugado com sucesso", () => closeAndReloadPage());
+    successDialog.show();
+  }
+
   closeAndReloadPage() {
-    if (dialogContext != null) {
-      Navigator.of(dialogContext).pop();
+    if (productDialogContext != null) {
+      Navigator.of(productDialogContext).pop();
+    }
+    if (successDialogContext != null) {
+      Navigator.of(successDialogContext).pop();
     }
     onRentAction();
   }
@@ -47,15 +60,9 @@ class HomeListView extends State<HomeListViewLayout> {
   Future<void> rentProduct(productId) async {
     try {
       await repository.rentProduct(productId);
-      //TODO precisar dar refresh na home apos alugar e fechar a modal
-    } on FetchDataException catch (e) {
-      print(e.toString());
-      //TODO trocar apresentacao do erro depois
-      ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      //TODO trocar apresentacao do erro depois
-      ErrorsMessages.showLoginErrorMessage(context);
+      ErrorsMessages.showGenericErrorMessage(context);
     }
   }
 

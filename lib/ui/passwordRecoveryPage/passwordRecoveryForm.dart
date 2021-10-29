@@ -1,6 +1,5 @@
 import 'package:aluguei/Repository/authRepository.dart';
 import 'package:aluguei/repository/api/appExceptions.dart';
-import 'package:aluguei/repository/models/authentication/loginModel.dart';
 import 'package:aluguei/ui/Alertboxes/passwordRecoveryOk.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
@@ -22,19 +21,23 @@ class PasswordRecoveryForm extends StatefulWidget {
 
 class PasswordRecoveryFormState extends State<PasswordRecoveryForm> {
   final _formKey = GlobalKey<FormState>();
-  final model = LoginModel("", "");
+  var cpf = "";
   final AuthRepository authRepository = AuthRepository();
 
-  Future<void> doLogin() async {
+  Future<void> doRecovery(String cpf) async {
     try {
-      await authRepository.doLogin(model);
-      openHomeScreen();
+      await authRepository.requestPasswordReset(cpf);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return PasswordRecoveryOk();
+          });
     } on FetchDataException catch (e) {
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      ErrorsMessages.showLoginErrorMessage(context);
+      ErrorsMessages.showResetPasswordErrorMessage(context);
     }
   }
 
@@ -85,7 +88,7 @@ class PasswordRecoveryFormState extends State<PasswordRecoveryForm> {
                     border: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: CustomColors.fieldBorderColor)),
+                            BorderSide(color: CustomColors.fieldBorderColor)),
                     labelText: Strings.fieldCPFTitle,
                     labelStyle: TextStyle(color: CustomColors.textGrey),
                     fillColor: CustomColors.greyBackgroundColor,
@@ -95,15 +98,12 @@ class PasswordRecoveryFormState extends State<PasswordRecoveryForm> {
                       value.isEmpty ||
                       UtilBrasilFields.isCPFValido(value) ||
                       UtilBrasilFields.isCNPJValido(value)) {
-
                     return Strings.fieldCPFNull;
-
-
                   }
+                  cpf = value;
                   return null;
                 },
               )),
-
           Padding(
               padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing, 0.0,
                   CustomDimens.smallSpacing, CustomDimens.mediumSpacing),
@@ -118,15 +118,7 @@ class PasswordRecoveryFormState extends State<PasswordRecoveryForm> {
                           fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
-                      showDialog(context: context,
-                          builder: (BuildContext context){
-                            return PasswordRecoveryOk(
-                            );
-                          }
-                      );
-
-                      //TODO Colocar a função de enviar o email
-
+                      doRecovery(cpf);
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(

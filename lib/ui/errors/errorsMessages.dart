@@ -17,4 +17,9 @@ class ErrorsMessages {
     ScaffoldMessenger.of(context).
     showSnackBar(SnackBar(content: Text(Strings.registerErrorMessage)));
   }
+
+  static showResetPasswordErrorMessage(context) {
+    ScaffoldMessenger.of(context).
+    showSnackBar(SnackBar(content: Text(Strings.resetPasswordErrorMessage)));
+  }
 }

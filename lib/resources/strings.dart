@@ -53,6 +53,7 @@ class Strings {
   static const fieldFirstPhoneNull = "Insira seu telefone";
   static const genericErrorMessage = "O sistema está indisponível no momento, tente novamente mais tarde.";
   static const loginErrorMessage = "Ops, ocorreu um erro ao efetuar login, por favor verifique os dados e tente novamente.";
+  static const resetPasswordErrorMessage = "Ops, verifique seu cpf e tente novamente.";
   static const registerErrorMessage = "Ops, ocorreu um erro ao cadastrar, por favor verifique os dados e tente novamente.";
   static const recoverySuccessfulMessage = "Enviamos um e-mail com instruções.";
   static const fieldSearchTittle = "Pesquisar";
