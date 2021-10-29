@@ -1,6 +1,11 @@
 import 'dart:io';
+import 'package:aluguei/repository/api/appExceptions.dart';
+import 'package:aluguei/repository/authRepository.dart';
 import 'package:aluguei/repository/models/products/productModel.dart';
+import 'package:aluguei/repository/productsRepository.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/home.dart';
+import 'package:aluguei/ui/loadings/loadingOverlay.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aluguei/resources/constants.dart';
@@ -43,6 +48,20 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
     0,
     "",
   );
+
+  final ProductsRepository productsRepository = ProductsRepository();
+
+  Future<void> addProduct(model) async {
+    try {
+      return await productsRepository.registerProduct(model);
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +183,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                           if (value == null || value.isEmpty) {
                             return Strings.fieldPriceNull;
                           } else {
-                            model.price = value as double;
+                            model.price =
+                                double.parse(value.replaceAll(',', '.'));
                             return null;
                           }
                         },
@@ -246,8 +266,18 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
-                        //TODO chamar registerProduct
-                        Navigator.of(context).pop();
+                        final Future future = addProduct(model);
+                        final loading = LoadingOverlay.of(context);
+                        loading.during(future);
+                        future.whenComplete(() => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage(
+                                          title: 'Home Page',
+                                        )),
+                              )
+                            });
                       }
                     },
                     style: ButtonStyle(
