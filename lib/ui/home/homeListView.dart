@@ -1,4 +1,5 @@
 import 'package:aluguei/repository/productsRepository.dart';
+import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:aluguei/ui/home/product/productDialog.dart';
@@ -42,8 +43,8 @@ class HomeListView extends State<HomeListViewLayout> {
   }
 
   showSuccess() {
-    final successDialog = MessageDialog.of(
-        successDialogContext = context, "Alugado com sucesso", () => closeAndReloadPage());
+    final successDialog = MessageDialog.of(successDialogContext = context,
+        "Alugado com sucesso", () => closeAndReloadPage());
     successDialog.show();
   }
 
@@ -68,18 +69,36 @@ class HomeListView extends State<HomeListViewLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: productList.length,
-        itemBuilder: (context, index) {
-          return ProductItemViewLayout(
-            title: productList[index].productName,
-            category: productList[index].category,
-            value: productList[index].value.toString(),
-            time: productList[index].rentTime.toString(),
-            image: productList[index].imageUrl,
-            action: () =>
-                showProductDialog(productList[index], productList[index].id),
-          );
-        });
+    if (productList.isNotEmpty) {
+      return ListView.builder(
+          itemCount: productList.length,
+          itemBuilder: (context, index) {
+            return ProductItemViewLayout(
+              title: productList[index].productName,
+              category: productList[index].category,
+              value: productList[index].value.toString(),
+              time: productList[index].rentTime.toString(),
+              image: productList[index].imageUrl,
+              action: () =>
+                  showProductDialog(productList[index], productList[index].id),
+            );
+          });
+    } else {
+      return Container(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+                CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing),
+            child: Text(
+              "Nenhum item encontrado",
+              style: TextStyle(
+                  color: CustomColors.darkPrimaryColor,
+                  fontSize: CustomFontSize.xLargeFontSize),
+            ),
+          ));
+    }
   }
 }

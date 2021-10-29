@@ -35,7 +35,11 @@ class ProductApi {
       var productListResponse = jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
-      productList = productListResponse.map((product) => ProductData.fromJson(product)).toList();
+      if (productListResponse.isNotEmpty) {
+        productList =
+            productListResponse.map((product) => ProductData.fromJson(product))
+                .toList();
+      }
 
     } on SocketException {
       throw FetchDataException('No Internet connection');
