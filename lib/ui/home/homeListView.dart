@@ -8,30 +8,40 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeListViewLayout extends StatefulWidget {
-  const HomeListViewLayout({required this.productList});
+  const HomeListViewLayout({required this.productList, required this.onRentAction});
 
   final List<ProductData> productList;
+  final VoidCallback onRentAction;
 
   @override
   HomeListView createState() {
-    return new HomeListView(productList);
+    return new HomeListView(productList, onRentAction);
   }
 }
 
 class HomeListView extends State<HomeListViewLayout> {
-  HomeListView(this.productList);
+  HomeListView(this.productList, this.onRentAction);
+  var dialogContext;
 
   final List<ProductData> productList;
+  final VoidCallback onRentAction;
 
   final ProductsRepository repository = ProductsRepository();
 
   showProductDialog(productData, productId) {
     final productDialog = ProductDialog.of(
-      context,
+      dialogContext = context,
       productData,
-      () => rentProduct(productId),
+      () => rentProduct(productId).then((value) => closeAndReloadPage()),
     );
     productDialog.show();
+  }
+
+  closeAndReloadPage() {
+    if (dialogContext != null) {
+      Navigator.of(dialogContext).pop();
+    }
+    onRentAction();
   }
 
   Future<void> rentProduct(productId) async {

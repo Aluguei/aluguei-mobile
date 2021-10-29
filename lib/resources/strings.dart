@@ -78,6 +78,7 @@ class Strings {
   static const valueIndicator = "R\u0024";
   static const separator = "\u005C";
   static const productDescriptionText = "Descrição";
+  static const okButtonText = "ok";
   static const rentButtonText = "Alugar";
   static const advertiserText = "Anunciante";
   static const advertiserName = "Nome:\u2800";
