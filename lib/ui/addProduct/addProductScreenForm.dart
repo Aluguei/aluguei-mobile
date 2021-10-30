@@ -264,6 +264,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                           fontSize: CustomFontSize.smallOutlinedButton),
                     ),
                     onPressed: () {
+                      //TODO FALTOU O CAMPO CATEGORIAAAA
                       if (_formKey.currentState!.validate()) {
 
                         final Future future = addProduct(model);

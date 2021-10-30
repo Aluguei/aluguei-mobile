@@ -79,10 +79,10 @@ class ProductApi {
   // POST - products
   Future<dynamic> registerProduct(ProductModel model) async {
     var responseJson;
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
     try {
 
+      print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${jsonEncode(model.toJson())}");
       var url = Uri.parse('$baseUrl');
       final response = await http.post(url,
           body: jsonEncode(model.toJson()),
