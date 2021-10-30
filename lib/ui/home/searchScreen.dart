@@ -49,7 +49,10 @@ class _SearchScreenState extends State<SearchScreen> {
             if (snapshot.connectionState == ConnectionState.done) {
               return HomeListViewLayout(
                   productList: listProducts,
-                  onRentAction: () => setState(() {}));
+                  onRentAction: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => super.widget)));
             } else {
               return Center(child: CircularProgressIndicator());
             }
