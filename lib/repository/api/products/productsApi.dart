@@ -18,7 +18,8 @@ class ProductApi {
     final LoginResponse? loginResponseCache =  box.getAt(0);
     return  {
       'device': 'mobile',
-      'Authorization': 'Bearer ${loginResponseCache?.accessToken}'
+      'Authorization': 'Bearer ${loginResponseCache?.accessToken}',
+      "content-type": "application/json"
     };
   }
 
@@ -84,8 +85,7 @@ class ProductApi {
 
       print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${jsonEncode(model.toJson())}");
       var url = Uri.parse('$baseUrl');
-      final response = await http.post(url,
-          body: jsonEncode(model.toJson()),
+      final response = await http.post(url, body: jsonEncode(model.toJson()),
           headers: await getHeader());
 
       print("REGISTRANDO PRODUTO: ${response.body.toString()}");
