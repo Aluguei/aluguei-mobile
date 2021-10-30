@@ -85,14 +85,7 @@ class ProductApi {
 
       var url = Uri.parse('$baseUrl');
       final response = await http.post(url,
-          body: {
-            'name': model.name,
-            'description': model.description,
-            'category': model.category,
-            'price': model.price,
-            'timeUnit': model.timeUnit,
-            'timeQuantity': model.timeQuantity
-          },
+          body: jsonEncode(model.toJson()),
           headers: await getHeader());
 
       print("REGISTRANDO PRODUTO: ${response.body.toString()}");

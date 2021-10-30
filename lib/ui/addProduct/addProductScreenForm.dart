@@ -269,6 +269,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                         final Future future = addProduct(model);
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
+
                         future.whenComplete(() {
                           Navigator.pop(
                             context,
