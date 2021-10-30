@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:aluguei/repository/api/appExceptions.dart';
-import 'package:aluguei/repository/authRepository.dart';
 import 'package:aluguei/repository/models/products/productModel.dart';
 import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
@@ -42,14 +41,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
   }
 
   String dropdownPriceValue = 'Hora';
-  final model = ProductModel(
-    "",
-    "",
-    "",
-    0,
-    "",
-    0
-  );
+  String dropdownCategoryValue = Strings.fieldDropDownChose;
+  final model = ProductModel("", "", "", 0, "", 0);
 
   final ProductsRepository productsRepository = ProductsRepository();
 
@@ -114,6 +107,48 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                   return null;
                 },
               )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
+                CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
+            child: DropdownButtonFormField<String>(
+              value: dropdownCategoryValue,
+              icon: const Icon(Icons.arrow_downward),
+              style: TextStyle(
+                  fontSize: CustomDimens.fieldFontSize,
+                  color: CustomColors.textGrey,
+                  height: CustomDimens.fieldHeight),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: CustomColors.fieldBorderColor)),
+                  labelStyle: TextStyle(color: CustomColors.textGrey),
+                  fillColor: CustomColors.greyBackgroundColor,
+                  filled: true),
+              iconSize: 24,
+              elevation: 16,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return Strings.fieldDropdownInvalidOption;
+                } else {
+                  //TODO PERGUNTAR COMO PASSAR NO MODEL AS CATEGORIAS
+                  print('test model ok');
+                }
+              },
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownCategoryValue = newValue!;
+                });
+              },
+              items: Strings.fieldProductCategoryDropDownList
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.smallSpacing,
                 CustomDimens.smallSpacing, CustomDimens.smallSpacing, 0.0),
@@ -266,7 +301,6 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                     onPressed: () {
                       //TODO FALTOU O CAMPO CATEGORIAAAA
                       if (_formKey.currentState!.validate()) {
-
                         final Future future = addProduct(model);
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);

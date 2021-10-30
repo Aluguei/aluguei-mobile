@@ -43,21 +43,76 @@ class _SearchScreenState extends State<SearchScreen> {
       length: CustomDimens.appBarLength,
       child: Scaffold(
         backgroundColor: CustomColors.greyHomeBackgroundColor,
-        body: FutureBuilder(
-          future: products,
-          builder: (ctx, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return HomeListViewLayout(
+        body: TabBarView(children: [
+          // CALL ALL PRODUCTS
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return HomeListViewLayout(
                   productList: listProducts,
-                  onRentAction: () => Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => super.widget)));
-            } else {
-              return Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
+                  onRentAction: () {},
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          //CALL ONLY LEISURE PRODUCTS
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return HomeListViewLayout(
+                  productList: listProducts,
+                  onRentAction: () {},
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          // CALL ONLY ELECTRONICS PRODUCTS
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return HomeListViewLayout(
+                  productList: listProducts,
+                  onRentAction: () {},
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return HomeListViewLayout(
+                  productList: listProducts,
+                  onRentAction: () {},
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return HomeListViewLayout(
+                  productList: listProducts,
+                  onRentAction: () {},
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+        ]),
         appBar: AppBar(
             toolbarHeight: CustomDimens.appBarHeight,
             backgroundColor: CustomColors.primaryColor,
@@ -74,6 +129,11 @@ class _SearchScreenState extends State<SearchScreen> {
                         fontSize: CustomDimens.fieldFontSize,
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
+                    onChanged: (String value){
+
+                      print(value);
+
+                    },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
                           onPressed: () {},

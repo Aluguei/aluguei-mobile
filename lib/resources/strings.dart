@@ -75,6 +75,7 @@ class Strings {
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary
+  static const fieldProductCategoryDropDownList = ['Escolha um(a)','Lazer','Eletrônicos','Ferramentas','Outros'];
 
   //Products Dialog
   static const valueIndicator = "R\u0024";
