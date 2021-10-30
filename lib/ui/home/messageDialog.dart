@@ -70,7 +70,6 @@ class MessageDialogLayout extends StatelessWidget {
                           fontSize: CustomFontSize.mediumTextSize,
                           color: CustomColors.blackText,
                         )),
-
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                           CustomDimens.mediumSpacing,
@@ -87,7 +86,10 @@ class MessageDialogLayout extends StatelessWidget {
                                 color: CustomColors.white,
                                 fontSize: CustomFontSize.smallOutlinedButton),
                           ),
-                          onPressed: () => action(),
+                          onPressed: () {
+                            action();
+                            Navigator.pop(context);
+                          },
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.resolveWith<Color>(

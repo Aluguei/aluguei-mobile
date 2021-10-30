@@ -50,10 +50,7 @@ class HomeListView extends State<HomeListViewLayout> {
 
   closeAndReloadPage() {
     if (productDialogContext != null) {
-      Navigator.of(productDialogContext).pop();
-    }
-    if (successDialogContext != null) {
-      Navigator.of(successDialogContext).pop();
+      Navigator.pop(productDialogContext);
     }
     onRentAction();
   }
