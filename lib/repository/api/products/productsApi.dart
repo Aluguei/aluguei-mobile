@@ -79,14 +79,10 @@ class ProductApi {
   // POST - products
   Future<dynamic> registerProduct(ProductModel model) async {
     var responseJson;
-    // timeQuantity
-    // H -> hour
-    // D - day
-    // W - week
-    // H -> min 1 max 24
-    // D -> min 1 max 7
-    // W -> min 1 max 2
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
     try {
+
       var url = Uri.parse('$baseUrl');
       final response = await http.post(url,
           body: {
@@ -99,7 +95,9 @@ class ProductApi {
           },
           headers: await getHeader());
 
+      print("REGISTRANDO PRODUTO: ${response.body.toString()}");
       responseJson = verifyResponse(response);
+
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }

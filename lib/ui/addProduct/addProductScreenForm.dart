@@ -15,6 +15,8 @@ import 'package:flutter/services.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'addProductScreen.dart';
+
 class AddProductScreenForm extends StatefulWidget {
   const AddProductScreenForm({Key? key}) : super(key: key);
 
@@ -263,21 +265,26 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+
                         final Future future = addProduct(model);
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
-                        future.whenComplete(() => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage(
-                                          title: 'Home Page',
-                                        )),
-                              )
-                            });
+                        future.whenComplete(() {
+                          Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddProductScreen(
+                                      title: "Close Product Screen",
+                                    )),
+                          );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage(
+                                      title: 'Home Page',
+                                    )),
+                          );
+                        });
                       }
                     },
                     style: ButtonStyle(
