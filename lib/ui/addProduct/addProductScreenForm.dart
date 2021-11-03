@@ -47,8 +47,8 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
     "",
     "",
     0,
-    0,
     "",
+    0
   );
 
   final ProductsRepository productsRepository = ProductsRepository();
@@ -227,11 +227,11 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             return Strings.fieldDropdownInvalidOption;
                           } else {
                             if (value == 'Hora') {
-                              model.timeQuantity = 'H';
+                              model.timeUnit = 'H';
                             } else if (value == 'Dia') {
-                              model.timeQuantity = 'D';
+                              model.timeUnit = 'D';
                             } else {
-                              model.timeQuantity = 'W';
+                              model.timeUnit = 'W';
                             }
                           }
                         },
