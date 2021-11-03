@@ -70,7 +70,7 @@ class AuthApi {
     var responseJson;
 
     try {
-      var url = Uri.parse('$baseUrl/request-forgot-password');
+      var url = Uri.parse('$baseUrl/request-reset-password');
       final response = await http.post(url, body: {'cpf': cpf});
 
       responseJson = verifyResponse(response);
