@@ -16,7 +16,7 @@ class ProductModel {
         'description': description,
         'category': 'teste',
         'price': price,
-        'timeUnit': timeUnit,
+        'timeUnit': timeUnit.toInt(),
         'timeQuantity': timeQuantity
       };
 

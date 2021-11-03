@@ -71,7 +71,7 @@ class AuthApi {
 
     try {
       var url = Uri.parse('$baseUrl/request-reset-password');
-      final response = await http.post(url, body: {'cpf': cpf});
+      final response = await http.post(url, body: {'CPF': cpf});
 
       responseJson = verifyResponse(response);
     } on SocketException {
