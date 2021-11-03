@@ -227,11 +227,11 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                             return Strings.fieldDropdownInvalidOption;
                           } else {
                             if (value == 'Hora') {
-                              model.timeUnit = 'H';
+                              model.timeUnit = 'hourly';
                             } else if (value == 'Dia') {
-                              model.timeUnit = 'D';
+                              model.timeUnit = 'daily';
                             } else {
-                              model.timeUnit = 'W';
+                              model.timeUnit = 'weekly';
                             }
                           }
                         },
