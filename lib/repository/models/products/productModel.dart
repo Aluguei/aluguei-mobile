@@ -3,8 +3,8 @@ class ProductModel {
   String description;
   String category;
   double price;
-  int timeUnit;
-  String timeQuantity;
+  String timeUnit;
+  int timeQuantity;
 
   ProductModel(this.name, this.description, this.category, this.price,
       this.timeUnit, this.timeQuantity);
@@ -15,9 +15,9 @@ class ProductModel {
         'name': name,
         'description': description,
         'category': 'teste',
-        'price': price,
-        'timeUnit': timeUnit.toInt(),
-        'timeQuantity': timeQuantity
+        'price': price.toDouble(),
+        'timeUnit': timeUnit,
+        'timeQuantity': timeQuantity.toInt()
       };
 
   @override
