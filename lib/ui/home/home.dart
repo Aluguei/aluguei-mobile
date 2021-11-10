@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:aluguei/ui/addProduct/addProductScreen.dart';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
@@ -60,35 +59,22 @@ class _HomePageState extends State<HomePage> {
                 }),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(CustomDimens.navigationBarRadius),
-            topRight: Radius.circular(CustomDimens.navigationBarRadius)),
-        child: BottomAppBar(
-
-
-
-          child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.only( topLeft: Radius.circular(CustomDimens.navigationBarRadius),
-                topRight: Radius.circular(CustomDimens.navigationBarRadius))),
-
-            height: 55,
-
-            child:
-            Expanded(child:
-
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                //LEFT ROW
-
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // SearchScreen Button
-                    MaterialButton(
-
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 60,
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              //LEFT ROW
+              Row(
+                children: [
+                  // SearchScreen Button
+                  Container(
+                    width: MediaQuery.of(context).size.width / 5,
+                    child: MaterialButton(
+                      minWidth: 40,
                       onPressed: () {
                         setState(() {
                           currentScreen = SearchScreen();
@@ -115,46 +101,50 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    // FavoriteScreen Button
-                    MaterialButton(
+                  ),
+                  Container(
+                      width: MediaQuery.of(context).size.width / 5,
+                      child: MaterialButton(
+                        minWidth: 40,
+                        onPressed: () {
+                          setState(() {
+                            currentScreen = FavoriteScreen();
+                            currentTab = 1;
+                          });
 
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = FavoriteScreen();
-                          currentTab = 1;
-                        });
-
-                        /*TODO ADICIONAR OS OUTROS BOTOES,
+                          /*TODO ADICIONAR OS OUTROS BOTOES,
                       adicinar um material button na row da barra e passar a tela
                       no "currentScreen" e passar o indice no currentTab
                        */
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Icon(
-                              Icons.favorite_border_outlined,
-                              color: currentTab == 1
-                                  ? CustomColors.darkPrimaryColor
-                                  : CustomColors.textGrey,
-                              size: CustomDimens.navigationBarIconSize,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                //RIGHT ROW
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Icon(
+                                Icons.favorite_border_outlined,
+                                color: currentTab == 1
+                                    ? CustomColors.darkPrimaryColor
+                                    : CustomColors.textGrey,
+                                size: CustomDimens.navigationBarIconSize,
+                              ),
+                            )
+                          ],
+                        ),
+                      ))
 
-
-                    // SearchScreen Button
-                    MaterialButton(
-
+                  // FavoriteScreen Button
+                ],
+              ),
+              //RIGHT ROW
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // SearchScreen Button
+                  Container(
+                    width: MediaQuery.of(context).size.width / 5,
+                    child: MaterialButton(
+                      minWidth: 40,
                       onPressed: () {
                         setState(() {
                           currentScreen = SearchScreen();
@@ -176,9 +166,11 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    // FavoriteScreen Button
-                    MaterialButton(
-
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 5,
+                    child: MaterialButton(
+                      minWidth: 40,
                       onPressed: () {
                         setState(() {
                           currentScreen = FavoriteScreen();
@@ -199,11 +191,13 @@ class _HomePageState extends State<HomePage> {
                           )
                         ],
                       ),
-                    )
-                  ],
-                )
-              ],
-            )),
+                    ),
+                  )
+
+                  // FavoriteScreen Button
+                ],
+              )
+            ],
           ),
         ),
       ),
