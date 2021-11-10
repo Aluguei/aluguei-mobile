@@ -139,7 +139,7 @@ class ProductDialogLayout extends StatelessWidget {
                                   color: CustomColors.orange),
                             ),
                             Text(
-                              "${Strings.separator}${data.rentTime}",
+                              "${Strings.separator}${data.timeUnit}",
                               style: TextStyle(
                                   fontSize: CustomFontSize.smallFontSize,
                                   fontWeight: FontWeight.normal,
