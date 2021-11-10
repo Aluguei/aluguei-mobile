@@ -18,7 +18,6 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final ProductsRepository repository = ProductsRepository();
   List<ProductData> listProducts = [];
-
   Future<List<ProductData>> getProductsList() async {
     try {
       return await repository
@@ -35,9 +34,17 @@ class _SearchScreenState extends State<SearchScreen> {
     return [];
   }
 
+  Future<List<ProductData>>? products;
+
+  @override
+  void initState() {
+    products = getProductsList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final products = getProductsList();
+    products = getProductsList();
 
     return DefaultTabController(
       length: CustomDimens.appBarLength,
@@ -65,7 +72,9 @@ class _SearchScreenState extends State<SearchScreen> {
               if (snapshot.connectionState == ConnectionState.done) {
                 return HomeListViewLayout(
                   productList: listProducts,
-                  onRentAction: () {},
+                  onRentAction: () {
+                    initState();
+                  },
                 );
               } else {
                 return Center(child: CircularProgressIndicator());

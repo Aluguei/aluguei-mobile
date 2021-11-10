@@ -22,7 +22,7 @@ class ProductApi {
       "content-type": "application/json"
     };
   }
-//todo - fazer notificacao -chat wpp dentro do produto
+//todo - fazer notificacao
   // GET - products/available
   Future<List<ProductData>> getAvailableProducts() async {
     List<ProductData> productList = [];
