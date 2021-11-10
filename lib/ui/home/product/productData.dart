@@ -6,8 +6,8 @@ class ProductData {
   final String category;
   final String imageUrl = "https://picsum.photos/250?image=9";
   final int value;
-  final String rentTime;
-  final int timeUnit;
+  final int rentTime;
+  final String timeUnit;
   final String description;
   final bool isActive;
   final bool isLent;
@@ -32,8 +32,8 @@ class ProductData {
         productName: json['name'] as String,
         category: json['category'] as String,
         value: json['price'] as int,
-        rentTime: json['timeQuantity'] as String,
-        timeUnit: json['timeUnit'] as int,
+        rentTime: json['timeQuantity'] as int,
+        timeUnit: json['timeUnit'] as String,
         description: json['description'] as String,
         isActive: json['isActive'] as bool,
         isLent: json['isLent'] as bool,

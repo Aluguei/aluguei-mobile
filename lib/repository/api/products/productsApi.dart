@@ -37,6 +37,7 @@ class ProductApi {
       print(productListResponse.toString());
 
       if (productListResponse.isNotEmpty) {
+        print("PRODUTOS: ${productListResponse.toString()}");
         productList =
             productListResponse.map((product) => ProductData.fromJson(product))
                 .toList();
