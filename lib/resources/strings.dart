@@ -83,6 +83,7 @@ class Strings {
   static const productDescriptionText = "Descrição";
   static const okButtonText = "ok";
   static const rentButtonText = "Alugar";
+  static const chatButtonText = "Chat";
   static const advertiserText = "Anunciante";
   static const advertiserName = "Nome:\u2800";
   static const advertiserState = "Estado:\u2800";

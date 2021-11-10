@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductDialog {
   final BuildContext _context;
@@ -19,7 +22,11 @@ class ProductDialog {
         context: _context,
         barrierDismissible: false,
         builder: (BuildContext context) {
-          return ProductDialogLayout(data: data, rentAction: rentAction,);
+          return ProductDialogLayout(
+            data: data,
+            rentAction: rentAction,
+            context: _context,
+          );
         });
   }
 
@@ -32,10 +39,35 @@ class ProductDialog {
 }
 
 class ProductDialogLayout extends StatelessWidget {
-  const ProductDialogLayout({required this.data, required this.rentAction});
+  const ProductDialogLayout({required this.data, required this.rentAction, required this.context});
 
   final ProductData data;
   final VoidCallback rentAction;
+  final BuildContext context;
+
+  openWhatsapp() async {
+    //TODO colocar o tel certo data.advertiser.?
+    var whatsapp = "+919144040888";
+    var whatsappURlAndroid = "whatsapp://send?phone=" + whatsapp + "&text=Ola ${data.advertiser.name}";
+    var whatsappURLIos = "https://wa.me/$whatsapp?text=${Uri.parse("Ola ${data.advertiser.name}")}";
+    if (Platform.isIOS) {
+      // for iOS phone only
+      if (await canLaunch(whatsappURLIos)) {
+        await launch(whatsappURLIos, forceSafariVC: false);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+      }
+    } else {
+      // android , web
+      if (await canLaunch(whatsappURlAndroid)) {
+        await launch(whatsappURlAndroid);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,6 +251,42 @@ class ProductDialogLayout extends StatelessWidget {
                             ),
                           ],
                         )),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                          CustomDimens.mediumSpacing,
+                          CustomDimens.xSmallSpacing,
+                          CustomDimens.mediumSpacing,
+                          CustomDimens.xSmallSpacing),
+                      child: Container(
+                        width: double.infinity,
+                        height: CustomDimens.buttonHeight,
+                        child: OutlinedButton(
+                          child: Text(
+                            Strings.chatButtonText,
+                            style: TextStyle(
+                                color: CustomColors.white,
+                                fontSize: CustomFontSize.smallOutlinedButton),
+                          ),
+                          onPressed: () => openWhatsapp(),
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.resolveWith<Color>(
+                              (states) {
+                                if (states.contains(MaterialState.pressed)) {
+                                  return CustomColors.darkPrimaryColor;
+                                }
+                                return CustomColors.primaryColor;
+                              },
+                            ),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                           CustomDimens.mediumSpacing,
