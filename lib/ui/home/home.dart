@@ -7,6 +7,8 @@ import 'package:aluguei/resources/constants.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+int currentTab = 0;
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
 
@@ -17,7 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentTab = 0;
+
 
   final List<Widget> screens = [SearchScreen(), FavoriteScreen()];
 
@@ -60,6 +62,7 @@ class _HomePageState extends State<HomePage> {
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
+
         shape: CircularNotchedRectangle(),
         child: Container(
           height: 60,

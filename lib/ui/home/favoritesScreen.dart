@@ -3,6 +3,7 @@ import 'package:aluguei/resources/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
 
@@ -20,7 +21,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         backgroundColor: CustomColors.primaryColor,
         title: Padding(
             padding: const EdgeInsets.fromLTRB(CustomDimens.verySmallSpacing,
-                CustomDimens.smallSpacing, 0.0, 0.0),
+                CustomDimens.smallSpacing, CustomDimens.verySmallSpacing, 0.0),
             child: Container(
               height: CustomDimens.appBarTextFieldHeight,
               child: TextFormField(
@@ -56,20 +57,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 },
               ),
             )),
-        leading: Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, CustomDimens.smallSpacing,
-                CustomDimens.verySmallSpacing, 0.0),
-            child: Container(
-                width: CustomDimens.alertIconSpacing,
-                child: IconButton(
-                    splashRadius: CustomDimens.appBarIconSplashRadius,
-                    onPressed: () {
-                      //TODO AÇÃO DO BOTAO NOTIFICAÇÃO
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      size: CustomDimens.appBarIconSize,
-                    )))),
+
       ),
     );
   }
