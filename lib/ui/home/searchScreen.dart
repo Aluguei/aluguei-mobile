@@ -76,7 +76,9 @@ class _SearchScreenState extends State<SearchScreen> {
               if (snapshot.connectionState == ConnectionState.done) {
                 return HomeListViewLayout(
                   productList: listProducts,
-                  onRentAction: () {},
+                  onRentAction: () {
+                    setState(() {});
+                  },
                 );
               } else {
                 return Center(child: CircularProgressIndicator());
@@ -88,9 +90,15 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
+                //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
+                final leisureList = listProducts
+                    .where(
+                        (product) => product.category.toLowerCase() == "lazer")
+                    .toList();
                 return HomeListViewLayout(
-                  productList: listProducts,
+                  productList: leisureList,
                   onRentAction: () {
+                    setState(() {});
                   },
                 );
               } else {
@@ -103,9 +111,16 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
+                //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
+                final electronicsList = listProducts
+                    .where((product) =>
+                        product.category.toLowerCase() == "eletronico")
+                    .toList();
                 return HomeListViewLayout(
-                  productList: listProducts,
-                  onRentAction: () {},
+                  productList: electronicsList,
+                  onRentAction: () {
+                    setState(() {});
+                  },
                 );
               } else {
                 return Center(child: CircularProgressIndicator());
@@ -116,9 +131,15 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
+                //TODO qual categoria eh aqui?
+                final xList = listProducts
+                    .where((product) => product.category.toLowerCase() == "x")
+                    .toList();
                 return HomeListViewLayout(
-                  productList: listProducts,
-                  onRentAction: () {},
+                  productList: xList,
+                  onRentAction: () {
+                    setState(() {});
+                  },
                 );
               } else {
                 return Center(child: CircularProgressIndicator());
@@ -129,9 +150,15 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
+                //TODO qual categoria eh aqui?
+                final xList = listProducts
+                    .where((product) => product.category.toLowerCase() == "x")
+                    .toList();
                 return HomeListViewLayout(
-                  productList: listProducts,
-                  onRentAction: () {},
+                  productList: xList,
+                  onRentAction: () {
+                    setState(() {});
+                  },
                 );
               } else {
                 return Center(child: CircularProgressIndicator());
@@ -156,10 +183,11 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
                     onChanged: (String value) {
-
                       //TODO CHAMAR A IP PARA PESQUISAR searchProduct
+                      //TODO atualizar a tela com a lista de retorno da
+                      final searchList = searchProduct(value);
                       print(value);
-
+                      print("Resultado da pesquisa: $searchList");
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
