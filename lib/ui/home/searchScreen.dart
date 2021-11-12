@@ -140,6 +140,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         height: CustomDimens.fieldHeight),
                     onChanged: (String value){
 
+                      //TODO CHAMAR A IP PARA PESQUISAR
                       print(value);
 
                     },
