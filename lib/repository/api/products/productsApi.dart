@@ -56,6 +56,7 @@ class ProductApi {
     try {
       var url = Uri.parse('$baseUrl/available');
 
+      //TODO adicionar a query de pesquisa, ver com samuel
       final response = await http.get(url, headers: await getHeader());
       verifyResponse(response);
 
