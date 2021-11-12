@@ -49,6 +49,32 @@ class ProductApi {
     return productList;
   }
 
+  // GET - products/available
+  Future<List<ProductData>> searchProduct(searchString) async {
+    List<ProductData> productList = [];
+
+    try {
+      var url = Uri.parse('$baseUrl/available');
+
+      final response = await http.get(url, headers: await getHeader());
+      verifyResponse(response);
+
+      var productListResponse = jsonDecode(response.body.toString())['data'] as List;
+      print(productListResponse.toString());
+
+      if (productListResponse.isNotEmpty) {
+        print("PRODUTOS PESQUISA: ${productListResponse.toString()}");
+        productList =
+            productListResponse.map((product) => ProductData.fromJson(product))
+                .toList();
+      }
+
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+    return productList;
+  }
+
   // GET - products/owned
   Future<dynamic> getMyProducts() async {
     var responseJson;
