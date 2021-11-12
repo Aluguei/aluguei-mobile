@@ -55,9 +55,9 @@ class _SearchScreenState extends State<SearchScreen> {
   Future<List<ProductData>>? products;
 
   @override
-  void initState() {
+  void didChangeDependencies() {
     products = getProductsList();
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override
