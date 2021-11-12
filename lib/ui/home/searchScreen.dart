@@ -185,9 +185,9 @@ class _SearchScreenState extends State<SearchScreen> {
                     onChanged: (String value) {
                       //TODO CHAMAR A IP PARA PESQUISAR searchProduct
                       //TODO atualizar a tela com a lista de retorno da
-                      final searchList = searchProduct(value);
+                      products = searchProduct(value);
                       print(value);
-                      print("Resultado da pesquisa: $searchList");
+                      print("Resultado da pesquisa: $products");
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
