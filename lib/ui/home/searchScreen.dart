@@ -18,10 +18,28 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final ProductsRepository repository = ProductsRepository();
   List<ProductData> listProducts = [];
+
   Future<List<ProductData>> getProductsList() async {
     try {
       return await repository
           .getAvailableProducts()
+          .then((value) => listProducts = value);
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+    return [];
+  }
+
+  //TODO USAR NA PESQUISA
+  Future<List<ProductData>> searchProduct(String searchString) async {
+    try {
+      return await repository
+          .searchProduct(searchString)
           .then((value) => listProducts = value);
     } on FetchDataException catch (e) {
       print(e.toString());
@@ -73,7 +91,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: listProducts,
                   onRentAction: () {
-                    initState();
                   },
                 );
               } else {
@@ -138,9 +155,9 @@ class _SearchScreenState extends State<SearchScreen> {
                         fontSize: CustomDimens.fieldFontSize,
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
-                    onChanged: (String value){
+                    onChanged: (String value) {
 
-                      //TODO CHAMAR A IP PARA PESQUISAR
+                      //TODO CHAMAR A IP PARA PESQUISAR searchProduct
                       print(value);
 
                     },
