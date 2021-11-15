@@ -58,16 +58,19 @@ class Strings {
   static const registerErrorMessage = "Ops, ocorreu um erro ao cadastrar, por favor verifique os dados e tente novamente.";
   static const recoverySuccessfulMessage = "Enviamos um e-mail com instruções.";
   static const fieldSearchTittle = "Pesquisar";
-  static const AppBarAllTab = "Todas";
-  static const AppBarLeisureTab = "Lazer";
-  static const AppBarElectronicsTab = "Eletrônicos";
-  static const AppBarToolsTab = "Ferramentas";
-  static const AppBarOtherTab = "Outros";
   static const fieldSearchNull = "Insira a pesquisa";
   static const fieldPriceTitle = "R\$ Valor*";
   static const fieldPriceNull = "Insira o valor";
   static const fieldPricePer = "Por";
   static const fieldTimeQuantityError = "Deve ser entre 1h e 24h";
+
+  //HomeScreen TabBar
+  static const AppBarAllTab = "Todos";
+  static const AppBarLeisureTab = "Lazer";
+  static const AppBarElectronicsTab = "Eletrônicos";
+  static const AppBarToolsTab = "Ferramentas";
+  static const AppBarVehicleTab = "Veículos";
+  static const AppBarFashionTab = "Moda";
 
 
   //Dropdowns
@@ -75,7 +78,7 @@ class Strings {
   static const fieldGenderDropDownList = ['Escolha um(a)','Masculino','Feminino','Outro'];
   static const fieldStateDropDownList = ['Escolha um(a)','São Paulo','Outro']; //temporary
   static const fieldCityDropDownList = ['Escolha um(a)','São Paulo','Campinas','Vinhedo','Valinhos','Sumare','Outra']; //temporary
-  static const fieldProductCategoryDropDownList = ['Escolha um(a)','Lazer','Eletrônicos','Ferramentas','Outros'];
+  static const fieldProductCategoryDropDownList = ['Escolha um(a)','Lazer','Eletrônicos','Ferramentas','Veículos','Moda','Outros'];
 
   //Products Dialog
   static const valueIndicator = "R\u0024";

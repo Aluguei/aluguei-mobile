@@ -29,7 +29,7 @@ class CustomDimens {
   static const largeSpacing = 40.0;
   static const buttonHeight = 45.0;
   static const appBarHeight = 130.0;
-  static const appBarLength = 5;
+  static const appBarLength = 6;
   static const appBarTextFieldHeight = 50.0;
   static const appBarIconSize = 40.0;
   static const navigationBarIconSize = 30.0;

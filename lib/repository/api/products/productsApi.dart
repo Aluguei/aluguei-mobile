@@ -54,7 +54,9 @@ class ProductApi {
     List<ProductData> productList = [];
 
     try {
-      var url = Uri.parse('$baseUrl/available');
+      var url = Uri.parse('$baseUrl/available?perPage=10&productName=$searchString');
+
+
 
       //TODO adicionar a query de pesquisa, ver com samuel
       final response = await http.get(url, headers: await getHeader());

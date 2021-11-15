@@ -14,7 +14,7 @@ class ProductModel {
       {
         'name': name,
         'description': description,
-        'category': 'teste',
+        'category': category,
         'price': price.toDouble(),
         'timeUnit': timeUnit,
         'timeQuantity': timeQuantity.toInt()

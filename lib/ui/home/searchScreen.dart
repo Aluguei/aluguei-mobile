@@ -93,7 +93,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
                 final leisureList = listProducts
                     .where(
-                        (product) => product.category.toLowerCase() == "lazer")
+                        (product) => product.category.toLowerCase() == "sports")
                     .toList();
                 return HomeListViewLayout(
                   productList: leisureList,
@@ -114,7 +114,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
                 final electronicsList = listProducts
                     .where((product) =>
-                        product.category.toLowerCase() == "eletronico")
+                        product.category.toLowerCase() == "technology")
                     .toList();
                 return HomeListViewLayout(
                   productList: electronicsList,
@@ -133,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
               if (snapshot.connectionState == ConnectionState.done) {
                 //TODO qual categoria eh aqui?
                 final xList = listProducts
-                    .where((product) => product.category.toLowerCase() == "x")
+                    .where((product) => product.category.toLowerCase() == "tools")
                     .toList();
                 return HomeListViewLayout(
                   productList: xList,
@@ -152,7 +152,26 @@ class _SearchScreenState extends State<SearchScreen> {
               if (snapshot.connectionState == ConnectionState.done) {
                 //TODO qual categoria eh aqui?
                 final xList = listProducts
-                    .where((product) => product.category.toLowerCase() == "x")
+                    .where((product) => product.category.toLowerCase() == "vehicle")
+                    .toList();
+                return HomeListViewLayout(
+                  productList: xList,
+                  onRentAction: () {
+                    setState(() {});
+                  },
+                );
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          FutureBuilder(
+            future: products,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                //TODO qual categoria eh aqui?
+                final xList = listProducts
+                    .where((product) => product.category.toLowerCase() == "fashion")
                     .toList();
                 return HomeListViewLayout(
                   productList: xList,
@@ -188,6 +207,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       products = searchProduct(value);
                       print(value);
                       print("Resultado da pesquisa: $products");
+
+
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
@@ -278,7 +299,15 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       Tab(
                         child: Text(
-                          Strings.AppBarOtherTab,
+                          Strings.AppBarVehicleTab,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: CustomFontSize.smallFontSize),
+                        ),
+                      ),
+                      Tab(
+                        child: Text(
+                          Strings.AppBarFashionTab,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: CustomFontSize.smallFontSize),

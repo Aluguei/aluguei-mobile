@@ -128,11 +128,24 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
               iconSize: 24,
               elevation: 16,
               validator: (value) {
-                if (value == null || value.isEmpty) {
+                if (value == null ||
+                    value.isEmpty ||
+                    value == 'Escolha um(a)') {
                   return Strings.fieldDropdownInvalidOption;
                 } else {
-                  //TODO PERGUNTAR COMO PASSAR NO MODEL AS CATEGORIAS
-                  print('test model ok');
+                  if (value == 'Lazer') {
+                    model.category = 'sports';
+                  } else if (value == 'Eletrônicos') {
+                    model.category = 'technology';
+                  } else if (value == 'Ferramentas') {
+                    model.category = 'tools';
+                  } else if (value == 'Veículos') {
+                    model.category = 'vehicle';
+                  } else if (value == 'Moda') {
+                    model.category = 'fashion';
+                  } else {
+                    model.category = 'others';
+                  }
                 }
               },
               onChanged: (String? newValue) {
