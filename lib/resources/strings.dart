@@ -13,6 +13,7 @@ class Strings {
   static const fieldEstateTitle = "Estado*";
   static const fieldCityTitle = "Cidade*";
   static const fieldCEPTitle = "CEP*";
+  static const fieldCategoryTitle = "Categoria*";
   static const fieldDescriptionTitle = "Descrição*";
   static const fieldGenderTitle = "Sexo*";
   static const fieldMaleGenderTitle = "Masculino";

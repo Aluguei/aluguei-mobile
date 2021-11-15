@@ -201,12 +201,17 @@ class _SearchScreenState extends State<SearchScreen> {
                         fontSize: CustomDimens.fieldFontSize,
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
-                    onChanged: (String value) {
+
+                    onChanged: (text) {
                       //TODO CHAMAR A IP PARA PESQUISAR searchProduct
                       //TODO atualizar a tela com a lista de retorno da
-                      products = searchProduct(value);
-                      print(value);
+                      products = searchProduct(text);
+                      print(text);
                       print("Resultado da pesquisa: $products");
+
+                     
+
+
 
 
                     },

@@ -123,6 +123,7 @@ class AddProductScreenFormState extends State<AddProductScreenForm> {
                       borderSide:
                           BorderSide(color: CustomColors.fieldBorderColor)),
                   labelStyle: TextStyle(color: CustomColors.textGrey),
+                  labelText: Strings.fieldCategoryTitle,
                   fillColor: CustomColors.greyBackgroundColor,
                   filled: true),
               iconSize: 24,
