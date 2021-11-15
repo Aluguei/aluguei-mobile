@@ -90,7 +90,7 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
+
                 final leisureList = listProducts
                     .where(
                         (product) => product.category.toLowerCase() == "sports")
@@ -111,7 +111,7 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                //TODO filtar a listProducts pela categoria e passar na productList a lista filtrada
+
                 final electronicsList = listProducts
                     .where((product) =>
                         product.category.toLowerCase() == "technology")
@@ -131,12 +131,13 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                //TODO qual categoria eh aqui?
-                final xList = listProducts
-                    .where((product) => product.category.toLowerCase() == "tools")
+
+                final toolsList = listProducts
+                    .where(
+                        (product) => product.category.toLowerCase() == "tools")
                     .toList();
                 return HomeListViewLayout(
-                  productList: xList,
+                  productList: toolsList,
                   onRentAction: () {
                     setState(() {});
                   },
@@ -150,12 +151,12 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                //TODO qual categoria eh aqui?
-                final xList = listProducts
-                    .where((product) => product.category.toLowerCase() == "vehicle")
+                final vehicleList = listProducts
+                    .where((product) =>
+                        product.category.toLowerCase() == "vehicle")
                     .toList();
                 return HomeListViewLayout(
-                  productList: xList,
+                  productList: vehicleList,
                   onRentAction: () {
                     setState(() {});
                   },
@@ -169,12 +170,12 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                //TODO qual categoria eh aqui?
-                final xList = listProducts
-                    .where((product) => product.category.toLowerCase() == "fashion")
+                final fashionList = listProducts
+                    .where((product) =>
+                        product.category.toLowerCase() == "fashion")
                     .toList();
                 return HomeListViewLayout(
-                  productList: xList,
+                  productList: fashionList,
                   onRentAction: () {
                     setState(() {});
                   },
@@ -201,19 +202,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         fontSize: CustomDimens.fieldFontSize,
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
-
                     onChanged: (text) {
                       //TODO CHAMAR A IP PARA PESQUISAR searchProduct
                       //TODO atualizar a tela com a lista de retorno da
                       products = searchProduct(text);
                       print(text);
                       print("Resultado da pesquisa: $products");
-
-                     
-
-
-
-
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(

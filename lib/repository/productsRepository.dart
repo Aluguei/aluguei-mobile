@@ -10,7 +10,7 @@ class ProductsRepository {
     return await service.getAvailableProducts();
   }
 
-  Future<List<ProductData>> searchProduct(String searchString ) async {
+  Future<List<ProductData>> searchProduct(String searchString) async {
     return await service.searchProduct(searchString);
   }
 

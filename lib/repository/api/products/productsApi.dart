@@ -49,6 +49,8 @@ class ProductApi {
     return productList;
   }
 
+
+
   // GET - products/available
   Future<List<ProductData>> searchProduct(searchString) async {
     List<ProductData> productList = [];
