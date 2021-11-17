@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:aluguei/ui/addProduct/addProductScreen.dart';
+import 'package:aluguei/ui/alertboxes/logOffConfirmation.dart';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,6 +11,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 int currentTab = 0;
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -19,8 +23,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   final List<Widget> screens = [SearchScreen(), FavoriteScreen()];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -62,7 +64,6 @@ class _HomePageState extends State<HomePage> {
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-
         shape: CircularNotchedRectangle(),
         child: Container(
           height: 60,
@@ -114,18 +115,13 @@ class _HomePageState extends State<HomePage> {
                             currentScreen = FavoriteScreen();
                             currentTab = 1;
                           });
-
-                          /*TODO ADICIONAR OS OUTROS BOTOES,
-                      adicinar um material button na row da barra e passar a tela
-                      no "currentScreen" e passar o indice no currentTab
-                       */
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
                               child: Icon(
-                                Icons.favorite_border_outlined,
+                                Icons.shopping_cart_outlined,
                                 color: currentTab == 1
                                     ? CustomColors.darkPrimaryColor
                                     : CustomColors.textGrey,
@@ -144,32 +140,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // SearchScreen Button
-                  Container(
-                    width: MediaQuery.of(context).size.width / 5,
-                    child: MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = SearchScreen();
-                          currentTab = 2;
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Icon(
-                              Icons.chat_bubble_outline_rounded,
-                              color: currentTab == 2
-                                  ? CustomColors.darkPrimaryColor
-                                  : CustomColors.textGrey,
-                              size: CustomDimens.navigationBarIconSize,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+
                   Container(
                     width: MediaQuery.of(context).size.width / 5,
                     child: MaterialButton(
@@ -189,6 +160,26 @@ class _HomePageState extends State<HomePage> {
                               color: currentTab == 3
                                   ? CustomColors.darkPrimaryColor
                                   : CustomColors.textGrey,
+                              size: CustomDimens.navigationBarIconSize,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),Container(
+                    width: MediaQuery.of(context).size.width / 5,
+                    child: MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {
+                        showAlertDialog(context);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(
+                              Icons.logout,
+                              color: CustomColors.textGrey,
                               size: CustomDimens.navigationBarIconSize,
                             ),
                           )

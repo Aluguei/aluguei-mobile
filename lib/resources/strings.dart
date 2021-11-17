@@ -73,6 +73,9 @@ class Strings {
   static const AppBarVehicleTab = "Veículos";
   static const AppBarFashionTab = "Moda";
 
+  //AlertBox
+  static const AlertYesConfirmation = "Sim";
+  static const AlertNoConfirmation = "No";
 
   //Dropdowns
   static const fieldRentTimeScaleDropDownList = ['Hora','Dia','Semana'];

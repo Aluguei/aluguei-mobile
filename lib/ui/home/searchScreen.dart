@@ -208,6 +208,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       products = searchProduct(text);
                       print(text);
                       print("Resultado da pesquisa: $products");
+
+
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
