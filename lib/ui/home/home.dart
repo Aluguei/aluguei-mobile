@@ -12,7 +12,6 @@ import 'package:flutter/widgets.dart';
 
 int currentTab = 0;
 
-
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
 
@@ -31,170 +30,181 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageStorage(
-        child: currentScreen,
-        bucket: bucket,
-      ),
-      floatingActionButton: Container(
-          height: CustomDimens.navigationBarFloatingButtonSize,
-          width: CustomDimens.navigationBarFloatingButtonSize,
-          child: FittedBox(
-            child: FloatingActionButton(
-                backgroundColor: CustomColors.primaryColor,
-                child: Icon(
-                  Icons.add,
-                  size: CustomDimens.navigationBarFloatingButtonIconSize,
-                ),
-                onPressed: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomePage(
-                              title: "Close Home Screen",
-                            )),
-                  );
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AddProductScreen(
-                              title: "Open Add Product Screen",
-                            )),
-                  );
-                }),
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          height: 60,
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              //LEFT ROW
-              Row(
-                children: [
-                  // SearchScreen Button
-                  Container(
-                    width: MediaQuery.of(context).size.width / 5,
-                    child: MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = SearchScreen();
-                          currentTab = 0;
-                        });
+        body: PageStorage(
+          child: currentScreen,
+          bucket: bucket,
+        ),
+        floatingActionButton: Container(
+            height: CustomDimens.navigationBarFloatingButtonSize,
+            width: CustomDimens.navigationBarFloatingButtonSize,
+            child: FittedBox(
+              child: FloatingActionButton(
+                  backgroundColor: CustomColors.primaryColor,
+                  child: Icon(
+                    Icons.add,
+                    size: CustomDimens.navigationBarFloatingButtonIconSize,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomePage(
+                                title: "Close Home Screen",
+                              )),
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AddProductScreen(
+                                title: "Open Add Product Screen",
+                              )),
+                    );
+                  }),
+            )),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
 
-                        /*TODO ADICIONAR OS OUTROS BOTOES,
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: 10.0,
+                  offset: Offset(0.0, 0.75))
+            ],
+          ),
+          child: BottomAppBar(
+            elevation: 50.0,
+            child: Container(
+              height: 60,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  //LEFT ROW
+                  Row(
+                    children: [
+                      // SearchScreen Button
+                      Container(
+                        width: MediaQuery.of(context).size.width / 5,
+                        child: MaterialButton(
+                          minWidth: 40,
+                          onPressed: () {
+                            setState(() {
+                              currentScreen = SearchScreen();
+                              currentTab = 0;
+                            });
+
+                            /*TODO ADICIONAR OS OUTROS BOTOES,
                       adicinar um material button na row da barra e passar a tela
                       no "currentScreen" e passar o indice no currentTab
                        */
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Icon(
-                              Icons.home_outlined,
-                              color: currentTab == 0
-                                  ? CustomColors.darkPrimaryColor
-                                  : CustomColors.textGrey,
-                              size: CustomDimens.navigationBarIconSize,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width / 5,
-                      child: MaterialButton(
-                        minWidth: 40,
-                        onPressed: () {
-                          setState(() {
-                            currentScreen = FavoriteScreen();
-                            currentTab = 1;
-                          });
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              child: Icon(
-                                Icons.shopping_cart_outlined,
-                                color: currentTab == 1
-                                    ? CustomColors.darkPrimaryColor
-                                    : CustomColors.textGrey,
-                                size: CustomDimens.navigationBarIconSize,
-                              ),
-                            )
-                          ],
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.home_outlined,
+                                  color: currentTab == 0
+                                      ? CustomColors.darkPrimaryColor
+                                      : CustomColors.textGrey,
+                                  size: CustomDimens.navigationBarIconSize,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ))
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width / 5,
+                          child: MaterialButton(
+                            minWidth: 40,
+                            onPressed: () {
+                              setState(() {
+                                currentScreen = FavoriteScreen();
+                                currentTab = 1;
+                              });
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    Icons.shopping_cart_outlined,
+                                    color: currentTab == 1
+                                        ? CustomColors.darkPrimaryColor
+                                        : CustomColors.textGrey,
+                                    size: CustomDimens.navigationBarIconSize,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ))
 
-                  // FavoriteScreen Button
+                      // FavoriteScreen Button
+                    ],
+                  ),
+                  //RIGHT ROW
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // SearchScreen Button
+
+                      Container(
+                        width: MediaQuery.of(context).size.width / 5,
+                        child: MaterialButton(
+                          minWidth: 40,
+                          onPressed: () {
+                            setState(() {
+                              currentScreen = FavoriteScreen();
+                              currentTab = 3;
+                            });
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.person_outline,
+                                  color: currentTab == 3
+                                      ? CustomColors.darkPrimaryColor
+                                      : CustomColors.textGrey,
+                                  size: CustomDimens.navigationBarIconSize,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 5,
+                        child: MaterialButton(
+                          minWidth: 40,
+                          onPressed: () {
+                            showAlertDialog(context);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.logout,
+                                  color: CustomColors.textGrey,
+                                  size: CustomDimens.navigationBarIconSize,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+
+                      // FavoriteScreen Button
+                    ],
+                  )
                 ],
               ),
-              //RIGHT ROW
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // SearchScreen Button
-
-                  Container(
-                    width: MediaQuery.of(context).size.width / 5,
-                    child: MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = FavoriteScreen();
-                          currentTab = 3;
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Icon(
-                              Icons.person_outline,
-                              color: currentTab == 3
-                                  ? CustomColors.darkPrimaryColor
-                                  : CustomColors.textGrey,
-                              size: CustomDimens.navigationBarIconSize,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),Container(
-                    width: MediaQuery.of(context).size.width / 5,
-                    child: MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        showAlertDialog(context);
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Icon(
-                              Icons.logout,
-                              color: CustomColors.textGrey,
-                              size: CustomDimens.navigationBarIconSize,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-
-                  // FavoriteScreen Button
-                ],
-              )
-            ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
