@@ -9,7 +9,7 @@ class ProductModel {
   ProductModel(this.name, this.description, this.category, this.price,
       this.timeUnit, this.timeQuantity);
 
-  //TODO adicionar categoria
+//TODO adicionar categoria
   Map<String, dynamic> toJson() =>
       {
         'name': name,

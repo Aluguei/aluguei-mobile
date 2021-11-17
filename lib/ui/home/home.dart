@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
             width: CustomDimens.navigationBarFloatingButtonSize,
             child: FittedBox(
               child: FloatingActionButton(
+
                   backgroundColor: CustomColors.primaryColor,
                   child: Icon(
                     Icons.add,
@@ -63,6 +64,7 @@ class _HomePageState extends State<HomePage> {
                   }),
             )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
 
