@@ -27,14 +27,19 @@ class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final model = LoginModel("", "");
   final AuthRepository authRepository = AuthRepository();
+  var loginSuccess = false;
 
   Future<void> doLogin() async {
     try {
-      return await authRepository.doLogin(model);
+      return await authRepository
+          .doLogin(model)
+          .then((value) => loginSuccess = true);
     } on FetchDataException catch (e) {
+      loginSuccess = false;
       print(e.toString());
       ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
+      loginSuccess = false;
       print(e.toString());
       ErrorsMessages.showLoginErrorMessage(context);
     }
@@ -137,7 +142,9 @@ class LoginFormState extends State<LoginForm> {
                         final Future future = doLogin();
                         final loading = LoadingOverlay.of(context);
                         loading.during(future);
-                        future.whenComplete(() => openHomeScreen());
+                        future.whenComplete(() => {
+                              if (loginSuccess) {openHomeScreen()}
+                            });
                       }
                     },
                     style: ButtonStyle(
