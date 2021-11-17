@@ -202,7 +202,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
                     onChanged: (text) {
-                      //TODO CHAMAR A IP PARA PESQUISAR searchProduct
                       //TODO atualizar a tela com a lista de retorno da
                       products = searchProduct(text);
                       print(text);
