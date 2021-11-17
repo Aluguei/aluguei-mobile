@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:aluguei/repository/models/authentication/loginResponse.dart';
 import 'package:aluguei/repository/models/products/productModel.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:aluguei/ui/home/product/rentedProductData.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import '../appExceptions.dart';
@@ -103,8 +104,8 @@ class ProductApi {
     return productList;
   }
 
-  Future<List<ProductData>> getRentedProducts() async {
-    List<ProductData> productList = [];
+  Future<List<RentedProductData>> getRentedProducts() async {
+    List<RentedProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/rented');
@@ -118,7 +119,7 @@ class ProductApi {
       if (productListResponse.isNotEmpty) {
         print("PRODUTOS QUE ALUGUEI: ${productListResponse.toString()}");
         productList = productListResponse
-            .map((product) => ProductData.fromJson(product))
+            .map((product) => RentedProductData.fromJson(product))
             .toList();
       }
     } on SocketException {

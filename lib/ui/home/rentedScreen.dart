@@ -3,11 +3,10 @@ import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
-import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:aluguei/ui/home/product/rentedProductData.dart';
+import 'package:aluguei/ui/home/productListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'homeListView.dart';
 
 class RentedScreen extends StatefulWidget {
   const RentedScreen({Key? key}) : super(key: key);
@@ -18,11 +17,11 @@ class RentedScreen extends StatefulWidget {
 
 class _RentedScreenState extends State<RentedScreen> {
   final ProductsRepository repository = ProductsRepository();
-  List<ProductData> listProducts = [];
+  List<RentedProductData> listProducts = [];
 
-  Future<List<ProductData>>? products;
+  Future<List<RentedProductData>>? products;
 
-  Future<List<ProductData>> getMyRentedProducts() async {
+  Future<List<RentedProductData>> getMyRentedProducts() async {
     try {
       return await repository
           .getRentedProducts()
@@ -91,11 +90,8 @@ class _RentedScreenState extends State<RentedScreen> {
           future: products,
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return HomeListViewLayout(
+              return ProductListViewLayout(
                 productList: listProducts,
-                onRentAction: () {
-                  setState(() {});
-                },
               );
             } else {
               return Center(child: CircularProgressIndicator());

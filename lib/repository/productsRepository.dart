@@ -1,4 +1,5 @@
 import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:aluguei/ui/home/product/rentedProductData.dart';
 
 import 'api/products/productsApi.dart';
 import 'models/products/productModel.dart';
@@ -18,7 +19,7 @@ class ProductsRepository {
     return await service.getMyProducts();
   }
 
-  Future<List<ProductData>> getRentedProducts() async {
+  Future<List<RentedProductData>> getRentedProducts() async {
     return await service.getRentedProducts();
   }
 
