@@ -15,13 +15,14 @@ class ProductApi {
 
   Future<Map<String, String>> getHeader() async {
     final box = await Hive.openBox<LoginResponse>('loginResponse');
-    final LoginResponse? loginResponseCache =  box.getAt(0);
-    return  {
+    final LoginResponse? loginResponseCache = box.getAt(0);
+    return {
       'device': 'mobile',
       'Authorization': 'Bearer ${loginResponseCache?.accessToken}',
       "content-type": "application/json"
     };
   }
+
 //todo - fazer notificacao
   // GET - products/available
   Future<List<ProductData>> getAvailableProducts() async {
@@ -33,47 +34,43 @@ class ProductApi {
       final response = await http.get(url, headers: await getHeader());
       verifyResponse(response);
 
-      var productListResponse = jsonDecode(response.body.toString())['data'] as List;
+      var productListResponse =
+          jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
       if (productListResponse.isNotEmpty) {
         print("PRODUTOS: ${productListResponse.toString()}");
-        productList =
-            productListResponse.map((product) => ProductData.fromJson(product))
-                .toList();
+        productList = productListResponse
+            .map((product) => ProductData.fromJson(product))
+            .toList();
       }
-
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
     return productList;
   }
 
-
-
   // GET - products/available
   Future<List<ProductData>> searchProduct(searchString) async {
     List<ProductData> productList = [];
 
     try {
-      var url = Uri.parse('$baseUrl/available?perPage=10&productName=$searchString');
+      var url =
+          Uri.parse('$baseUrl/available?perPage=10&productName=$searchString');
 
-
-
-      //TODO adicionar a query de pesquisa, ver com samuel
       final response = await http.get(url, headers: await getHeader());
       verifyResponse(response);
 
-      var productListResponse = jsonDecode(response.body.toString())['data'] as List;
+      var productListResponse =
+          jsonDecode(response.body.toString())['data'] as List;
       print(productListResponse.toString());
 
       if (productListResponse.isNotEmpty) {
         print("PRODUTOS PESQUISA: ${productListResponse.toString()}");
-        productList =
-            productListResponse.map((product) => ProductData.fromJson(product))
-                .toList();
+        productList = productListResponse
+            .map((product) => ProductData.fromJson(product))
+            .toList();
       }
-
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
@@ -81,32 +78,53 @@ class ProductApi {
   }
 
   // GET - products/owned
-  Future<dynamic> getMyProducts() async {
-    var responseJson;
+
+  Future<List<ProductData>> getMyProducts() async {
+    List<ProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/owned');
       final response = await http.get(url, headers: await getHeader());
+      verifyResponse(response);
 
-      responseJson = verifyResponse(response);
+      var productListResponse =
+          jsonDecode(response.body.toString())['data'] as List;
+      print(productListResponse.toString());
+
+      if (productListResponse.isNotEmpty) {
+        print("MEUS PRODUTOS: ${productListResponse.toString()}");
+        productList = productListResponse
+            .map((product) => ProductData.fromJson(product))
+            .toList();
+      }
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    return responseJson;
+    return productList;
   }
 
-  Future<dynamic> getRentedProducts() async {
-    var responseJson;
+  Future<List<ProductData>> getRentedProducts() async {
+    List<ProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/rented');
       final response = await http.get(url, headers: await getHeader());
+      verifyResponse(response);
 
-      responseJson = verifyResponse(response);
+      var productListResponse =
+      jsonDecode(response.body.toString())['data'] as List;
+      print(productListResponse.toString());
+
+      if (productListResponse.isNotEmpty) {
+        print("PRODUTOS QUE ALUGUEI: ${productListResponse.toString()}");
+        productList = productListResponse
+            .map((product) => ProductData.fromJson(product))
+            .toList();
+      }
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    return responseJson;
+    return productList;
   }
 
   // POST - products
@@ -114,15 +132,12 @@ class ProductApi {
     var responseJson;
 
     try {
-
-      print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${jsonEncode(model.toJson())}");
       var url = Uri.parse('$baseUrl');
-      final response = await http.post(url, body: jsonEncode(model.toJson()),
-          headers: await getHeader());
+      final response = await http.post(url,
+          body: jsonEncode(model.toJson()), headers: await getHeader());
 
       print("REGISTRANDO PRODUTO: ${response.body.toString()}");
       responseJson = verifyResponse(response);
-
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }

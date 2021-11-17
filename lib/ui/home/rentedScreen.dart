@@ -9,23 +9,23 @@ import 'package:flutter/material.dart';
 
 import 'homeListView.dart';
 
-class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+class RentedScreen extends StatefulWidget {
+  const RentedScreen({Key? key}) : super(key: key);
 
   @override
-  _FavoriteScreenState createState() => _FavoriteScreenState();
+  _RentedScreenState createState() => _RentedScreenState();
 }
 
-class _FavoriteScreenState extends State<FavoriteScreen> {
+class _RentedScreenState extends State<RentedScreen> {
   final ProductsRepository repository = ProductsRepository();
   List<ProductData> listProducts = [];
 
   Future<List<ProductData>>? products;
 
-  Future<List<ProductData>> getMyProducts() async {
+  Future<List<ProductData>> getMyRentedProducts() async {
     try {
       return await repository
-          .getMyProducts()
+          .getRentedProducts()
           .then((value) => listProducts = value);
     } on FetchDataException catch (e) {
       print(e.toString());
@@ -40,7 +40,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    products = getMyProducts();
+    products = getMyRentedProducts();
 
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,

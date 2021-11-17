@@ -35,7 +35,6 @@ class _SearchScreenState extends State<SearchScreen> {
     return [];
   }
 
-  //TODO USAR NA PESQUISA
   Future<List<ProductData>> searchProduct(String searchString) async {
     try {
       return await repository
