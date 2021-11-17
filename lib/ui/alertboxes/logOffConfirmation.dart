@@ -6,8 +6,11 @@ import 'package:aluguei/resources/strings.dart';
 import 'package:hive/hive.dart';
 
 showAlertDialog(BuildContext context) {
+
   Future<void> cleanCache() async {
-    Hive.box('loginResponse').clear();
+    final box = await Hive.openBox<LoginResponse>('loginResponse');
+    box.deleteFromDisk();
+
   }
 
   void logoutUser() {
