@@ -104,7 +104,7 @@ class ProductDialogLayout extends StatelessWidget {
                           fontSize: CustomFontSize.mediumTextSize,
                           color: CustomColors.blackText,
                         )),
-                    Text(data.category,
+                    Text(data.humanCategory,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           wordSpacing: 0,
@@ -139,7 +139,7 @@ class ProductDialogLayout extends StatelessWidget {
                                   color: CustomColors.orange),
                             ),
                             Text(
-                              "${Strings.separator}${data.timeUnit}",
+                              "${Strings.separator} ${data.humanTimeUnit}",
                               style: TextStyle(
                                   fontSize: CustomFontSize.smallFontSize,
                                   fontWeight: FontWeight.normal,

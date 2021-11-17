@@ -1,5 +1,6 @@
 import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
+import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:aluguei/ui/home/product/productDialog.dart';
@@ -72,9 +73,9 @@ class HomeListView extends State<HomeListViewLayout> {
           itemBuilder: (context, index) {
             return ProductItemViewLayout(
               title: productList[index].productName,
-              category: productList[index].category,
-              value: productList[index].value.toString(),
-              time: productList[index].rentTime.toString(),
+              category: productList[index].humanCategory,
+              value: "${Strings.valueIndicator} ${productList[index].value.toString()}",
+              time: "${Strings.separator} ${productList[index].humanTimeUnit}",
               image: productList[index].imageUrl,
               action: () =>
                   showProductDialog(productList[index], productList[index].id),
