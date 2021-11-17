@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:aluguei/ui/addProduct/addProductScreen.dart';
 import 'package:aluguei/ui/alertboxes/logOffConfirmation.dart';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
+import 'package:aluguei/ui/home/rentedScreen.dart';
 import 'package:aluguei/ui/home/searchScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                             minWidth: 40,
                             onPressed: () {
                               setState(() {
-                                currentScreen = FavoriteScreen();
+                                currentScreen = RentedScreen();
                                 currentTab = 1;
                               });
                             },
