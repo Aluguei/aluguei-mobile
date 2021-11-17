@@ -18,8 +18,8 @@ class ProductsRepository {
     return await service.getMyProducts();
   }
 
-  Future<void> getRentedProducts() async {
-    await service.getRentedProducts();
+  Future<List<ProductData>> getRentedProducts() async {
+    return await service.getRentedProducts();
   }
 
   Future<void> registerProduct(ProductModel model) async {

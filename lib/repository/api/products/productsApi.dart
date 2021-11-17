@@ -103,18 +103,28 @@ class ProductApi {
     return productList;
   }
 
-  Future<dynamic> getRentedProducts() async {
-    var responseJson;
+  Future<List<ProductData>> getRentedProducts() async {
+    List<ProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/rented');
       final response = await http.get(url, headers: await getHeader());
+      verifyResponse(response);
 
-      responseJson = verifyResponse(response);
+      var productListResponse =
+      jsonDecode(response.body.toString())['data'] as List;
+      print(productListResponse.toString());
+
+      if (productListResponse.isNotEmpty) {
+        print("PRODUTOS QUE ALUGUEI: ${productListResponse.toString()}");
+        productList = productListResponse
+            .map((product) => ProductData.fromJson(product))
+            .toList();
+      }
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-    return responseJson;
+    return productList;
   }
 
   // POST - products
@@ -122,8 +132,6 @@ class ProductApi {
     var responseJson;
 
     try {
-      print(
-          "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${jsonEncode(model.toJson())}");
       var url = Uri.parse('$baseUrl');
       final response = await http.post(url,
           body: jsonEncode(model.toJson()), headers: await getHeader());
