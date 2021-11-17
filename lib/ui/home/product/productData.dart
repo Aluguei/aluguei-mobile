@@ -4,10 +4,12 @@ class ProductData {
   final int id;
   final String productName;
   final String category;
-  final String imageUrl = "https://picsum.photos/250?image=9";
+  final String humanCategory;
+  final String imageUrl;
   final int value;
   final int rentTime;
   final String timeUnit;
+  final String humanTimeUnit;
   final String description;
   final bool isActive;
   final bool isLent;
@@ -17,9 +19,12 @@ class ProductData {
     required this.id,
     required this.productName,
     required this.category,
+    required this.humanCategory,
+    required this.imageUrl,
     required this.value,
     required this.rentTime,
     required this.timeUnit,
+    required this.humanTimeUnit,
     required this.description,
     required this.isActive,
     required this.isLent,
@@ -31,9 +36,12 @@ class ProductData {
         id: json['id'] as int,
         productName: json['name'] as String,
         category: json['category'] as String,
+        humanCategory: json['humanCategory'] as String,
+        imageUrl: json['imageUrl'] as String,
         value: json['price'] as int,
         rentTime: json['timeQuantity'] as int,
         timeUnit: json['timeUnit'] as String,
+        humanTimeUnit: json['humanTimeUnit'] as String,
         description: json['description'] as String,
         isActive: json['isActive'] as bool,
         isLent: json['isLent'] as bool,
@@ -50,6 +58,8 @@ class Advertiser {
   final String address;
   final String state;
   final String city;
+  final String phoneOne;
+  final String phoneTwo;
 
   const Advertiser(
       {required this.id,
@@ -58,7 +68,9 @@ class Advertiser {
       required this.lastName,
       required this.address,
       required this.state,
-      required this.city});
+      required this.city,
+      required this.phoneOne,
+      required this.phoneTwo});
 
   factory Advertiser.fromJson(Map<String, dynamic> json) {
     return Advertiser(
@@ -69,6 +81,8 @@ class Advertiser {
       address: json['address'] as String,
       state: json['state'] as String,
       city: json['city'] as String,
+      phoneOne: json['phoneOne'] as String,
+      phoneTwo: json['phoneTwo'] as String,
     );
   }
 }
