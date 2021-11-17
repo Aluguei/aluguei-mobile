@@ -1,8 +1,13 @@
+import 'package:aluguei/repository/api/appExceptions.dart';
+import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
+import 'package:aluguei/ui/errors/errorsMessages.dart';
+import 'package:aluguei/ui/home/product/productData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'homeListView.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -12,8 +17,31 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
+  final ProductsRepository repository = ProductsRepository();
+  List<ProductData> listProducts = [];
+
+  Future<List<ProductData>>? products;
+
+  Future<List<ProductData>> getMyProducts() async {
+    try {
+      return await repository
+          .getMyProducts()
+          .then((value) => listProducts = value);
+    } on FetchDataException catch (e) {
+      print(e.toString());
+      ErrorsMessages.showGenericErrorMessage(context);
+    } catch (e) {
+      print(e.toString());
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+    return [];
+  }
+
   @override
   Widget build(BuildContext context) {
+    products = getMyProducts();
+
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,
       appBar: AppBar(
@@ -57,7 +85,23 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 },
               ),
             )),
-
+      ),
+      body: Container(
+        child: FutureBuilder(
+          future: products,
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return HomeListViewLayout(
+                productList: listProducts,
+                onRentAction: () {
+                  setState(() {});
+                },
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
       ),
     );
   }
