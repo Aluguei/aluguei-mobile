@@ -58,7 +58,6 @@ class ProductApi {
       var url =
           Uri.parse('$baseUrl/available?perPage=10&productName=$searchString');
 
-      //TODO adicionar a query de pesquisa, ver com samuel
       final response = await http.get(url, headers: await getHeader());
       verifyResponse(response);
 
