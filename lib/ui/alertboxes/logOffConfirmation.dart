@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:aluguei/resources/strings.dart';
 
 showAlertDialog(BuildContext context) {
-
+//TODO DEIXAR COM O VISUAL PADRAO DO APP
 
 
   Widget cancelButton = FlatButton(
