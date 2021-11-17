@@ -31,9 +31,11 @@ class LoginFormState extends State<LoginForm> {
 
   Future<void> doLogin() async {
     try {
+
       return await authRepository
           .doLogin(model)
           .then((value) => loginSuccess = true);
+
     } on FetchDataException catch (e) {
       loginSuccess = false;
       print(e.toString());
