@@ -3,13 +3,11 @@ import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
-import 'package:aluguei/ui/home/product/productData.dart';
+
 import 'package:aluguei/ui/home/product/rentedProductData.dart';
 import 'package:aluguei/ui/home/productListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'homeListView.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -34,8 +32,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       ErrorsMessages.showGenericErrorMessage(context);
     } catch (e) {
       print(e.toString());
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.toString()),
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(e.toString()),
           behavior: SnackBarBehavior.floating,
           backgroundColor: CustomColors.darkPrimaryColor,
           elevation: 0));
@@ -99,7 +97,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             if (snapshot.connectionState == ConnectionState.done) {
               return ProductListViewLayout(
                 productList: listProducts,
-
               );
             } else {
               return Center(child: CircularProgressIndicator());
