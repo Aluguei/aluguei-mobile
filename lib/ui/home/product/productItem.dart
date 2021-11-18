@@ -75,14 +75,14 @@ class ProductItemView extends State<ProductItemViewLayout> {
                               Text(
                                 value,
                                 style: TextStyle(
-                                    fontSize: CustomFontSize.largeFontSize,
+                                    fontSize: CustomFontSize.CardPriceFontSize,
                                     fontWeight: FontWeight.bold,
                                     color: CustomColors.orange),
                               ),
                               Text(
                                 time,
                                 style: TextStyle(
-                                    fontSize: CustomFontSize.smallFontSize,
+                                    fontSize: CustomFontSize.largeFontSize,
                                     fontWeight: FontWeight.normal,
                                     color: CustomColors.orange),
                               )

@@ -56,4 +56,6 @@ class CustomFontSize {
   static const closeButtonSize = 25.0;
   static const mediumTextSize = 20.0;
   static const smallTextSize = 12.0;
+  static const CardPriceFontSize = 30.0;
+
 }

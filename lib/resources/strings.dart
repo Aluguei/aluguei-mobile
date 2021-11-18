@@ -86,7 +86,7 @@ class Strings {
 
   //Products Dialog
   static const valueIndicator = "R\u0024";
-  static const separator = "\u005C";
+  static const separator = " \u002F";
   static const productDescriptionText = "Descrição";
   static const okButtonText = "ok";
   static const chatButtonText = "Enviar mensagem";
