@@ -186,6 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ]),
         appBar: AppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: CustomDimens.appBarHeight,
             backgroundColor: CustomColors.primaryColor,
             title: Padding(

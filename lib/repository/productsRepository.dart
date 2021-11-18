@@ -15,7 +15,7 @@ class ProductsRepository {
     return await service.searchProduct(searchString);
   }
 
-  Future<List<ProductData>> getMyProducts() async {
+  Future<List<RentedProductData>> getMyProducts() async {
     return await service.getMyProducts();
   }
 

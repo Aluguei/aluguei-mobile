@@ -4,6 +4,8 @@ import 'package:aluguei/resources/constants.dart';
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/productData.dart';
+import 'package:aluguei/ui/home/product/rentedProductData.dart';
+import 'package:aluguei/ui/home/productListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,11 +20,11 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
   final ProductsRepository repository = ProductsRepository();
-  List<ProductData> listProducts = [];
+  List<RentedProductData> listProducts = [];
 
-  Future<List<ProductData>>? products;
+  Future<List<RentedProductData>>? products;
 
-  Future<List<ProductData>> getMyProducts() async {
+  Future<List<RentedProductData>> getMyProducts() async {
     try {
       return await repository
           .getMyProducts()
@@ -33,7 +35,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     } catch (e) {
       print(e.toString());
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.toString())));
+          .showSnackBar(SnackBar(content: Text(e.toString()),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: CustomColors.darkPrimaryColor,
+          elevation: 0));
     }
     return [];
   }
@@ -45,6 +50,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: CustomDimens.appBarHeight,
         backgroundColor: CustomColors.primaryColor,
         title: Padding(
@@ -91,11 +97,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           future: products,
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return HomeListViewLayout(
+              return ProductListViewLayout(
                 productList: listProducts,
-                onRentAction: () {
-                  setState(() {});
-                },
+
               );
             } else {
               return Center(child: CircularProgressIndicator());

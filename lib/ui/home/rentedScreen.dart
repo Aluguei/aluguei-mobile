@@ -44,6 +44,7 @@ class _RentedScreenState extends State<RentedScreen> {
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: CustomDimens.appBarHeight,
         backgroundColor: CustomColors.primaryColor,
         title: Padding(
@@ -79,7 +80,6 @@ class _RentedScreenState extends State<RentedScreen> {
                   if (value == null || value.isEmpty) {
                     return Strings.fieldEmailNull;
                   }
-
                   return null;
                 },
               ),

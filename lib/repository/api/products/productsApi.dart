@@ -80,8 +80,8 @@ class ProductApi {
 
   // GET - products/owned
 
-  Future<List<ProductData>> getMyProducts() async {
-    List<ProductData> productList = [];
+  Future<List<RentedProductData>> getMyProducts() async {
+    List<RentedProductData> productList = [];
 
     try {
       var url = Uri.parse('$baseUrl/owned');
@@ -95,8 +95,9 @@ class ProductApi {
       if (productListResponse.isNotEmpty) {
         print("MEUS PRODUTOS: ${productListResponse.toString()}");
         productList = productListResponse
-            .map((product) => ProductData.fromJson(product))
+            .map((product) => RentedProductData.fromJson(product))
             .toList();
+        print(": ${productList.toString()}");
       }
     } on SocketException {
       throw FetchDataException('No Internet connection');
