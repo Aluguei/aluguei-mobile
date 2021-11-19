@@ -224,9 +224,8 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 Strings.ButtonBarLogOutTitle,
                                 style: TextStyle(
-                                    color: currentTab == 1
-                                        ? CustomColors.darkPrimaryColor
-                                        : CustomColors.textGrey,
+                                    color:
+                                        CustomColors.textGrey,
                                     fontWeight: FontWeight.bold,
                                     fontSize: CustomFontSize.mediumFontSize),
                               ),
