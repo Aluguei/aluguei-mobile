@@ -73,6 +73,13 @@ class Strings {
   static const AppBarVehicleTab = "Veículos";
   static const AppBarFashionTab = "Moda";
 
+  //ButtonBar
+  static const ButtonBarHomeTitle = "Home";
+  static const ButtonBarRentedTitle = "Alugados";
+  static const ButtonBarMyItemsTitle = "Meus Itens";
+  static const ButtonBarLogOutTitle = "Sair";
+
+
   //AlertBox
   static const AlertYesConfirmation = "Sim";
   static const AlertNoConfirmation = "No";

@@ -57,19 +57,19 @@ class ProductItemView extends State<ProductItemViewLayout> {
                       Text(
                         title,
                         style: new TextStyle(
-                            fontSize: CustomFontSize.mediumFontSize,
+                            fontSize: CustomFontSize.CardNameFontSize,
                             fontWeight: FontWeight.bold),
                       ),
                       new Text(
                         category,
                         style: new TextStyle(
-                            fontSize: CustomFontSize.smallFontSize,
+                            fontSize: CustomFontSize.CardCategoryFontSize,
                             fontWeight: FontWeight.normal,
                             color: CustomColors.textGrey),
                       ),
                       Padding(
                           padding: const EdgeInsets.fromLTRB(
-                              0.0, CustomDimens.minimumSpacing, 0.0, 0.0),
+                              0.0, 60.0, 0.0, 0.0),
                           child: Row(
                             children: [
                               Text(
@@ -82,7 +82,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                               Text(
                                 time,
                                 style: TextStyle(
-                                    fontSize: CustomFontSize.largeFontSize,
+                                    fontSize: CustomFontSize.CardTimeUnitFontSize,
                                     fontWeight: FontWeight.normal,
                                     color: CustomColors.orange),
                               )

@@ -32,17 +32,19 @@ class CustomDimens {
   static const appBarLength = 6;
   static const appBarTextFieldHeight = 50.0;
   static const appBarIconSize = 40.0;
-  static const navigationBarIconSize = 30.0;
+  static const navigationBarIconSize = 35.0;
   static const appBarIconSplashRadius = 25.0;
   static const tabBarHeight = 40.0;
   static const alertIconSpacing = 70.0;
   static const navigationBarButtonSize = 118.0;
   static const navigationBarRadius = 30.0;
-  static const navigationBarFloatingButtonSize = 70.0;
+  static const navigationBarFloatingButtonSize = 80.0;
   static const navigationBarFloatingButtonIconSize = 30.0;
   static const addProductTextBoxMaxLines = 6;
   static const addProductTextBoxLineSize = 24.0;
   static const addProductRightAppbarPadding = 60.0;
+  static const CardPriceSpacing = 35.0;
+
 
 }
 
@@ -56,6 +58,12 @@ class CustomFontSize {
   static const closeButtonSize = 25.0;
   static const mediumTextSize = 20.0;
   static const smallTextSize = 12.0;
-  static const CardPriceFontSize = 30.0;
+
+  //Card
+  static const CardPriceFontSize = 40.0;
+  static const CardTimeUnitFontSize = 16.0;
+  static const CardNameFontSize = 30.0;
+  static const CardCategoryFontSize = 16.0;
+
 
 }

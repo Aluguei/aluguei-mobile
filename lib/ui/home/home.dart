@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/addProduct/addProductScreen.dart';
 import 'package:aluguei/ui/alertboxes/logOffConfirmation.dart';
 import 'package:aluguei/ui/home/favoritesScreen.dart';
@@ -40,7 +41,6 @@ class _HomePageState extends State<HomePage> {
             width: CustomDimens.navigationBarFloatingButtonSize,
             child: FittedBox(
               child: FloatingActionButton(
-
                   backgroundColor: CustomColors.primaryColor,
                   child: Icon(
                     Icons.add,
@@ -64,10 +64,8 @@ class _HomePageState extends State<HomePage> {
                   }),
             )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-
             boxShadow: <BoxShadow>[
               BoxShadow(
                   color: Colors.black54,
@@ -78,7 +76,7 @@ class _HomePageState extends State<HomePage> {
           child: BottomAppBar(
             elevation: 50.0,
             child: Container(
-              height: 60,
+              height: 65,
               width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,7 +111,16 @@ class _HomePageState extends State<HomePage> {
                                       : CustomColors.textGrey,
                                   size: CustomDimens.navigationBarIconSize,
                                 ),
-                              )
+                              ),
+                              Text(
+                                Strings.ButtonBarHomeTitle,
+                                style: TextStyle(
+                                    color: currentTab == 0
+                                        ? CustomColors.darkPrimaryColor
+                                        : CustomColors.textGrey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: CustomFontSize.mediumFontSize),
+                              ),
                             ],
                           ),
                         ),
@@ -139,7 +146,16 @@ class _HomePageState extends State<HomePage> {
                                         : CustomColors.textGrey,
                                     size: CustomDimens.navigationBarIconSize,
                                   ),
-                                )
+                                ),
+                                Text(
+                                  Strings.ButtonBarRentedTitle,
+                                  style: TextStyle(
+                                      color: currentTab == 1
+                                          ? CustomColors.darkPrimaryColor
+                                          : CustomColors.textGrey,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: CustomFontSize.mediumFontSize),
+                                ),
                               ],
                             ),
                           ))
@@ -174,7 +190,16 @@ class _HomePageState extends State<HomePage> {
                                       : CustomColors.textGrey,
                                   size: CustomDimens.navigationBarIconSize,
                                 ),
-                              )
+                              ),
+                              Text(
+                                Strings.ButtonBarMyItemsTitle,
+                                style: TextStyle(
+                                    color: currentTab == 3
+                                        ? CustomColors.darkPrimaryColor
+                                        : CustomColors.textGrey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: CustomFontSize.mediumFontSize),
+                              ),
                             ],
                           ),
                         ),
@@ -195,7 +220,16 @@ class _HomePageState extends State<HomePage> {
                                   color: CustomColors.textGrey,
                                   size: CustomDimens.navigationBarIconSize,
                                 ),
-                              )
+                              ),
+                              Text(
+                                Strings.ButtonBarLogOutTitle,
+                                style: TextStyle(
+                                    color: currentTab == 1
+                                        ? CustomColors.darkPrimaryColor
+                                        : CustomColors.textGrey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: CustomFontSize.mediumFontSize),
+                              ),
                             ],
                           ),
                         ),

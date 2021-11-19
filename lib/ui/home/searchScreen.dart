@@ -89,7 +89,6 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-
                 final leisureList = listProducts
                     .where(
                         (product) => product.category.toLowerCase() == "sports")
@@ -110,7 +109,6 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-
                 final electronicsList = listProducts
                     .where((product) =>
                         product.category.toLowerCase() == "technology")
@@ -130,7 +128,6 @@ class _SearchScreenState extends State<SearchScreen> {
             future: products,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-
                 final toolsList = listProducts
                     .where(
                         (product) => product.category.toLowerCase() == "tools")
@@ -207,8 +204,6 @@ class _SearchScreenState extends State<SearchScreen> {
                       products = searchProduct(text);
                       print(text);
                       print("Resultado da pesquisa: $products");
-
-
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
@@ -266,53 +261,70 @@ class _SearchScreenState extends State<SearchScreen> {
                     indicatorColor: CustomColors.white,
                     tabs: [
                       Tab(
-                        child: Text(
-                          Strings.AppBarAllTab,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: CustomFontSize.smallFontSize),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            Strings.AppBarAllTab,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: CustomFontSize.smallFontSize),
+                          ),
                         ),
                       ),
                       Tab(
+                          child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
                         child: Text(
                           Strings.AppBarLeisureTab,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: CustomFontSize.smallFontSize),
                         ),
-                      ),
+                      )),
                       Tab(
-                        child: Text(
-                          Strings.AppBarElectronicsTab,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: CustomFontSize.smallFontSize),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            Strings.AppBarElectronicsTab,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: CustomFontSize.smallFontSize),
+                          ),
                         ),
                       ),
                       Tab(
-                        child: Text(
-                          Strings.AppBarToolsTab,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: CustomFontSize.smallFontSize),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            Strings.AppBarToolsTab,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: CustomFontSize.smallFontSize),
+                          ),
                         ),
                       ),
                       Tab(
-                        child: Text(
-                          Strings.AppBarVehicleTab,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: CustomFontSize.smallFontSize),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            Strings.AppBarVehicleTab,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: CustomFontSize.smallFontSize),
+                          ),
                         ),
                       ),
                       Tab(
-                        child: Text(
-                          Strings.AppBarFashionTab,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: CustomFontSize.smallFontSize),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            Strings.AppBarFashionTab,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: CustomFontSize.smallFontSize),
+                          ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ))),
