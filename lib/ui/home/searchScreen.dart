@@ -18,6 +18,8 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final ProductsRepository repository = ProductsRepository();
   List<ProductData> listProducts = [];
+  var isFromRent = true;
+  var searchText = "";
 
   Future<List<ProductData>> getProductsList() async {
     try {
@@ -55,13 +57,21 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void didChangeDependencies() {
-    products = getProductsList();
+    if(isFromRent || searchText.isEmpty) {
+      products = getProductsList();
+    } else {
+      products = searchProduct(searchText);
+    }
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    products = getProductsList();
+    if (isFromRent || searchText.isEmpty) {
+      products = getProductsList();
+    } else {
+      products = searchProduct(searchText);
+    }
 
     return DefaultTabController(
       length: CustomDimens.appBarLength,
@@ -76,6 +86,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: listProducts,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -96,6 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: leisureList,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -116,6 +128,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: electronicsList,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -135,6 +148,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: toolsList,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -154,6 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: vehicleList,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -173,6 +188,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 return HomeListViewLayout(
                   productList: fashionList,
                   onRentAction: () {
+                    isFromRent = true;
                     setState(() {});
                   },
                 );
@@ -200,10 +216,9 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: CustomColors.textGrey,
                         height: CustomDimens.fieldHeight),
                     onChanged: (text) {
-                      //TODO atualizar a tela com a lista de retorno da
-                      products = searchProduct(text);
-                      print(text);
-                      print("Resultado da pesquisa: $products");
+                      isFromRent = false;
+                      searchText = text;
+                      setState(() {});
                     },
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
