@@ -148,7 +148,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 )),
                                 FittedBox(
-                                  fit: BoxFit.fitWidth,
+                                  fit: BoxFit.contain,
+
                                   child: Text(
                                     Strings.ButtonBarRentedTitle,
                                     style: TextStyle(
