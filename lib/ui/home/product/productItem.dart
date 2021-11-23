@@ -54,38 +54,48 @@ class ProductItemView extends State<ProductItemViewLayout> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: new TextStyle(
-                            fontSize: CustomFontSize.CardNameFontSize,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      new Text(
-                        category,
-                        style: new TextStyle(
-                            fontSize: CustomFontSize.CardCategoryFontSize,
-                            fontWeight: FontWeight.normal,
-                            color: CustomColors.textGrey),
-                      ),
+                      FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            title,
+                            style: new TextStyle(
+                                fontSize: CustomFontSize.CardNameFontSize,
+                                fontWeight: FontWeight.bold),
+                          )),
+                      new FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            category,
+                            style: new TextStyle(
+                                fontSize: CustomFontSize.CardCategoryFontSize,
+                                fontWeight: FontWeight.normal,
+                                color: CustomColors.textGrey),
+                          )),
                       Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                              0.0, 60.0, 0.0, 0.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 60.0, 0.0, 0.0),
                           child: Row(
                             children: [
-                              Text(
-                                value,
-                                style: TextStyle(
-                                    fontSize: CustomFontSize.CardPriceFontSize,
-                                    fontWeight: FontWeight.bold,
-                                    color: CustomColors.orange),
-                              ),
-                              Text(
-                                time,
-                                style: TextStyle(
-                                    fontSize: CustomFontSize.CardTimeUnitFontSize,
-                                    fontWeight: FontWeight.normal,
-                                    color: CustomColors.orange),
-                              )
+                              FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(
+                                        fontSize:
+                                            CustomFontSize.CardPriceFontSize,
+                                        fontWeight: FontWeight.bold,
+                                        color: CustomColors.orange),
+                                  )),
+                              FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text(
+                                    time,
+                                    style: TextStyle(
+                                        fontSize:
+                                            CustomFontSize.CardTimeUnitFontSize,
+                                        fontWeight: FontWeight.normal,
+                                        color: CustomColors.orange),
+                                  ))
                             ],
                           )),
                     ],

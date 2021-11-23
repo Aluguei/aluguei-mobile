@@ -102,23 +102,28 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                child: Icon(
-                                  Icons.home_outlined,
-                                  color: currentTab == 0
-                                      ? CustomColors.darkPrimaryColor
-                                      : CustomColors.textGrey,
-                                  size: CustomDimens.navigationBarIconSize,
-                                ),
+                                child: FittedBox(
+                                    fit: BoxFit.contain,
+                                    child: Icon(
+                                      Icons.home_outlined,
+                                      color: currentTab == 0
+                                          ? CustomColors.darkPrimaryColor
+                                          : CustomColors.textGrey,
+                                      size: CustomDimens.navigationBarIconSize,
+                                    )),
                               ),
-                              Text(
-                                Strings.ButtonBarHomeTitle,
-                                style: TextStyle(
-                                    color: currentTab == 0
-                                        ? CustomColors.darkPrimaryColor
-                                        : CustomColors.textGrey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: CustomFontSize.mediumFontSize),
-                              ),
+                              FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text(
+                                    Strings.ButtonBarHomeTitle,
+                                    style: TextStyle(
+                                        color: currentTab == 0
+                                            ? CustomColors.darkPrimaryColor
+                                            : CustomColors.textGrey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            CustomFontSize.mediumFontSize),
+                                  )),
                             ],
                           ),
                         ),
@@ -149,7 +154,6 @@ class _HomePageState extends State<HomePage> {
                                 )),
                                 FittedBox(
                                   fit: BoxFit.contain,
-
                                   child: Text(
                                     Strings.ButtonBarRentedTitle,
                                     style: TextStyle(
@@ -188,6 +192,8 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
+                                  child: FittedBox(
+                                fit: BoxFit.contain,
                                 child: Icon(
                                   Icons.person_outline,
                                   color: currentTab == 3
@@ -195,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                                       : CustomColors.textGrey,
                                   size: CustomDimens.navigationBarIconSize,
                                 ),
-                              ),
+                              )),
                               Text(
                                 Strings.ButtonBarMyItemsTitle,
                                 style: TextStyle(
@@ -220,19 +226,24 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                child: Icon(
-                                  Icons.logout,
-                                  color: CustomColors.textGrey,
-                                  size: CustomDimens.navigationBarIconSize,
-                                ),
+                                child: FittedBox(
+                                    fit: BoxFit.contain,
+                                    child: Icon(
+                                      Icons.logout,
+                                      color: CustomColors.textGrey,
+                                      size: CustomDimens.navigationBarIconSize,
+                                    )),
                               ),
-                              Text(
-                                Strings.ButtonBarLogOutTitle,
-                                style: TextStyle(
-                                    color: CustomColors.textGrey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: CustomFontSize.mediumFontSize),
-                              ),
+                              FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Text(
+                                    Strings.ButtonBarLogOutTitle,
+                                    style: TextStyle(
+                                        color: CustomColors.textGrey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            CustomFontSize.mediumFontSize),
+                                  )),
                             ],
                           ),
                         ),
