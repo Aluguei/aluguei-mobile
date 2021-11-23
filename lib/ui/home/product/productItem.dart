@@ -47,6 +47,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
           color: CustomColors.white,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Padding(
@@ -73,36 +74,35 @@ class ProductItemView extends State<ProductItemViewLayout> {
                           )),
                       Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(0.0, 60.0, 0.0, 0.0),
-                          child: Row(
-                            children: [
-                              FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
+                              const EdgeInsets.fromLTRB(0.0, 55.0, 0.0, 0.0),
+                          child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Row(
+                                children: [
+                                  Text(
                                     value,
                                     style: TextStyle(
                                         fontSize:
                                             CustomFontSize.CardPriceFontSize,
                                         fontWeight: FontWeight.bold,
                                         color: CustomColors.orange),
-                                  )),
-                              FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
+                                  ),
+                                  Text(
                                     time,
                                     style: TextStyle(
                                         fontSize:
                                             CustomFontSize.CardTimeUnitFontSize,
                                         fontWeight: FontWeight.normal,
                                         color: CustomColors.orange),
-                                  ))
-                            ],
-                          )),
+                                  )
+                                ],
+                              ))),
                     ],
                   ),
                 ),
               ),
               Padding(
+
                 padding: const EdgeInsets.all(CustomDimens.xSmallSpacing),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.25,
