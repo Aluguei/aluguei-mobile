@@ -43,12 +43,6 @@ class _RentedScreenState extends State<RentedScreen> {
 
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        toolbarHeight: 60,
-        backgroundColor: CustomColors.primaryColor,
-
-      ),
       body: Container(
         child: FutureBuilder(
           future: products,

@@ -46,12 +46,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
     return Scaffold(
       backgroundColor: CustomColors.greyHomeBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        toolbarHeight: 60,
-        backgroundColor: CustomColors.primaryColor,
-
-      ),
       body: Container(
         child: FutureBuilder(
           future: products,
