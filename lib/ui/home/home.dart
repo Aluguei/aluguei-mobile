@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/addProduct/addProductScreen.dart';
 import 'package:aluguei/ui/alertboxes/logOffConfirmation.dart';
@@ -139,6 +137,8 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
+                                    child: FittedBox(
+                                  fit: BoxFit.fitWidth,
                                   child: Icon(
                                     Icons.shopping_cart_outlined,
                                     color: currentTab == 1
@@ -146,16 +146,20 @@ class _HomePageState extends State<HomePage> {
                                         : CustomColors.textGrey,
                                     size: CustomDimens.navigationBarIconSize,
                                   ),
-                                ),
-                                Text(
-                                  Strings.ButtonBarRentedTitle,
-                                  style: TextStyle(
-                                      color: currentTab == 1
-                                          ? CustomColors.darkPrimaryColor
-                                          : CustomColors.textGrey,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: CustomFontSize.mediumFontSize),
-                                ),
+                                )),
+                                FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    Strings.ButtonBarRentedTitle,
+                                    style: TextStyle(
+                                        color: currentTab == 1
+                                            ? CustomColors.darkPrimaryColor
+                                            : CustomColors.textGrey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            CustomFontSize.mediumFontSize),
+                                  ),
+                                )
                               ],
                             ),
                           ))
@@ -224,8 +228,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 Strings.ButtonBarLogOutTitle,
                                 style: TextStyle(
-                                    color:
-                                        CustomColors.textGrey,
+                                    color: CustomColors.textGrey,
                                     fontWeight: FontWeight.bold,
                                     fontSize: CustomFontSize.mediumFontSize),
                               ),

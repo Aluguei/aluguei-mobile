@@ -48,46 +48,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       backgroundColor: CustomColors.greyHomeBackgroundColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        toolbarHeight: CustomDimens.appBarHeight,
+        toolbarHeight: 60,
         backgroundColor: CustomColors.primaryColor,
-        title: Padding(
-            padding: const EdgeInsets.fromLTRB(CustomDimens.verySmallSpacing,
-                CustomDimens.smallSpacing, CustomDimens.verySmallSpacing, 0.0),
-            child: Container(
-              height: CustomDimens.appBarTextFieldHeight,
-              child: TextFormField(
-                style: TextStyle(
-                    fontSize: CustomDimens.fieldFontSize,
-                    color: CustomColors.textGrey,
-                    height: CustomDimens.fieldHeight),
-                decoration: InputDecoration(
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      splashRadius: CustomDimens.appBarIconSplashRadius,
-                      padding: EdgeInsets.zero,
-                      icon: const Icon(
-                        Icons.search,
-                        size: CustomDimens.appBarIconSize,
-                        color: CustomColors.primaryColor,
-                      ),
-                    ),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: CustomColors.fieldBorderColor)),
-                    labelText: Strings.fieldSearchTittle,
-                    labelStyle: TextStyle(color: CustomColors.textGrey),
-                    fillColor: CustomColors.greyBackgroundColor,
-                    filled: true),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return Strings.fieldEmailNull;
-                  }
 
-                  return null;
-                },
-              ),
-            )),
       ),
       body: Container(
         child: FutureBuilder(
