@@ -57,7 +57,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void didChangeDependencies() {
-    if(isFromRent || searchText.isEmpty) {
+    if (isFromRent || searchText.isEmpty) {
       products = getProductsList();
     } else {
       products = searchProduct(searchText);
@@ -248,25 +248,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     },
                   ),
                 )),
-            actions: [
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                      0.0,
-                      CustomDimens.smallSpacing,
-                      CustomDimens.verySmallSpacing,
-                      0.0),
-                  child: Container(
-                      width: CustomDimens.alertIconSpacing,
-                      child: IconButton(
-                          splashRadius: CustomDimens.appBarIconSplashRadius,
-                          onPressed: () {
-                            //TODO AÇÃO DO BOTAO NOTIFICAÇÃO
-                          },
-                          icon: Icon(
-                            Icons.notifications_none,
-                            size: CustomDimens.appBarIconSize,
-                          ))))
-            ],
+            actions: [],
             bottom: PreferredSize(
                 preferredSize: Size(100.0, 100.0),
                 child: Container(
