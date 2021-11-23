@@ -46,8 +46,7 @@ class ProductDialogLayout extends StatelessWidget {
   final BuildContext context;
 
   openWhatsapp() async {
-    //TODO colocar o tel certo data.advertiser.?
-    var whatsapp = "+919144040888";
+    var whatsapp = "+${data.advertiser.phoneOne}";
     var whatsappURlAndroid = "whatsapp://send?phone=$whatsapp";
     var whatsappURLIos = "https://wa.me/$whatsapp";
     if (Platform.isIOS) {
