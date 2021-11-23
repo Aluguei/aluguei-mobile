@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: MediaQuery.of(context).size.width / 5,
                         child: MaterialButton(
-                          minWidth: 40,
+
                           onPressed: () {
                             setState(() {
                               currentScreen = SearchScreen();
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Container(
                                 child: FittedBox(
-                                    fit: BoxFit.contain,
+                                    fit: BoxFit.scaleDown,
                                     child: Icon(
                                       Icons.home_outlined,
                                       color: currentTab == 0
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                                     )),
                               ),
                               FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     Strings.ButtonBarHomeTitle,
                                     style: TextStyle(
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                           width: MediaQuery.of(context).size.width / 5,
                           child: MaterialButton(
-                            minWidth: 40,
+
                             onPressed: () {
                               setState(() {
                                 currentScreen = RentedScreen();
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Container(
                                     child: FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Icon(
                                     Icons.shopping_cart_outlined,
                                     color: currentTab == 1
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 )),
                                 FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     Strings.ButtonBarRentedTitle,
                                     style: TextStyle(
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: MediaQuery.of(context).size.width / 5,
                         child: MaterialButton(
-                          minWidth: 40,
+
                           onPressed: () {
                             setState(() {
                               currentScreen = FavoriteScreen();
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Container(
                                   child: FittedBox(
-                                fit: BoxFit.contain,
+                                fit: BoxFit.scaleDown,
                                 child: Icon(
                                   Icons.person_outline,
                                   color: currentTab == 3
@@ -202,15 +202,18 @@ class _HomePageState extends State<HomePage> {
                                   size: CustomDimens.navigationBarIconSize,
                                 ),
                               )),
-                              Text(
-                                Strings.ButtonBarMyItemsTitle,
-                                style: TextStyle(
-                                    color: currentTab == 3
-                                        ? CustomColors.darkPrimaryColor
-                                        : CustomColors.textGrey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: CustomFontSize.mediumFontSize),
-                              ),
+                              FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    Strings.ButtonBarMyItemsTitle,
+                                    style: TextStyle(
+                                        color: currentTab == 3
+                                            ? CustomColors.darkPrimaryColor
+                                            : CustomColors.textGrey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            CustomFontSize.mediumFontSize),
+                                  )),
                             ],
                           ),
                         ),
@@ -218,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: MediaQuery.of(context).size.width / 5,
                         child: MaterialButton(
-                          minWidth: 40,
+
                           onPressed: () {
                             showAlertDialog(context);
                           },
@@ -227,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Container(
                                 child: FittedBox(
-                                    fit: BoxFit.contain,
+                                    fit: BoxFit.scaleDown,
                                     child: Icon(
                                       Icons.logout,
                                       color: CustomColors.textGrey,
@@ -235,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                                     )),
                               ),
                               FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     Strings.ButtonBarLogOutTitle,
                                     style: TextStyle(

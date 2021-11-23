@@ -55,7 +55,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FittedBox(
-                          fit: BoxFit.contain,
+                          fit: BoxFit.scaleDown,
                           child: Text(
                             title,
                             style: new TextStyle(
@@ -63,7 +63,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                                 fontWeight: FontWeight.bold),
                           )),
                       new FittedBox(
-                          fit: BoxFit.contain,
+                          fit: BoxFit.scaleDown,
                           child: Text(
                             category,
                             style: new TextStyle(
@@ -77,7 +77,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                           child: Row(
                             children: [
                               FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     value,
                                     style: TextStyle(
@@ -87,7 +87,7 @@ class ProductItemView extends State<ProductItemViewLayout> {
                                         color: CustomColors.orange),
                                   )),
                               FittedBox(
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.scaleDown,
                                   child: Text(
                                     time,
                                     style: TextStyle(
