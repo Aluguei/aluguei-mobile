@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Container(
                                     child: FittedBox(
-                                  fit: BoxFit.fitWidth,
+                                  fit: BoxFit.contain,
                                   child: Icon(
                                     Icons.shopping_cart_outlined,
                                     color: currentTab == 1
