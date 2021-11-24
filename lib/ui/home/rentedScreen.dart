@@ -1,7 +1,6 @@
 import 'package:aluguei/repository/api/appExceptions.dart';
 import 'package:aluguei/repository/productsRepository.dart';
 import 'package:aluguei/resources/constants.dart';
-import 'package:aluguei/resources/strings.dart';
 import 'package:aluguei/ui/errors/errorsMessages.dart';
 import 'package:aluguei/ui/home/product/rentedProductData.dart';
 import 'package:aluguei/ui/home/productListView.dart';
